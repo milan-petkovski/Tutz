@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="theme-color" content="#e3e6f3">
+   <meta property="og:title" content="Tutz website"/>
+   <meta property="og:description" content="Informiši se o tutzu, uzmi stvari iz shopa, gledaj live strim, prati sve novosti ili dobi pomoć od nas!"/>
+   <meta property="og:image" content="https://i.postimg.cc/Qxp2574g/logo.png"/>
+   <title>Tutz - Hvala</title>
+<link rel="stylesheet" href="https://bit.ly/3NkBg53" v="Verzija 6.4.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="unselectable">
+	
+<div class="wrapper">
+	<div class="loader"></div>
+	<div id="cover" class="cover">
+	<div id="loading" class="ui-circle-loading">
+	<ul class="animate">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+	</div>
+	</div>
+</div>	
+
+<section id="header">
+	<a href="/index.html"><img src="/images/logo.png" class="logo"></a>
+	
+	<ul id="navbar">
+	<!--------------------------------NAV BAR----------------------------------->
+	<li><a href="/index.html"><i class="fa-solid fa-house"></i> Pocetna</a></li>
+	<li><a href="/shop.html"><i class="fa-solid fa-shop"></i> Shop</a></li>
+	<li><a href="/live.html"><i class="fa-solid fa-tower-cell"></i> Live room</a></li>
+	<li><a href="/novosti.html"><i class="fa-solid fa-newspaper"></i> Novosti</a></li>
+	<li><a href="/kontakt.html"><i class="fa-solid fa-headset"></i> Kontakt</a></li>
+	<!-----------------------------ICONE NAV BAR--------------------------------->
+	<div class="ikone">
+	<li><a href="/faq.html"><i class="fa-solid fa-circle-question"></i></a></li>
+	<li><a href="/linktree.html"><i class="fa-solid fa-tree"></i></a></li>
+	</div>
+	<div id="google_translate_element"></div>
+	<i id="close" class="fa-solid fa-x"></i>
+	</ul>
+	<div id="mobile"><i id="bar" class="fa-solid fa-bars"></i></div>
+</section>
+
+<section id="hvala">
+	<a href="/index.html" id="b"><i class="fa-solid fa-arrow-left"></i> Vrati se na pocetnu</a>
+	<h1 id="naslov">Uspesno si poslao poruku!</h1>
+
+	<div class="content">
+	<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+	<h2 id="tekst">Hvala sto si porucio stvar iz naseg shopa. Svaka porudzbina se proverava i odgovor mozete da ocekujete najkasnije za 7 dana.</h2>
+	</div>
+</section>
+
+<style>
+body{
+	color: #fff;
+}
+#hvala{
+	text-align: center;
+}
+#b i,
+#b{
+	padding-top: 5%;
+	text-decoration: none;
+	color: #853589;
+	font-size: 20px;
+	transition: 0.5s;
+}
+#b:hover{
+	opacity: 0.9;
+	transition: 0.5s;
+}
+#naslov{
+	margin-top: 5%;
+	font-size: 60px;
+}
+#checkmark{
+	color: limegreen;
+	font-size: 140px;
+	margin-top: 1%;
+}
+#tekst{
+	margin-top: 2%;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 35px;
+}
+</style>
+
+</body>
+</html>
+
+<!-----OFF F12---->
+<script>
+	document.onkeydown=function(e)
+	{
+	   if(event.keyCode == 123) 
+		{
+			return false;
+		}
+	   if(e.ctr1Key && e.shiftKey && e.keyCode ==  'I'.charCodeAt(0))
+		{
+			return false;
+		}
+		if(e.ctr1Key && e.shiftKey && e.keyCode ==  'J'.charCodeAt(0))
+		{
+			return false;
+		}
+		if(e.ctr1Key && e.keyCode == 'U'.charCodeAt(0))
+		{
+			return false;
+		}
+	}
+</script>
+<!---PRELOADER---->
+<script>
+	const fadeOut = () => {
+	const loaderWrapper=
+	document.querySelector(".wrapper");
+	loaderWrapper.classList.add("fade");
+	}
+	window.addEventListener("load", fadeOut);
+</script>
+<!-----MOBILE----->
+<script>
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+		
+if (bar){
+	bar.addEventListener('click', () => {
+	    nav.classList.add('active');
+	})
+}
+if (close){
+	close.addEventListener('click', () => {
+	    nav.classList.remove('active');
+	})
+}
+</script>
