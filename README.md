@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-  <img src="https://i.postimg.cc/MpFPJcS2/website2.png" width="500px" alt="Tutz Screenshot">
+  <img src="https://i.postimg.cc/MpFPJcS2/tutz.png" width="500px" alt="Tutz Screenshot">
 </div>  
 <br>
 
