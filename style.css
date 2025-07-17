@@ -2183,3 +2183,51 @@ beat {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+
+
+#work-in-progress {
+    padding: 50px 20px; /* Dodaje malo prostora iznad i ispod sekcije */
+    text-align: center; /* Centira tekst unutar sekcije */
+    background-color: #f8f8f8; /* Svetla pozadina za isticanje */
+    border-top: 1px solid #eee; /* Gornja linija za razdvajanje */
+    border-bottom: 1px solid #eee; /* Donja linija za razdvajanje */
+    margin: 30px 0; /* Razmak iznad i ispod sekcije */
+}
+
+#work-in-progress h2 {
+    font-size: 2.5em; /* Veći naslov */
+    color: #333; /* Tamniji tekst */
+    margin-bottom: 15px; /* Razmak ispod naslova */
+}
+
+#work-in-progress h2 .fa-hard-hat {
+    color: #ffc107; /* Žuta boja za ikonicu kacige */
+    margin-left: 10px; /* Razmak između teksta i ikonice */
+}
+
+#work-in-progress p {
+    font-size: 1.2em; /* Veličina teksta paragrafa */
+    color: #666; /* Svetliji tekst za paragraf */
+    line-height: 1.6; /* Prored za bolju čitljivost */
+    max-width: 700px; /* Ograničava širinu teksta */
+    margin: 0 auto; /* Centira paragraf */
+}
+
+/* Osnovni stilovi za ikone u navigaciji (ako su modernizovane) */
+#navbar li a i {
+    margin-right: 8px; /* Mali razmak između ikonice i teksta */
+}
+
+/* Stil za close ikonicu na mobilnom */
+#close {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Stil za bar ikonicu na mobilnom */
+#bar {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
