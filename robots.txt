@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /images/novosti/tutz_reklama.mp4
+
+Sitemap: https://tutz.milanwebportal.com/sitemap.xml
