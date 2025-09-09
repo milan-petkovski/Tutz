@@ -2142,8 +2142,8 @@ footer .copyright {
 .sekcija{
   text-align: center;
   margin-top: 20px;
-  border: 1px solid #8541b8;
-  color: #8541b8;
+  color: #fff;
+  background-color: #8541b8;
   text-decoration: none;
   border-width: 2px;
   padding: 20px;
