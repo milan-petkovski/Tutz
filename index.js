@@ -1,16 +1,4 @@
 // JAVASCRIPT
-const trackingUrl = 'https://script.google.com/macros/s/AKfycbxWxD8H6VAZenxdl3jvwMjbtqyf9VXZACOZiIuVTafBkUylkjKLtROvelMH1zgdjY8Q/exec';
-
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        fetch(trackingUrl, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ link: link.href })
-        });
-    });
-});
-
 
 //#region - PRELOADER
 
