@@ -2078,7 +2078,7 @@ footer .copyright {
   text-decoration: none;
   border-width: 2px;
   padding: 20px;
-  width: 320px;
+  width: 330px;
   max-width: 90%;
   display: flex;
   align-items: center;
@@ -2089,6 +2089,12 @@ footer .copyright {
   font-size: 17px;
   transition: 0.5s;
   position: relative;
+}
+.links #giveaway{
+  margin: 0;
+  padding: 0;
+  color: #8541b8;
+  font-size: 15px;
 }
 .links img {
   width: 25px;
@@ -2147,7 +2153,7 @@ footer .copyright {
   text-decoration: none;
   border-width: 2px;
   padding: 20px;
-  width: 320px;
+  width: 330px;
   max-width: 90%;
   display: block;
   margin-left: auto;
