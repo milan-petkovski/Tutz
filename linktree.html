@@ -17,10 +17,13 @@
 <body class="unselectable">
 
 <div class="tree">
-<a href="index.html" style="text-decoration: none">
-<img class="profile-picture" src="https://i.postimg.cc/0jrF829y/tutz.jpg">
-<div class="profile-name">Tutz</div>
-</a>
+  <a href="index.html" style="text-decoration: none">
+    <img class="profile-picture" src="https://i.postimg.cc/0jrF829y/tutz.jpg">
+    <div class="profile-name">Tutz</div>
+  </a>
+  <div class="profile-email">Contact: 
+  <a href="mailto:tutzgaming96@gmail.com" id="email-link">tutzgaming96@gmail.com</a><i class="fa-regular fa-copy" id="copy-email" title="Kopiraj mejl"></i>
+  </div>
 </div>
 
 <section1 id="sponzori">
@@ -95,4 +98,12 @@ links.forEach(link => {
     });
   });
 });
+</script>
+<script>
+  document.getElementById("copy-email").addEventListener("click", function() {
+    const email = document.getElementById("email-link").textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      alert("Email kopiran: " + email);
+    });
+  });
 </script>
