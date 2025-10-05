@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sr" oncontextmenu="return false">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,398 +38,343 @@
 
 </p>
 
-<section id="header">
-	<a href="index.html"><img src="images/logo.png" class="logo"></a>
-	
-	<ul id="navbar">
-	<!--------------------------------NAV BAR----------------------------------->
-	<li><a href="index.html" class="active"><i class="fa-solid fa-house fa-beat-fade"></i> Pocetna</a></li>
-	<li><a href="shop.html"><i class="fa-solid fa-shop"></i> Shop</a></li>
-	<li><a href="live.html"><i class="fa-solid fa-tower-cell"></i> Live room</a></li>
-	<li><a href="novosti.html"><i class="fa-solid fa-newspaper"></i> Novosti</a></li>
-	<li><a href="kontakt.html"><i class="fa-solid fa-headset"></i> Kontakt</a></li>
-	<!-----------------------------ICONE NAV BAR-------------------------------->
-	<div class="ikone">
-	<li><a href="faq.html"><i class="fa-solid fa-circle-question"></i></a></li>
-	<li><a href="linktree.html"><i class="fa-solid fa-tree"></i></a></li>
-	</div>
-	<div id="google_translate_element"></div>
-	<i id="close" class="fa-solid fa-x"></i>
-	</ul>
-	<div id="mobile"><i id="bar" class="fa-solid fa-bars"></i></div>
+<header id="header" class="unselectable">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <img src="images/logo.png" alt="Tutz logo">
+    </a>
+
+    <nav id="navbar">
+      <ul class="nav-links">
+        <li><a href="#" class="active">Početna</a></li>
+        <li><a href="#about">O meni</a></li>
+        <li><a href="#live">Live</a></li>
+        <li><a href="#merch">Shop</a></li>
+        <li><a href="#novosti">Novosti</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <a href="linktree.html" class="linktree"><i class="fa-solid fa-tree"></i></a>
+      <div id="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    </div>
+  </div>
+</header>
+
+<section id="hero" class="unselectable">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h4>Oficijalni sajt</h4>
+      <h2>Dobro došli na</h2>
+      <h1><span class="typing">Tutz Website</span></h1>
+      <p>Prati Tutz-a uživo na TikTok-u i ne propusti nijedan stream!</p>
+      <a href="https://www.tiktok.com/@not_tutz/live" target="_blank" class="live-btn"><span class="live-dot"></span> Gledaj LIVE</a>
+    </div>
+
+    <div class="hero-visual">
+      <div class="live-glow"></div>
+      <img src="images/Slike/hero2.png" alt="Tutz" class="hero-img">
+    </div>
+  </div>
 </section>
 
-<section id="hero">
-	<h4>Tutz website</h4>
-	<h2>Dobro Dosli na</h2>
-	<h1><div class="typing">Tutz Website</div></h1>
-	<p>Za vise informacija</p>
-	<a href="live.html"><button>Klikni ovde</button></a>
+<section id="about" class="section-p1">
+  <div class="about-container">
+
+    <div class="about-img">
+      <img src="images/Slike/about.png" alt="Tutz">
+    </div>
+
+    <div class="about-text">
+      <h2>O meni</h2>
+      <p>Zdravo! Ja sam Tutz, strimer i content kreator na TikTok-u, YouTube-u, Instagram-u i Roblox-u. Volim da igram Roblox, delimo zabavne trenutke i igramo zajedno sa zajednicom. Pratite me da ne propustite live streamove i ekskluzivne sadržaje!</p>
+      
+      <div class="feature-container">
+        <div class="fe-box">
+          <a href="https://youtube.com/@TutzOfficial" target="_blank">
+            <div class="fe-icon youtube"><img src="images/Feature/youtube.png" alt="YouTube"></div>
+            <h6>YouTube</h6>
+            <span class="subs-count" id="yt-subs">47k +</span>
+          </a>
+        </div>
+
+        <div class="fe-box">
+          <a href="https://roblox.com/share/g/811134870" target="_blank">
+            <div class="fe-icon binance"><img src="images/Feature/roblox.png" alt="Roblox"></div>
+            <h6>Roblox Community</h6>
+            <span class="subs-count">600 +</span>
+          </a>
+        </div>
+
+        <div class="fe-box">
+          <a href="https://instagram.com/tutzgaming/" target="_blank">
+            <div class="fe-icon instagram"><img src="images/Feature/instagram.png" alt="Instagram"></div>
+            <h6>Instagram</h6>
+            <span class="subs-count" id="ig-followers">8k +</span>
+          </a>
+        </div>
+
+        <div class="fe-box">
+          <a href="https://discord.gg/u3Sf9rTyDt" target="_blank">
+            <div class="fe-icon discord"><img src="images/Feature/discord.png" alt="Discord"></div>
+            <h6>Discord Server</h6>
+            <span class="subs-count" id="discord-members">600 +</span>
+          </a>
+        </div>
+
+        <div class="fe-box">
+          <a href="https://tiktok.com/@not_tutz" target="_blank">
+            <div class="fe-icon tiktok"><img src="images/Feature/tiktok.png" alt="TikTok"></div>
+            <h6>TikTok</h6>
+            <span class="subs-count" id="tt-followers">60k +</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section id="feature" class="section-p1">
-	<div class="fe-box">
-	<a href="https://youtube.com/@TutzOfficial" target="_blank"><img src="images/Feature/youtube.png"><h6>Youtube</h6></a>
-	</div>
-	
-	<div class="fe-box">
-	<a href="https://binance.com/en/feed/profile/TutzOfficial" target="_blank"><img src="images/Feature/binance.png">
-	<h6>Binance</h6></a>
-	</div>
-	
-	<div class="fe-box">
-	<a href="https://instagram.com/tutzgaming/" target="_blank"><img src="images/Feature/instagram.png">
-	<h6>Instagram</h6></a>
-	</div>
-	
-	<div class="fe-box">
-	<a href="https://discord.gg/u3Sf9rTyDt" target="_blank"><img src="images/Feature/discord.png">
-	<h6>Discord</h6></a>
-	</div>
-	
-	<div class="fe-box">
-	<a href="https://tiktok.com/@not_tutz" target="_blank"><img src="images/Feature/tiktok.png">
-	<h6>Tiktok</h6></a>
-	</div>
+<section id="live" class="section-p1">
+  <h2>Live Stream</h2>
+
+  <div class="live-container">
+    <div class="live-header">
+      <span class="live-dot"></span>
+      <span class="live-text">U toku</span>
+    </div>
+
+    <div class="iframe-wrapper">
+      <iframe src="https://www.tiktok.com/embed/live/@not_tutz" 
+              frameborder="0" 
+              allow="autoplay; fullscreen" 
+              scrolling="no" 
+              allowfullscreen>
+      </iframe>
+    </div>
+
+    <p>Pratite Tutz-a u realnom vremenu i gledajte njegove Roblox i gaming avanture!</p>
+  </div>
 </section>
 
-<section id="product">
-	
-	<h2 id="naslov">Tutz shop</h2>
+<section id="novosti" class="section-p1">
+  <div class="container">
+    <h2>Novosti</h2>
+    <div class="novosti-grid">
 
-	<section id="work-in-progress" class="section-p1">
+      <div class="novost-card">
+        <div class="novost-img">
+          <img src="images/Novosti/zima.jpg" alt="Novost 1">
+        </div>
+        <div class="novost-content">
+          <span class="novost-date">24. Februar 2025</span>
+          <h3 class="novost-title">Veliko ažuriranje shopa</h3>
+          <p>Dodate nove funkcionalnosti, dugme za proveru poena i optimizacija na svim uređajima.</p>
+          <a href="shop.html" class="novost-link">Pogledaj više</a>
+        </div>
+      </div>
+
+      <div class="novost-card">
+        <div class="novost-img">
+          <img src="images/Novosti/live.jpg" alt="Novost 2">
+        </div>
+        <div class="novost-content">
+          <span class="novost-date">1. Avgust 2025</span>
+          <h3 class="novost-title">Redizajn Live room-a</h3>
+          <p>Pregled socijalnih mreža direktno na sajtu i precice do svih linkova na jedan klik.</p>
+          <a href="live.html" class="novost-link">Pogledaj više</a>
+        </div>
+      </div>
+
+      <div class="novost-card">
+        <div class="novost-img">
+          <img src="images/Novosti/faq.jpg" alt="Novost 3">
+        </div>
+        <div class="novost-content">
+          <span class="novost-date">2. Maj 2025</span>
+          <h3 class="novost-title">Novi efekti i optimizacija sajta</h3>
+          <p>Poboljšana brzina sajta i priprema za verziju 1.0 websajta.</p>
+          <a href="index.html" class="novost-link">Pogledaj više</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+    <h1 class="title">FAQ</h1>
+    <div class="questions-container">
+
+	<div class="question">
+		<button id="dugme">
+		<span><i class="fa-solid fa-thumbtack"></i> Informacije i pravila o shopu!</span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p>Shop se vratio na sajt 24.2.2024. sa najnovijim stvarima koje mozete uzeti potpuno besplatno. Ispod mozes pogledati pravila i informacije:
+		<br>
+		<br>Poene sakupljate kod tutz-a na <a href="https://tiktok.com/@not_tutz/live">live strimu</a> dok ga gledate kako igra igrice. Ako imate neko pitanje mozete postaviti dole.
+		<br>
+		<br><b>Poene dobijate:</b>
+		<br><i class="fa-solid fa-heart"></i> 100 like = 3 poena
+		<br><i class="fa-brands fa-rocketchat"></i> 1 chat = 2 poena
+		<br><i class="fa-solid fa-share"></i> 1 share = 0.1 poen
+		
+		<br><i class="fa-solid fa-gift"></i> 1 gift = 5 poena
+		<br><i class="fa-solid fa-circle-check"></i> follow = 50 poena
+		<br><i class="fa-solid fa-circle-plus"></i> subscribe = 10% bonus
+		<br><i class="fa-solid fa-circle-info"></i> Poeni se ne brisu!
+		<br>
+		<br><b>Poene NE dobijate:</b>
+		<br><i class="fa-solid fa-hand"></i> Automatskim lajkovanjem
+		<br><i class="fa-solid fa-hand"></i> Unfollowom i followom
+		<br><i class="fa-solid fa-hand"></i> Spamovanjem u chatu
+		<br><i class="fa-solid fa-hand"></i> Spamovanjem laznih shareova
+		<br>
+		<br><b style="text-align: center;">VIDEO TUTORIAL:</b>
+		<br><iframe width="800px" height="450px" src="https://www.youtube.com/embed/1P_mezTFSUQ?si=HHkRlCRdt7nEv-d3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>	
+
+    <div class="question">
+        <button id="dugme">
+        <span>1. Ko sam ja?</span>
+       	<i class="fas fa-chevron-down d-arrow"></i>
+       	</button>
+        <p>Ja sam Luka Cvetkovic, zivim u Srbiji, imam 28 godina i bavim se strimovanjem prethodne tri godine, u online svetu poznatiji kao Tutz.</p>
+    </div>
+
+	<div class="question">
+		<button id="dugme">
+		<span>2. Gde strimujes trenutno?</span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p>Trenutno aktivno strimujem na 
+		<a href="https://bit.ly/3N8eQ6q" target="_blank">Tiktoku</a> i ponekad na
+		<a href="https://bit.ly/3C7VE2r" target="_blank">Youtube-u</a>. a Videe izbacujem isto na <a href="https://bit.ly/3N8eQ6q" target="_blank">Tiktoku</a> i
+		<a href="https://bit.ly/3C7VE2r" target="_blank">Youtube-u</a>.
+	</div>
+
+	<div class="question">
+		<button id="dugme">
+		<span>3. Koliko u proseku traju moji strimovi?</span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p>Moji strimovi prosecno traju oko 3 sata.</p>
+	</div>
+
+	<div class="question">
+		<button id="dugme">
+		<span>4. Koje igrice najcesce igras?</span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p>Na strimu igram najcesce brawl stars, ali i druge igrice.</p>
+	</div>
+
+	<div class="question">
+		<button id="dugme">
+		<span>5. Koje su ti specifikacije kompa i setupa?</span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p><i class="fa-solid fa-computer"></i> Moje specifikacije kompa su:
+		<br>AMD Ryzen 9 5900X
+		<br>Asus ROG STRIX B550-F
+		<br>Kingston FURY BEAST RGB Special Edition DDR4 32GB 3200MHz
+		<br>Samsung 970 EVO Plus 500GB
+		<br>Samsung 970 EVO Plus 2TB
+		<br>Zotac RTX 4080 Trinity 16GB GDDR6X
+		<br>Corsair iCUE H150i Elite LCD XT
+		<br>4 x Asus TUF Gaming TF120 White Edition
+		<br>Asus TUF Gaming GT502
+		<br>Asus ROG STRIX 750W 80+ Gold
+		<br><br><i class="fa-solid fa-desktop"></i> Moja oprema koju koristim:
+		<br>Primarni monitor: Asus vg248 144hz
+		<br>Drugi monitor: Asus mg248 144hz
+		<br>Mis: logitech G502 hero
+		<br>Tastatura:  Rog strix scope rx
+		<br>Slusalice 1: Logitech G435
+		<br>Slusalice 2: Asus rog strix 750 
+		<br>Kamera: Logitech c920
+		<br>Podloga: Logitech G840
+		<br>Elgato stream dack standard
+		</p>
+	</div>
+
+	<div class="question">
+		<form action="https://formsubmit.co/contact@tutz.info" method="POST">
+		<button id="dugme">
+		<span><i class="fa-solid fa-paper-plane"></i> Postavi svoje pitanje ovde </span>
+		<i class="fas fa-chevron-down d-arrow"></i>
+		</button>
+		<p>Ovde mozete da posaljete vase pitanje i dobijete svoj odgovor. Ukoliko se neko pitanje ponavlja mnogo puta bice ubaceno ovde.<br>
+		<input type="email" name="Email" placeholder="Unesi email" required>
+		<input type="text" name="Pitanje" placeholder="Napisi pitanje ovde..." required>
+		<br><button class="faq" type="submit">Posalji pitanje</button>
+		<input type="hidden" name="_subject" value="Novo pitanje od faq-a">
+		<input type="hidden" name="_captcha" value="false">
+		</form>
+		</p>
+	</div>
+
+</section>
+
+<section id="kontakt" class="section-p1">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <div class="kontakt-grid">
+
+      <div class="kontakt-info">
+        <h3>Informacije</h3>
+        <p>Imate pitanja ili želite saradnju? Pošaljite nam poruku ili nas kontaktirajte direktno preko društvenih mreža.</p>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i> email: tutzgaming96@gmail.com</li>
+          <li><i class="fa-solid fa-phone"></i> TikTok DM: @not_tutz</li>
+          <li><i class="fa-solid fa-location-dot"></i> Online</li>
+        </ul>
+      </div>
+
+      <div class="kontakt-form">
+        <h3>Pošaljite poruku</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Vaše ime" required>
+          <input type="email" name="email" placeholder="Vaš email" required>
+          <textarea name="message" rows="5" placeholder="Vaša poruka" required></textarea>
+          <button type="submit">Pošalji</button>
+        </form>
+        <p id="formMessage"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="merch" class="section-p1">
+  <h2 id="naslov" onclick="togglePoints()">Tutz Shop</h2>
+
+	<button onclick="otvoriModal()">Proveri poene</button>
+
+	<div id="modal">
+  <div id="poeni">
+    <h2>Proveri poene</h2>
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Unesi TikTok username">
+      <button onclick="proveriPoene()">Proveri</button>
+    </div>
+    <p id="rezultat"></p>
+    <button onclick="zatvoriModal()">Zatvori</button>
+  </div>
+	</div>
+
+  <section id="work-in-progress" class="section-p1">
     <div class="text-center">
-        <h2>Shop je u pripremi! <i class="fa-solid fa-hard-hat"></i></h2>
-        <p>Radimo na tome da vam uskoro donesemo sjajne proizvode. Pratite nas za više informacija!</p>
+      <h2>Shop je u pripremi! <i class="fa-solid fa-hard-hat"></i></h2>
+      <p>Radimo na tome da uskoro donesemo sjajne proizvode. Pratite nas za više informacija!</p>
     </div>
-	</section>
-
-	<!--
-	<div class="pro-container">
-
-	<div class="shopbox">
-		<div class="card" id="card1">
-		<div class="novo">NOVO!</div>
-		<div class="stanje1">Na stanju: <span style="color: gold">2</span></div>
-		<div class="imgBx">
-		<img src="images/Produkti/battlepass.png">
-		</div>
-		<div class="contentBx">
-		<h2 class="naziv">Bs battle pass</h2>
-		<span class="snizenje">18,000 poena</span>
-		<span class="poeni">17,000 poena</span>
-		<button class="take">Uzmi sada</button>
-		</div>
-		</div>
-
-    <div class="portfolio-item-details">
-	<section id="porudzbine">
-
-	<form action="https://formsubmit.co/shop@tutz.info" method="POST">
-	<div class="form-row">
-
-	<div class="input-data">
-	<input type="text" name="Ime i Prezime" required>
-	<div class="underline"></div>
-	<label>Ime i Prezime</label>
-	</div>
-
-	<div class="input-data">
-	<input type="email" name="Email" required>
-	<div class="underline"></div>
-	<label>Email adresa</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data">
-	<input type="text" name="Ime u igrici" required>
-	<div class="underline"></div>
-	<label>Brawl stars ID</label>
-	</div>
-	
-	<div class="input-data">
-	<input type="text" name="TIktok username" required>
-	<div class="underline"></div>
-	<label>Tiktok username</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data textarea">
-	<textarea rows="8" cols="80" name="Poruka" required></textarea>
-	<br><div class="underline"></div>
-	<label>Zasto kupujes ovaj proizvod iz shopa?</label>
-	<h6><i class="fa-solid fa-circle-info"></i> Ukoliko ti je potrebna pomoc mozes da nam pises na:
-	<a href="mailto: shop@tutz.info" target="_blank">shop@tutz.info</a></h6>
-
-	<div class="form-row submit-btn">
-	<div class="input-data">
-	<div class="inner"></div>
-	<input type="submit" value="Posalji">
-	</div>
-	</div>
-	<input type="hidden" name="_subject" value="Nova porudzbina: Battlepass!">
-	<input type="hidden" name="_next" value="https://tutz.info/hvala.html">
-	<input type="hidden" name="_template" value="table">
-	<input type="hidden" name="_blacklist" value="picko, kurvo, daj, moze">
-	
-	</div>
-	</div>
-	</form>
-	</section>
-    </div>
-
-	</div>
-
-	<div class="shopbox">
-		<div class="card" id="card2">
-		<div class="novo">NOVO!</div>
-		<div class="stanje1">Na stanju: <span style="color: orange">1</span></div>
-		<div class="imgBx">
-		<img src="images/Produkti/battleplus.png">
-		</div>
-		<div class="contentBx">
-		<h2 class="naziv">Bs battle pass plus</h2>
-		<span class="snizenje">25,000 poena</span>
-		<span class="poeni">24,000 poena</span>
-		<button class="take">Uzmi sada</button>
-		</div>
-		</div>
-
-	<div class="portfolio-item-details">
-	<section id="porudzbine">
-
-	<form action="https://formsubmit.co/shop@tutz.info" method="POST">
-	<div class="form-row">
-
-	<div class="input-data">
-	<input type="text" name="Ime i Prezime" required>
-	<div class="underline"></div>
-	<label>Ime i Prezime</label>
-	</div>
-
-	<div class="input-data">
-	<input type="email" name="Email" required>
-	<div class="underline"></div>
-	<label>Email adresa</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data">
-	<input type="text" name="Ime u igrici" required>
-	<div class="underline"></div>
-	<label>Brawl stars ID</label>
-	</div>
-	
-	<div class="input-data">
-	<input type="text" name="TIktok username" required>
-	<div class="underline"></div>
-	<label>Tiktok username</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data textarea">
-	<textarea rows="8" cols="80" name="Poruka" required></textarea>
-	<br><div class="underline"></div>
-	<label>Zasto kupujes ovaj proizvod iz shopa?</label>
-	<h6><i class="fa-solid fa-circle-info"></i> Ukoliko ti je potrebna pomoc mozes da nam pises na:
-	<a href="mailto: shop@tutz.info" target="_blank">shop@tutz.info</a></h6>
-
-	<div class="form-row submit-btn">
-	<div class="input-data">
-	<div class="inner"></div>
-	<input type="submit" value="Posalji">
-	</div>
-	</div>
-	<input type="hidden" name="_subject" value="Nova porudzbina: Battlepass+!">
-	<input type="hidden" name="_next" value="https://tutz.info/hvala.html">
-	<input type="hidden" name="_template" value="table">
-	<input type="hidden" name="_blacklist" value="picko, kurvo, daj, moze">
-	
-	</div>
-	</div>
-	</form>
-	</section>
-    </div>
-
-	</div>
-
-	<div class="shopbox">
-		<div class="card" id="card3">
-		<div class="novo">NOVO!</div>
-		<div class="stanje1">Na stanju: <span style="color: yellowgreen">3</span></div>
-		<div class="imgBx">
-		<img src="images/Produkti/gems80.png">
-		</div>
-		<div class="contentBx">
-		<h2 class="naziv">80 Gemova</h2>
-		<span class="snizenje">10,500 poena</span>
-		<span class="poeni">9,500 poena</span>
-		<button class="take">Uzmi sada</button>
-		</div>
-		</div>
-
-    <div class="portfolio-item-details">
-	<section id="porudzbine">
-
-	<form action="https://formsubmit.co/shop@tutz.info" method="POST">
-	<div class="form-row">
-
-	<div class="input-data">
-	<input type="text" name="Ime i Prezime" required>
-	<div class="underline"></div>
-	<label>Ime i Prezime</label>
-	</div>
-
-	<div class="input-data">
-	<input type="email" name="Email" required>
-	<div class="underline"></div>
-	<label>Email adresa</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data">
-	<input type="text" name="Ime u igrici" required>
-	<div class="underline"></div>
-	<label>Brawl stars ID</label>
-	</div>
-	
-	<div class="input-data">
-	<input type="text" name="TIktok username" required>
-	<div class="underline"></div>
-	<label>Tiktok username</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data textarea">
-	<textarea rows="8" cols="80" name="Poruka" required></textarea>
-	<br><div class="underline"></div>
-	<label>Zasto kupujes ovaj proizvod iz shopa?</label>
-	<h6><i class="fa-solid fa-circle-info"></i> Ukoliko ti je potrebna pomoc mozes da nam pises na:
-	<a href="mailto: shop@tutz.info" target="_blank">shop@tutz.info</a></h6>
-
-	<div class="form-row submit-btn">
-	<div class="input-data">
-	<div class="inner"></div>
-	<input type="submit" value="Posalji">
-	</div>
-	</div>
-	<input type="hidden" name="_subject" value="Nova porudzbina: 80 gemova!">
-	<input type="hidden" name="_next" value="https://tutz.info/hvala.html">
-	<input type="hidden" name="_template" value="table">
-	<input type="hidden" name="_blacklist" value="picko, kurvo, daj, moze">
-	
-	</div>
-	</div>
-	</form>
-	</section>
-    </div>
-
-	</div>
-
-	<div class="shopbox">
-		<div class="card" id="card4">
-		<div class="novo">NOVO!</div>
-		<div class="stanje1">Na stanju: <span style="color: gold">2</span></div>
-		<div class="imgBx">
-		<img src="images/Produkti/gems170.png">
-		</div>
-		<div class="contentBx">
-		<h2 class="naziv">170 Gemova</h2>
-		<span class="snizenje">23,500 poena</span>
-		<span class="poeni">22,500 poena</span>
-		<button class="take">Uzmi sada</button>
-		</div>
-		</div>
-
-    <div class="portfolio-item-details">
-	<section id="porudzbine">
-
-	<form action="https://formsubmit.co/shop@tutz.info" method="POST">
-	<div class="form-row">
-
-	<div class="input-data">
-	<input type="text" name="Ime i Prezime" required>
-	<div class="underline"></div>
-	<label>Ime i Prezime</label>
-	</div>
-
-	<div class="input-data">
-	<input type="email" name="Email" required>
-	<div class="underline"></div>
-	<label>Email adresa</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data">
-	<input type="text" name="Ime u igrici" required>
-	<div class="underline"></div>
-	<label>Brawl stars ID</label>
-	</div>
-	
-	<div class="input-data">
-	<input type="text" name="TIktok username" required>
-	<div class="underline"></div>
-	<label>Tiktok username</label>
-	</div>
-	</div>
-
-	<div class="form-row">
-	<div class="input-data textarea">
-	<textarea rows="8" cols="80" name="Poruka" required></textarea>
-	<br><div class="underline"></div>
-	<label>Zasto kupujes ovaj proizvod iz shopa?</label>
-	<h6><i class="fa-solid fa-circle-info"></i> Ukoliko ti je potrebna pomoc mozes da nam pises na:
-	<a href="mailto: shop@tutz.info" target="_blank">shop@tutz.info</a></h6>
-
-	<div class="form-row submit-btn">
-	<div class="input-data">
-	<div class="inner"></div>
-	<input type="submit" value="Posalji">
-	</div>
-	</div>
-	<input type="hidden" name="_subject" value="Nova porudzbina: 170 gemova!">
-	<input type="hidden" name="_next" value="https://tutz.info/hvala.html">
-	<input type="hidden" name="_template" value="table">
-	<input type="hidden" name="_blacklist" value="picko, kurvo, daj, moze">
-	
-	</div>
-	</div>
-	</form>
-	</section>
-    </div>
-
-	</div>
-
-	<div class="portfolio-popup">
-        <div class="pp-inner">
-        <div class="pp-content">
-    
-            <div class="pp-header">
-            <h3></h3>
-			<p></p>
-			<p style="color: red; text-align: center; font-weight: 700">
-				<i class="fa-solid fa-triangle-exclamation fa-beat-fade" style="color:red"></i>
-				Slanje forme bez dovoljno poena ce biti kaznjeno smanjenjem poena
-				<i class="fa-solid fa-triangle-exclamation fa-beat-fade" style="color:red"></i>
-			</p>
-            </div>
-            <div class="pp-body">
-
-            </div>   
-        </div>
-        </div>
-    </div>
-
-	</div>
-	-->
+  </section>
 </section>
+
 
 <section id="sponzori">
 	<h2 id="naslov">Sponzori</h2>
@@ -486,3 +431,44 @@ $(function(){
 <script src="https://bit.ly/3HjKiLB"></script>
 <!---------JAVASCRIPTA--------->
 <script src="index.js"></script>
+
+
+
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
+
+menuToggle.addEventListener('click', () => {
+	navbar.classList.toggle('active');
+});
+
+const typingEl = document.querySelector(".typing");
+const text = "Tutz Website";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    typingEl.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 120);
+  }
+}
+typeEffect();
+
+// simulacija live statusa
+const liveBtn = document.querySelector(".live-btn");
+async function checkLive() {
+  try {
+    const res = await fetch("https://www.tiktok.com/@not_tutz/live", { method: "HEAD" });
+    if (res.ok) {
+      liveBtn.classList.add("is-live");
+      liveBtn.innerHTML = `<span class="live-dot"></span> LIVE sada!`;
+    }
+  } catch (err) {
+    console.log("Greška pri proveri live statusa");
+  }
+}
+checkLive();
+
+</script>

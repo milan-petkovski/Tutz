@@ -11,29 +11,6 @@ window.addEventListener("load", fadeOut);
 
 //#endregion
 
-//#region - OFF F12
-
-document.onkeydown = function (e) {
-
-  if (e.key === 'F12') {
-      return false;
-  }
-  
-  if (e.ctrlKey && e.shiftKey && e.key === 'i') {
-      return false;
-  }
-  
-  if (e.ctrlKey && e.shiftKey && e.key === 'j') {
-      return false;
-  }
-  
-  if (e.ctrlKey && e.key === 'u') {
-      return false;
-  }
-}
-
-//#endregion
-
 //#region - API POENI
 
 function proveriPoene(){
@@ -144,7 +121,7 @@ function myFunction() {
 
 //#region - FAQ
 
-if (window.location.href.includes("faq")) {
+if (window.location.href.includes("/")) {
 const buttons = document.querySelectorAll('button');
 buttons.forEach( button =>{
 button.addEventListener('click',()=>{
@@ -196,3 +173,11 @@ function portfolioItemDetails(portfolioItem) {
 };
 
 //#endregion
+
+
+function otvoriModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+function zatvoriModal() {
+  document.getElementById("modal").style.display = "none";
+}
