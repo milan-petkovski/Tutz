@@ -94,31 +94,6 @@ function preventScroll(e) {
 }
 //#endregion
 
-//#region - TRANSLATE
-
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-
-//#endregion
-
-//#region - VIDEO
-
-var video = document.getElementById("myVideo");
-var btn = document.getElementById("myBtn");
-
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pusten video";
-  } else {
-    video.pause();
-    btn.innerHTML = "Pauziran video";
-  }
-}
-
-//#endregion
-
 //#region - FAQ
 
 if (window.location.href.includes("/")) {
@@ -132,45 +107,6 @@ button.addEventListener('click',()=>{
 	})
 })
 }	
-
-//#endregion
-
-//#region - POPOUT
-
-function myFunkcija() {
-	var popup = document.getElementById("myPopup");
-	popup.classList.toggle("show");
-}
-
-//#endregion
-
-//#region - PORUDZBINA
-
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("take")) {
-    togglePortfolioPopup();
-    document.querySelector(".portfolio-popup").scrollTo(0, 0);
-    portfolioItemDetails(e.target.closest(".shopbox"));
-  }
-})
-
-function togglePortfolioPopup() {
-  document.querySelector(".portfolio-popup").classList.toggle("open");
-  document.body.classList.toggle("hide-scrolling");
-}
-
-// Hide popup when click outside of it
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("pp-inner")) {
-    togglePortfolioPopup();
-  }
-});
-
-function portfolioItemDetails(portfolioItem) {
-  document.querySelector(".pp-header h3").innerHTML = portfolioItem.querySelector(".naziv").innerHTML;
-  document.querySelector(".pp-header p").innerHTML = portfolioItem.querySelector(".poeni").innerHTML;
-  document.querySelector(".pp-body").innerHTML = portfolioItem.querySelector(".portfolio-item-details").innerHTML;
-};
 
 //#endregion
 
