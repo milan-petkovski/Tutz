@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#e3e6f3">
-    <meta property="og:title" content="Tutz | Streamer Website"/>
-    <meta property="og:description" content="Informišite se o Tutzu, nabavite stvari iz shopa, gledajte live stream, pratite sve novosti ili dobijte pomoć od nas!"/>
-    <meta name="keywords" content="Tutz, tutz, tutz website, tutz site, website tutz, tutz linktree, tutz shop, shop tutz, linktree tutz">
-    <meta property="og:image" content="https://i.postimg.cc/Qxp2574g/logo.png"/>
     <title>Tutz | Streamer Website</title>
+    <meta name="description" content="Pratite Tutza uživo, otkrijte ekskluzivne novosti, kupite merch i uživajte u svemu što Tutz nudi na jednom mestu!">
+    <meta name="keywords" content="Tutz, tutz, tutz website, tutz site, website tutz, tutz linktree, tutz shop, shop tutz, linktree tutz">
+    <meta name="theme-color" content="#e3e6f3">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tutz.rs/">
+    <meta property="og:title" content="Tutz | Streamer Website">
+    <meta property="og:description" content="Pratite Tutza uživo, otkrijte ekskluzivne novosti, kupite merch i uživajte u svemu što Tutz nudi na jednom mestu!">
+    <meta property="og:image" content="https://i.postimg.cc/Qxp2574g/logo.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -34,22 +37,19 @@
 
 </div>
 
-<p class="marquee">
-
-</p>
-
-<header id="header" class="unselectable">
+<header id="header">
   <div class="nav-container">
-    <a href="#" class="nav-logo">
+    <a href="#hero" class="nav-logo">
       <img src="images/logo.png" alt="Tutz logo">
     </a>
 
     <nav id="navbar">
       <ul class="nav-links">
-        <li><a href="#" class="active">Početna</a></li>
+        <li><a href="#hero" class="active">Početna</a></li>
         <li><a href="#about">O meni</a></li>
-        <li><a href="#live">Live</a></li>
+        <li><a href="#live">Live</a></li>        
         <li><a href="#merch">Merch</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#sponzori">Sponzori</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -61,7 +61,7 @@
   </div>
 </header>
 
-<section id="hero" class="unselectable">
+<section id="hero">
   <div class="hero-container">
     <div class="hero-content">
       <h4>Streamer • Content Creator</h4>
@@ -78,7 +78,7 @@
   </div>
 </section>
 
-<section id="about" class="section-p1">
+<section id="about">
   <div class="about-container">
 
     <div class="about-img">
@@ -87,7 +87,7 @@
 
     <div class="about-text">
       <h2>O meni</h2>
-      <p>Ja sam Tutz, vaš dnevni strimer fokusiran na dobar gejming i još bolju zabavu! Uključite se svakog dana na TikTok i YouTube, gde uzimam najnovije i najzanimljivije igre. Moj cilj je jednostavan: napraviti izuzetno pozitivnu atmosferu i proširiti našu sjajnu zajednicu (community). Bacite Follow/Subscribe i postanite deo Tutz Ganga!</p>
+      <p>Hej! Ja sam Tutz, lik koji voli igre, smeh i dobru ekipu. Na mojim streamovima sve je u znaku zabave, bez tenzije, samo pozitivna energija i dobra atmosfera. Ako voliš opušten gejming, zanimljive trenutke i zajednicu koja te stvarno prihvata, na pravom si mestu. Klikni Follow i pridruži se Tutz Gangu idemo zajedno do vrha!</p>
 
       <div class="feature-container">
         <div class="fe-box">
@@ -135,7 +135,7 @@
   </div>
 </section>
 
-<section id="live" class="section-p1">
+<section id="live">
   <h2>Novi video</h2>
 
   <div class="live-container">
@@ -146,53 +146,7 @@
   </div>
 </section>
 
-<!--
-<section id="novosti" class="section-p1">
-  <div class="container">
-    <h2>Novosti</h2>
-    <div class="novosti-grid">
-
-      <div class="novost-card">
-        <div class="novost-img">
-          <img src="images/Novosti/zima.jpg" alt="Novost 1">
-        </div>
-        <div class="novost-content">
-          <span class="novost-date">24. Februar 2025</span>
-          <h3 class="novost-title">Veliko ažuriranje shopa</h3>
-          <p>Dodate nove funkcionalnosti, dugme za proveru poena i optimizacija na svim uređajima.</p>
-          <a href="shop.html" class="novost-link">Pogledaj više</a>
-        </div>
-      </div>
-
-      <div class="novost-card">
-        <div class="novost-img">
-          <img src="images/Novosti/live.jpg" alt="Novost 2">
-        </div>
-        <div class="novost-content">
-          <span class="novost-date">1. Avgust 2025</span>
-          <h3 class="novost-title">Redizajn Live room-a</h3>
-          <p>Pregled socijalnih mreža direktno na sajtu i precice do svih linkova na jedan klik.</p>
-          <a href="live.html" class="novost-link">Pogledaj više</a>
-        </div>
-      </div>
-
-      <div class="novost-card">
-        <div class="novost-img">
-          <img src="images/Novosti/faq.jpg" alt="Novost 3">
-        </div>
-        <div class="novost-content">
-          <span class="novost-date">2. Maj 2025</span>
-          <h3 class="novost-title">Novi efekti i optimizacija sajta</h3>
-          <p>Poboljšana brzina sajta i priprema za verziju 1.0 websajta.</p>
-          <a href="index.html" class="novost-link">Pogledaj više</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
--->
-<section id="merch" class="section-p1">
+<section id="merch">
   <h2 onclick="togglePoints()">Tutz Merch</h2>
 
 	<button onclick="otvoriModal()">Proveri poene</button>
@@ -201,7 +155,7 @@
   <div id="poeni">
     <h2>Proveri poene</h2>
     <div class="input-group">
-      <input type="text" id="username" placeholder="Unesi TikTok username">
+      <input type="text" id="username" placeholder="Unesi TikTok username" autocomplete="username">
       <button onclick="proveriPoene()">Proveri</button>
     </div>
     <p id="rezultat"></p>
@@ -209,7 +163,7 @@
   </div>
 	</div>
 
-  <section id="work-in-progress" class="section-p1">
+  <section id="work-in-progress">
     <div class="text-center">
       <h2>Shop je u pripremi! <i class="fa-solid fa-hard-hat"></i></h2>
       <p>Radimo na tome da uskoro donesemo sjajne proizvode. <br>Pratite nas za više informacija!</p>
@@ -312,7 +266,7 @@
 		<i class="fas fa-chevron-down d-arrow"></i>
 		</button>
 		<p>Ovde mozete da posaljete vase pitanje i dobijete svoj odgovor. Ukoliko se neko pitanje ponavlja mnogo puta bice ubaceno ovde.<br>
-		<input type="email" name="Email" placeholder="Unesi email" required>
+		<input type="email" name="Email" placeholder="Unesi email" autocomplete="email" required>
 		<input type="text" name="Pitanje" placeholder="Napisi pitanje ovde..." required>
 		<br><button class="faq" type="submit">Posalji pitanje</button>
 		<input type="hidden" name="_subject" value="Novo pitanje od faq-a">
@@ -323,7 +277,7 @@
 
 </section>
 
-<section id="sponzori" class="section-p1">
+<section id="sponzori">
   <h2>Sponzori</h2>
   <div class="partners-grid">
     <div class="partner-item">
@@ -343,7 +297,7 @@
   </div>
 </section>
 
-<section id="kontakt" class="section-p1">
+<section id="kontakt">
   <div class="container">
     <h2>Kontaktiraj nas</h2>
     <div class="kontakt-grid">
@@ -366,8 +320,8 @@
         <input type="hidden" name="_subject" value="Tutz novi email!">
         <input type="hidden" name="_next" value="https://tutz.milanwebportal.com/thanks">
         <input type="hidden" name="_template" value="box">
-          <input type="text" name="name" placeholder="Ime" required>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="name" placeholder="Ime" autocomplete="name" required>
+          <input type="email" name="email" placeholder="Email" autocomplete="email" required>
           <textarea name="message" rows="4" placeholder="Poruka" required></textarea>
           <button type="submit">Pošalji</button>
         </form>
@@ -382,7 +336,7 @@
 	<p>Pridruži se <span>Tutz Gang</span> newsletteru! Ne propusti ekskluzivne novosti, rasporede streamova i specijalne poklone za zajednicu. Samo dobra energija.</p>
 	</div>
 	<form action="https://formsubmit.co/contact@milanwebportal.com" method="POST">
-	<input type="email" name="Email" placeholder="Unesi email" required>
+	<input type="email" name="Email" placeholder="Unesi email" autocomplete="email" required>
 	<button class="normal" type="submit">Prijavi se</button>
 	<input type="hidden" name="_next" value="https://tutz.milanwebportal.com/hvala">
 	<input type="hidden" name="_subject" value="Nova prijava na newsletter!">
@@ -390,7 +344,7 @@
 	</form>
 </section>
 
-<footer id="footer" class="section-p1">
+<footer id="footer">
   <div id="footer-container">
     <div class="left">
       <img src="images/Slike/icon.png" alt="Tutz logo" class="footer-logo">

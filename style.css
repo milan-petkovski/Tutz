@@ -37,7 +37,7 @@ body{
 }
 h1 {
   font-size: 50px !important;
-  line-height: 64px;
+  line-height: 44px;
   color: #222;
 }
 h2 {
@@ -48,10 +48,6 @@ h2 {
 h4 {
   font-size: 20px;
   color: #222;
-}
-h6 {
-  font-size: 12px;
-  font-weight: 700;
 }
 p{
   font-size: 16px;
@@ -75,63 +71,8 @@ button.normal {
   outline: none;
   transition: 0.2s;
 }
-button.white {
-  font-size: 13px;
-  font-weight: 600;
-  padding: 11px 24px;
-  width: 100;
-  color: #fff;
-  background-color: transparent;
-  cursor: pointer;
-  border: 1px solid #fff;
-  border-radius: 0 50px 0 50px;
-  outline: none;
-  transition: 0.2s;
-}
 .hide-scrolling{
   overflow-y: hidden;
-}
-/* ------------------ MARQUEE ------------------ */
-.marquee{
-	width: auto;
-	margin: 0;
-  padding: 0;
-	white-space: nowrap;
-	overflow: hidden;
-  background-color: #E3E7F2;
-  text-align: center;
-}
-.marquee span{
-	display: inline-block;
-  vertical-align: middle;
-  padding-left: 100%;
-  text-align: center;
-	padding-bottom: 0;
-  will-change: transform;
-	animation: marquee 25s linear infinite;
-}
-.marquee a{
-  color: #8541b8;
-}
-.marquee span:hover {
-	animation-play-state: paused;
-}
-@keyframes marquee {
-	0% {
-	  transform: translate(0, 0);
-	}
-	100% {
-	  transform: translate(-100%, 0);
-	}
-}
-@media (prefers-reduced-motion: reduce) {
-	.marquee { 
-	  white-space: normal;
-	}
-	.marquee span {
-	  animation: none;
-	  padding-left: 0;
-	}
 }
 
 /* -------------------PRELOADER------------------*/
@@ -317,6 +258,9 @@ button.white {
 .nav-links li a.active {
   color: #8541b8;
 }
+.nav-links li a.active::after {
+  width: 100%;
+}
 .nav-links li a::after {
   content: "";
   position: absolute;
@@ -354,6 +298,12 @@ button.white {
   cursor: pointer;
 }
 @media (max-width: 950px) {
+  #header{
+    padding: 15px 20px;
+  }
+  #navbar {
+    display: none;
+  }
   .linktree{
     font-size: 25px;
     color: #231135;
@@ -659,7 +609,7 @@ button.white {
   .about-img {
     flex: auto;
     height: auto;
-    transform: translateX(3%);
+    transform: translateX(4%);
   }
   .about-img img {
     width: 250px;
@@ -754,211 +704,13 @@ button.white {
   }
 }
 
-/* ------------------ NOVOSTI ------------------ */
-#novosti {
-  padding: 20px 0;
-}
-#novosti .container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#novosti h2 {
-  font-size: 36px;
-  color: #8541b8;
-  margin-bottom: 50px;
-  text-align: center;
-}
-
-.novosti-grid {
-  display: flex;
-  gap: 30px;
-}
-.novost-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 50px rgba(133,65,184,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.novost-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(133,65,184,0.25);
-}
-.novost-img img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-.novost-content {
-  padding: 20px;
-}
-.novost-date {
-  font-size: 12px;
-  font-weight: 700;
-  color: #8541b8;
-}
-.novost-title {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #333;
-}
-.novost-content p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-.novost-link {
-  font-size: 14px;
-  color: #fff;
-  background-color: #8541b8;
-  padding: 8px 15px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.novost-link:hover {
-  background-color: #FF004D;
-}
-/* Responsive */
-@media(max-width: 768px) {
-  .novost-card {
-    width: 45%;
-  }
-}
-@media(max-width: 500px) {
-  .novost-card {
-    width: 90%;
-  }
-}
-
-/* ------------------- FAQ ------------------- */
-#faq {
-  padding: 20px;
-}
-#faq h2 {
-  color: #8541b8;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.question {
-}
-.questions-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 0 !important;
-  padding: 0 !important;
-}
-.question #dugme {
-  width: 100%;
-  background-color: #2a2a3c;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 15px;
-  border: none;
-  outline: none;
-  font-size: 22px;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-bottom: 0; /* Uklonjen razmak između dugmadi */
-}
-.question p {
-  font-size: 22px;
-  max-height: 0;
-  opacity: 0;
-  line-height: 1.5;
-  overflow: hidden;
-  transition: all 0.6s ease;
-}
-.question p span {
-  color: red;
-}
-.question iframe {
-  border-radius: 15px;
-}
-.d-arrow {
-  transition: transform 0.5s ease-in;
-  color: #fff;
-}
-.question p.show {
-  max-height: 1200px;
-  opacity: 1;
-  padding: 0px 15px 30px 15px;
-}
-.question button .d-arrow.rotate {
-  transform: rotate(180deg);
-}
-.question a {
-  background-size: 200% 100%;
-  color: #8541b8;
-  background-position: -100%;
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-.question a:before {
-  content: '';
-  background: #8541b8;
-  display: block;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: all 0.3s ease-in-out;
-}
-.question a:hover {
-  background-position: 0;
-  color: #8441b8a1;
-}
-.question a:hover::before {
-  width: 100%;
-}
-.question form {
-  text-align: center;
-}
-.question input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #000;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-bottom: 2px solid #000;
-  outline: none;
-  background: transparent;
-  width: 45%;
-}
-.question .faq {
-  max-width: 1200px;
-  padding: 15px;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid #1a1a1a;
-  transition: 0.5s;
-  color: #fff;
-  letter-spacing: 4px;
-  font-weight: 800;
-  background-color: #1a1a1a;
-  border-radius: 0px 0px 50px 50px;
-  cursor: pointer;
-}
-
 /* ------------------- MERCH ------------------- */
 #merch {
   padding: 20px 0;
   text-align: center;
 }
 #merch h2 {
-  font-size: 36px;
+  font-size: 30px;
   color: #8541b8;
   margin-bottom: 0px;
   transition: color 0.3s;
@@ -966,11 +718,11 @@ button.white {
 #merch button {
   padding: 12px 25px;
   border-radius: 50px;
-  border: none;
+  border: 1px solid #8541b8;
   background: #8541b8;
   color: #fff;
-  font-weight: 600;
   margin-bottom: 10px;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1016,6 +768,7 @@ button.white {
   flex: 1;
   padding: 12px 15px;
   border-radius: 50px;
+  margin-bottom: 10px;
   border: none;
   outline: none;
   font-size: 14px;
@@ -1105,6 +858,149 @@ button.white {
   }
   #work-in-progress p {
     font-size: 1em;
+  }
+}
+
+/* ------------------- FAQ ------------------- */
+#faq {
+  padding: 20px;
+}
+#faq h2 {
+  color: #8541b8;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.questions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0 !important;
+  padding: 0 !important;
+}
+.question #dugme {
+  width: 100%;
+  background-color: #2a2a3c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-bottom: 0; /* Uklonjen razmak između dugmadi */
+}
+.question p {
+  font-size: 22px;
+  max-height: 0;
+  opacity: 0;
+  line-height: 1.5;
+  margin: 10px;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+.question p span {
+  color: red;
+}
+.question iframe {
+  border-radius: 15px;
+}
+.d-arrow {
+  transition: transform 0.5s ease-in;
+  color: #fff;
+}
+.question p.show {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 0px 15px 30px 15px;
+}
+.question button .d-arrow.rotate {
+  transform: rotate(180deg);
+}
+.question a {
+  background-size: 200% 100%;
+  color: #8541b8;
+  background-position: -100%;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.question a:before {
+  content: '';
+  background: #8541b8;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.question a:hover {
+  background-position: 0;
+  color: #8441b8a1;
+}
+.question a:hover::before {
+  width: 100%;
+}
+.question form {
+  text-align: center;
+}
+.question input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  background: transparent;
+  width: 45%;
+}
+.question .faq {
+  max-width: 1200px;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #1a1a1a;
+  transition: 0.5s;
+  color: #fff;
+  letter-spacing: 4px;
+  font-weight: 800;
+  background-color: #1a1a1a;
+  border-radius: 0px 0px 50px 50px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .question #dugme {
+    padding: 15px 10px;
+    font-size: 20px;
+  }
+  .question p {
+    font-size: 15px;
+    margin: 10px;
+  }
+  .question iframe{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+  }
+  .question #dugme {
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .question p {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .question #dugme {
+    font-size: 13px;
   }
 }
 
@@ -1513,7 +1409,6 @@ button.white {
   max-width: 1200px;
   margin: 20px auto 0;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 #footer .bottom p,
 #footer .bottom a {
@@ -1593,45 +1488,11 @@ button.white {
   }
 }
 
-/* ------------------- MEDIA ------------------- */
-/* ------------------- MEDIA ------------------- */
-/* ------------------- MEDIA ------------------- */
-/* ------------------- MEDIA ------------------- */
-/* ------------------- MEDIA ------------------- */
-
-@media(max-width: 1080px){
-
-  #navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: fixed;
-    top: 0;
-    right: -250px;
-    height: 100vh;
-    width: 250px;
-    background-color: #e3e6f3;
-    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-    padding: 80px 0 0 10px;
-    transition: 0.3s;
-  }
-}
-@media (max-width: 477px) {
-
-
-
-  h2 {
-    font-size: 32px !important;
-  }
-}
-
 /* -------------------LINKTREE-------------------- */
 /* -------------------LINKTREE-------------------- */
 /* -------------------LINKTREE-------------------- */
 /* -------------------LINKTREE-------------------- */
 /* -------------------LINKTREE-------------------- */
-
 .links {
   text-align: center;
   margin-top: 20px;

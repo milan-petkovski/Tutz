@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="sr" oncontextmenu="return false">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#e3e6f3">
-    <meta property="og:title" content="Tutz Website"/>
-    <meta property="og:description" content="Informišite se o Tutzu, nabavite stvari iz shopa, gledajte live stream, pratite sve novosti ili dobijte pomoć od nas!"/>
+    <title>Tutz | Streamer Website</title>
+    <meta name="description" content="Pratite Tutza uživo, otkrijte ekskluzivne novosti, kupite merch i uživajte u svemu što Tutz nudi na jednom mestu!">
     <meta name="keywords" content="Tutz, tutz, tutz website, tutz site, website tutz, tutz linktree, tutz shop, shop tutz, linktree tutz">
-    <meta property="og:image" content="https://i.postimg.cc/Qxp2574g/logo.png"/>
-    <title>Tutz - Početna</title>
+    <meta name="theme-color" content="#e3e6f3">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tutz.rs/">
+    <meta property="og:title" content="Tutz | Streamer Website">
+    <meta property="og:description" content="Pratite Tutza uživo, otkrijte ekskluzivne novosti, kupite merch i uživajte u svemu što Tutz nudi na jednom mestu!">
+    <meta property="og:image" content="https://i.postimg.cc/Qxp2574g/logo.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -74,11 +77,12 @@
     </a>
 </section1>
 
-<footer class="section-p1" id="foot">
-	<div class="ja">
-	<p><a href="https://milanwebportal.com" target="_blank">Website <i class="fa-solid fa-bolt" style="color: orange"></i> by Milan Web Portal</a></p>
-	</div>
-	<p><i class="fa-solid fa-copyright"></i> 2022-2025 Tutz. All rights reserved.</p>
+<footer id="footer">
+  <div class="bottom">
+    <img src="images/Slike/icon.png" alt="Tutz logo" style="width: 15%;">
+    <p><a href="https://milanwebportal.com">Website <i class="fa-solid fa-bolt" style="color: orange"></i> by Milan Web Portal</a></p>
+    <p><i class="fa-solid fa-copyright"></i> 2022-2025 Tutz. Sva prava zadrzana</p>
+  </div>
 </footer>
 
 </body>
@@ -98,12 +102,12 @@ links.forEach(link => {
     });
   });
 });
-</script>
-<script>
-  document.getElementById("copy-email").addEventListener("click", function() {
-    const email = document.getElementById("email-link").textContent;
-    navigator.clipboard.writeText(email).then(() => {
-      alert("Email kopiran: " + email);
-    });
+
+
+document.getElementById("copy-email").addEventListener("click", function() {
+  const email = document.getElementById("email-link").textContent;
+  navigator.clipboard.writeText(email).then(() => {
+    alert("Email kopiran: " + email);
   });
+});
 </script>

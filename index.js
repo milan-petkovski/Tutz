@@ -11,7 +11,93 @@ window.addEventListener("load", fadeOut);
 
 //#endregion
 
+//#region - HEADER
+document.addEventListener("DOMContentLoaded", function () {
+       const navLinks = document.querySelectorAll(".nav-links li a");
+       const sections = document.querySelectorAll("section");
+       const headerHeight = document.querySelector("#header").offsetHeight; // Dobij visinu header-a
+
+       // Funkcija za uklanjanje aktivne klase sa svih linkova
+       function removeActiveClass() {
+           navLinks.forEach(link => link.classList.remove("active"));
+       }
+
+       // Funkcija za postavljanje aktivne klase na osnovu vidljive sekcije
+       function setActiveSection() {
+           if (window.scrollY <= 50) {
+               removeActiveClass();
+               const homeLink = document.querySelector('.nav-links li a[href="#hero"]');
+               if (homeLink) {
+                   homeLink.classList.add("active");
+               }
+               return;
+           }
+
+           let currentSection = null;
+           sections.forEach(section => {
+               const rect = section.getBoundingClientRect();
+               if (rect.top <= window.innerHeight * 0.3 && rect.bottom >= window.innerHeight * 0.3) {
+                   currentSection = section.getAttribute("id");
+               }
+           });
+
+           if (currentSection) {
+               removeActiveClass();
+               const activeLink = document.querySelector(`.nav-links li a[href="#${currentSection}"]`);
+               if (activeLink) {
+                   activeLink.classList.add("active");
+               }
+           }
+       }
+
+       // Dodaj pomeraj pri kliku na linkove
+       navLinks.forEach(link => {
+           link.addEventListener("click", function (e) {
+               e.preventDefault(); // Spreči podrazumevano skrolovanje
+               const targetId = this.getAttribute("href");
+               const targetSection = document.querySelector(targetId);
+               if (targetSection) {
+                   const scrollPosition = targetSection.offsetTop - headerHeight; // Oduzmi visinu header-a
+                   window.scrollTo({
+                       top: scrollPosition,
+                       behavior: "smooth" // Glatko skrolovanje
+                   });
+                   removeActiveClass();
+                   this.classList.add("active");
+               }
+           });
+       });
+
+       // Postavi aktivnu klasu na osnovu trenutne sekcije pri učitavanju stranice
+       const currentHash = window.location.hash || "#hero";
+       const activeLink = document.querySelector(`.nav-links li a[href="${currentHash}"]`);
+       if (activeLink) {
+           removeActiveClass();
+           activeLink.classList.add("active");
+       }
+
+       // Pratite skrolovanje
+       window.addEventListener("scroll", setActiveSection);
+
+       // Pratite promene u hash-u
+       window.addEventListener("hashchange", function () {
+           const currentHash = window.location.hash || "#hero";
+           const activeLink = document.querySelector(`.nav-links li a[href="${currentHash}"]`);
+           if (activeLink) {
+               removeActiveClass();
+               activeLink.classList.add("active");
+           }
+       });
+   });
+//#endregion
+
 //#region - API POENI
+function otvoriModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+function zatvoriModal() {
+  document.getElementById("modal").style.display = "none";
+}
 
 function proveriPoene(){
 	var username = document.getElementById("username").value;
@@ -60,40 +146,6 @@ function scrollFunction() {
 
 //#endregion
 
-//#region - MOBILNI MENI
-const bar = document.getElementById('bar');
-const close = document.getElementById('close');
-const nav = document.getElementById('navbar');
-
-if (bar) {
-    bar.addEventListener('click', () => {
-        nav.classList.add('active');
-        document.body.classList.add('no-scroll');
-        document.addEventListener('touchmove', preventScroll, { passive: false });
-    });
-}
-
-if (close) {
-    close.addEventListener('click', () => {
-        nav.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-        document.removeEventListener('touchmove', preventScroll);
-    });
-}
-
-document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !bar.contains(e.target) && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-        document.removeEventListener('touchmove', preventScroll);
-    }
-});
-
-function preventScroll(e) {
-    e.preventDefault();
-}
-//#endregion
-
 //#region - FAQ
 
 if (window.location.href.includes("/")) {
@@ -109,11 +161,3 @@ button.addEventListener('click',()=>{
 }	
 
 //#endregion
-
-
-function otvoriModal() {
-  document.getElementById("modal").style.display = "flex";
-}
-function zatvoriModal() {
-  document.getElementById("modal").style.display = "none";
-}
