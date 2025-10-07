@@ -90,15 +90,21 @@
 
 <script>
 const links = document.querySelectorAll('a.links');
-const trackingUrl = "https://script.google.com/macros/s/AKfycbxnDsVtJiqZj56l5oJfmKUFHx0z8dObDE1MVrclgfL5DgGFN3oiNyPCV6pMzYUi5Hw-/exec";
+const trackingUrl = "https://script.google.com/macros/s/AKfycbyOCTtQPbmF-J6b9lrGt18BS2PTMT181cxm2hvuqmIUcO1qduyDIxn8rUcViYfPnZXs/exec";
 
 links.forEach(link => {
   link.addEventListener('click', () => {
     fetch(trackingUrl, {
       method: "POST",
-      mode: "no-cors", // bitno zbog CORS
-      headers: {"Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ link: link.href })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Uspešno poslato:", data);
+    })
+    .catch(error => {
+      console.error("Greška:", error);
     });
   });
 });
