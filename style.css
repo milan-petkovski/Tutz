@@ -1556,7 +1556,7 @@ button.normal {
   color: #8541b8;
   font-size: 25px
 }
-.iframe-wrapper {
+.special .iframe-wrapper {
   position: relative;
   width: 90%;
   max-width: 560px;
@@ -1565,7 +1565,7 @@ button.normal {
   overflow: hidden;
   border-radius: 25px;
 }
-.iframe-wrapper iframe {
+.special .iframe-wrapper iframe {
   width: 100%;
   height: 100%;
   border: none;
