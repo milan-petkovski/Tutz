@@ -758,7 +758,7 @@ button.normal {
   position: relative;
 }
 #modal h2 {
-  font-size: 24px;
+  font-size: 30px !important;
   font-weight: 700;
   color: #fff !important;
 }
@@ -791,10 +791,9 @@ button.normal {
   color: #fff;
 }
 #rezultat {
-  margin-top: 12px;
+  margin: 2px 0 5px 0;
   font-weight: 600;
   font-size: 16px;
-  margin-bottom: 0;
   color: #fff !important;
 }
 #modal #close{
@@ -850,6 +849,7 @@ button.normal {
   }
   .input-group {
     flex-direction: column;
+    gap: 0;
   }
 }
 @media(max-width: 500px){
@@ -1008,11 +1008,11 @@ button.normal {
 }
 
 /* ------------------- SPONZORI ------------------- */
-#partneri {
+#sponzori {
   text-align: center;
   padding: 20px 0;
 }
-#partneri h2 {
+#sponzori h2 {
   font-size: 36px;
   color: #8541b8;
   margin-bottom: 10px;
@@ -1020,7 +1020,7 @@ button.normal {
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
+  gap: 20px;
   max-width: 1200px;
   margin: 10px auto;
 }
@@ -1528,7 +1528,7 @@ button.normal {
   height: 25px;
   margin-right: 15px;
 }
-#sponzori .links img,
+#partneri .links img,
 #linkovi .links img {
   width: 25px;
   height: 25px;
@@ -1546,19 +1546,24 @@ button.normal {
   justify-content: center;
   flex-direction: column;
   font-size: 20px;
-  padding: 10px 0;
+  padding: 0;
   text-align: center;
   text-decoration: none;
+  border: none;
 }
 .special:hover,
 .special b {
   background: none !important;
   color: #8541b8;
-  font-size: 25px
+  font-size: 25px;
+}
+.special b{
+  display: block;
+  flex-direction: row;
 }
 .special .iframe-wrapper {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 560px;
   aspect-ratio: 16 / 9;
   margin: 5px auto;
