@@ -1595,6 +1595,9 @@ button.normal {
   transition: 0.5s;
   color: #8541b8;
 }
+.profile-name a{
+  color: #8541b8;
+}
 .profile-email {
   text-align: center;
   font-size: 16px;
