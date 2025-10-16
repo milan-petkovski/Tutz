@@ -54,7 +54,7 @@
     <a href="#linkovi" class="sekcija">Linkovi <i class="fa-solid fa-angles-down fa-bounce"></i></a>
 
     <a href="https://streamlabs.com/Tutz762/tip" class="links" target="_blank">
-        <img src="images/Ikonice/paypal.png"> <span>Paypal<p id="giveaway">💜Podrška kanalu💜</p></span>
+        <img src="images/Ikonice/paypal.png"><span>Paypal<p id="giveaway">💜Podrška kanalu💜</p></span>
     </a>
 
     <a href="https://discord.gg/u3Sf9rTyDt" class="links" target="_blank">
@@ -95,14 +95,13 @@
 
 <script>
 const links = document.querySelectorAll('a.links');
-const trackingUrl = "https://script.google.com/macros/s/AKfycbwvaHrjSPrZtI2-hg_EdaGu9DF9HJN-wNeEhmzqJD3E74KJaUpAl19L8vbVnNVjNiZk/exec";
+const trackingUrl = "https://script.google.com/macros/s/AKfycbx5Z1TlGcmCg2hlM7ntjLwvuKmkrn_nJf1RnIWYv15pOHraA5mzz6Z9EHgcZYxw_z7M/exec";
 
 links.forEach(link => {
   link.addEventListener('click', () => {
     fetch(trackingUrl, {
       method: "POST",
       mode: "no-cors",
-      headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ link: link.href })
     });
   });
