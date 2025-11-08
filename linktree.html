@@ -99,23 +99,24 @@ const links = document.querySelectorAll('a.links');
 const trackingUrl = "https://script.google.com/macros/s/AKfycbxzfx7x80XwlS9iBOSAgQpng9L3kDZ_GJAALQbsCC3aZvi8_PjmV9Z25QsrXUB-vpgY/exec";
 
 links.forEach(link => {
-  link.addEventListener('click', () => {
+  const sendClick = () => {
     fetch(trackingUrl, {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify({ link: link.href })
     });
-  });
-});
+  };
 
-link.addEventListener('click', sendClick);
+  // tvoj originalni levi klik
+  link.addEventListener('click', sendClick);
 
-  // Srednji klik (točkić)
+  // dodatak samo za srednji klik (scroll točkić)
   link.addEventListener('mousedown', (e) => {
-    if (e.button === 1) { // 1 = srednji klik
+    if (e.button === 1) {
       sendClick();
     }
   });
+});
 
 document.getElementById("copy-email").addEventListener("click", function() {
   const email = document.getElementById("email-link").textContent;
