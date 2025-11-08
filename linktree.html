@@ -96,18 +96,26 @@
 
 <script>
 const links = document.querySelectorAll('a.links');
-const trackingUrl = "https://script.google.com/macros/s/AKfycbz1j0l-IQr60IflS2c1W6VrLPujMRcBeYFqZq9gl1aqIJwzuAypkTBmyyoCEVZ7VqUv/exec";
+const trackingUrl = "https://script.google.com/macros/s/AKfycbxzfx7x80XwlS9iBOSAgQpng9L3kDZ_GJAALQbsCC3aZvi8_PjmV9Z25QsrXUB-vpgY/exec";
 
 links.forEach(link => {
   link.addEventListener('click', () => {
     fetch(trackingUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
       body: JSON.stringify({ link: link.href })
     });
   });
 });
 
+link.addEventListener('click', sendClick);
+
+  // Srednji klik (točkić)
+  link.addEventListener('mousedown', (e) => {
+    if (e.button === 1) { // 1 = srednji klik
+      sendClick();
+    }
+  });
 
 document.getElementById("copy-email").addEventListener("click", function() {
   const email = document.getElementById("email-link").textContent;
