@@ -46,11 +46,16 @@
         <div id="result-section" class="hidden">
             <h2>Kviz Završen!</h2>
             <div id="final-score"></div>
-            <div id="final-title"></div>
-            <p class="result-description">
-                Želiš li da probaš ponovo? <br> Saznaj da li si bolji lovac, izviđač ili možda opasan kultista!
-            </p>
-            <button id="restart-button" class="btn">Ponovi Kviz</button>
+            <p class="result-description">Želite da dobijete <b>rezultat i analizu</b> svoje klase na svoju e-mail adresu?</p>
+            
+            <div id="email-submission">
+                <input type="email" id="email-input" placeholder="Unesite vašu E-mail adresu" required>
+                <button id="submit-email-button" class="btn email-btn">Pošalji Rezultate</button>
+                <p id="email-error" class="error-msg"></p>
+                <p id="email-success" class="success-msg hidden"></p>
+            </div>
+            <button id="restart-button" class="btn hidden">Ponovi Kviz</button>
+            <button id="restart-button-after-email" class="btn hidden">Ponovi Kviz</button>
         </div>
 </div>
 
@@ -616,10 +621,14 @@ const questionNumberEl = document.getElementById('question-number');
 const questionTextEl = document.getElementById('question-text');
 const answersContainer = document.getElementById('answers-container');
 const finalScoreEl = document.getElementById('final-score');
-const finalTitleEl = document.getElementById('final-title');
-const restartButton = document.getElementById('restart-button');
 const errorMessageEl = document.getElementById('error-message');
 
+// NOVI DOM elementi za e-mail
+const emailInput = document.getElementById('email-input');
+const submitEmailButton = document.getElementById('submit-email-button');
+const emailErrorEl = document.getElementById('email-error');
+const emailSuccessEl = document.getElementById('email-success');
+const restartButtonAfterEmail = document.getElementById('restart-button-after-email');
 
 // #region - GLAVNE FUNKCIJE KVIZA
 function showQuestion() {
@@ -657,7 +666,95 @@ function showResult() {
     resultSection.classList.remove('hidden');
 
     finalScoreEl.textContent = `Ukupno ste osvojili: ${totalScore} poena.`;
-    finalTitleEl.innerHTML = `Vaša klasa je: <strong>${getFinalTitle(totalScore)}</strong>`;
+
+    emailInput.value = ''; 
+    emailErrorEl.textContent = '';
+    emailSuccessEl.classList.add('hidden');
+    restartButtonAfterEmail.classList.add('hidden'); 
+    submitEmailButton.classList.remove('hidden');
+    emailInput.classList.remove('hidden');
+    emailInput.disabled = false;
+    submitEmailButton.disabled = false;
+    submitEmailButton.textContent = 'Pošalji Rezultate';
+}
+function isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+function submitEmail() {
+    GOOGLE_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3dbzwmAsjoy9g7rky-EN5InBvS1dotpyyfVxqDyW8TFI0YKwHcdsU97kXxIm27vRm/exec"
+
+    const email = emailInput.value.trim();
+    emailErrorEl.textContent = '';
+    emailSuccessEl.classList.add('hidden');
+
+    if (!email) {
+        emailErrorEl.textContent = 'Molimo unesite e-mail adresu.';
+        return;
+    }
+    if (!isValidEmail(email)) {
+        emailErrorEl.textContent = 'Uneta e-mail adresa nije validna.';
+        return;
+    }
+
+    const userClass = getFinalTitle(totalScore);
+    
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('score', totalScore);
+    formData.append('userClass', userClass);
+
+    // Privremeno onemogući dugme i polje
+    submitEmailButton.disabled = true;
+    emailInput.disabled = true;
+    submitEmailButton.textContent = 'Slanje...';
+    emailErrorEl.textContent = ''; 
+
+    // Slanje podataka preko Fetch API-ja
+    fetch(GOOGLE_APP_SCRIPT_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'cors'
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        // Prikaz rezultata i resetovanje forme
+        emailInput.classList.add('hidden');
+        submitEmailButton.classList.add('hidden');
+        restartButtonAfterEmail.classList.remove('hidden');
+
+        if (data.status === 'success') {
+            // USPEŠNO SAČUVANO
+            emailSuccessEl.innerHTML = `Vaš rezultat je uspešno sačuvan! <br> Vaša klasa je: <strong>${data.userClass}</strong>.`;
+            emailSuccessEl.classList.remove('hidden');
+        } else if (data.status === 'duplicate') {
+             // DUPLIKAT
+             emailSuccessEl.innerHTML = `<strong>${data.message}</strong> <br> Vaša klasa je: <strong>${data.userClass}</strong>.`;
+             emailSuccessEl.classList.remove('hidden');
+        } else {
+            // Generalna greška 
+            emailErrorEl.textContent = data.message || 'Greška prilikom obrade rezultata. Pokušajte ponovo.';
+            
+            // Otkrij klasu korisniku uprkos grešci
+            emailSuccessEl.innerHTML = `NAPOMENA: Došlo je do greške u sistemu. <br> Vaša klasa je: <strong>${userClass}</strong>`;
+            emailSuccessEl.classList.remove('hidden');
+        }
+    })
+    .catch(error => {
+        console.error('Došlo je do greške prilikom slanja:', error);
+        emailErrorEl.textContent = 'Došlo je do greške u komunikaciji sa serverom.';
+        submitEmailButton.disabled = false;
+        emailInput.disabled = false;
+        submitEmailButton.textContent = 'Pošalji Rezultate';
+        
+        // Otkrij klasu korisniku uprkos grešci u slanju
+        emailInput.classList.add('hidden');
+        submitEmailButton.classList.add('hidden');
+        restartButtonAfterEmail.classList.remove('hidden');
+        emailSuccessEl.innerHTML = `NAPOMENA: Rezultati NISU sačuvani zbog greške. <br> Vaša klasa je: <strong>${userClass}</strong>`;
+        emailSuccessEl.classList.remove('hidden');
+    });
 }
 function getFinalTitle(score) {
     if (score >= 75) {
@@ -669,7 +766,7 @@ function getFinalTitle(score) {
     } else if (score >= 15) {
         return "POČETNIK U ŠUMI";
     } else {
-        return "KULTISTA / ŽRTVA"; 
+        return "KULTISTA"; 
     }
 }
 function restartQuiz() {
@@ -677,6 +774,16 @@ function restartQuiz() {
     totalScore = 0;
     resultSection.classList.add('hidden');
     welcomeSection.classList.remove('hidden');
+    emailInput.classList.remove('hidden');
+    submitEmailButton.classList.remove('hidden');
+    emailSuccessEl.classList.add('hidden');
+    restartButtonAfterEmail.classList.add('hidden');
+    emailInput.value = '';
+    emailErrorEl.textContent = '';
+    emailInput.disabled = false;
+    submitEmailButton.disabled = false;
+    submitEmailButton.textContent = 'Pošalji Rezultate';
+
     shuffledQuestions = shuffleArray([...questions]).slice(0, QUIZ_LENGTH);
 }
 function shuffleArray(array) {
@@ -697,42 +804,12 @@ function startQuiz() {
 }
 shuffledQuestions = shuffleArray([...questions]).slice(0, QUIZ_LENGTH);
 startButton.addEventListener('click', startQuiz); 
-restartButton.addEventListener('click', restartQuiz);
+
+// NOVI EVENT LISTENERS
+submitEmailButton.addEventListener('click', submitEmail);
+restartButtonAfterEmail.addEventListener('click', restartQuiz);
 //#endregion
 </script>
-
-<style>
-#header {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 150px;
-    background-color: transparent !important;
-}
-.logo img {
-    height: 60px; 
-    width: auto;
-    filter: invert(100%) brightness(150%);
-    display: block;
-    transition: transform 0.3s;
-}
-.logo img:hover {
-    transform: scale(1.05);
-}
-.linktree {
-    color: #f0f0f0;
-    font-size: 26px;
-    transition: 0.3s;
-}
-.linktree:hover {
-    color: #8541b8;
-}
-</style>
 
 <style>
 /* --- PROMENLJIVE --- */
@@ -744,7 +821,6 @@ restartButton.addEventListener('click', restartQuiz);
     --color-danger: #ff4d4d; /* Za poruke o greškama */
     --font-primary: 'Poppins', sans-serif;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -764,7 +840,6 @@ body {
     background-image: radial-gradient(#222222 1px, transparent 0);
     background-size: 40px 40px;
 }
-
 .container {
     background-color: #1a1a1a;
     padding: 40px;
@@ -785,14 +860,12 @@ h1 {
     color: #fff;
     text-shadow: 0 0 15px rgba(144, 238, 144, 0.8), 0 0 5px rgba(144, 238, 144, 0.6);
 }
-
 h2 {
     font-size: 1.8em;
     margin-top: 10px;
     margin-bottom: 25px;
     color: var(--color-primary);
 }
-
 .intro-text, .result-description {
     font-size: 1.1em;
     margin: 20px auto 40px auto;
@@ -800,14 +873,17 @@ h2 {
     color: #b0b0b0;
     line-height: 1.6;
 }
-
+.result-description{
+    padding: 0;
+    margin: 15px auto;
+    color: #fff;
+}
 #question-number {
     font-size: 1.4em;
     color: var(--color-accent);
     margin-bottom: 10px;
     text-shadow: 0 0 5px rgba(144, 238, 144, 0.4);
 }
-
 #question-text {
     font-size: 1.5em;
     margin-bottom: 30px;
@@ -830,7 +906,6 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 .btn:hover {
     background-color: #aaffaa;
     color: #000;
@@ -851,13 +926,11 @@ h2 {
     background-color: var(--color-button-bg);
     color: var(--color-primary);
     border: 1px solid #3a3a3a;
-    /* Fiksna visina za desktop radi uniformnosti */
     min-height: 90px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     padding: 10px;
-    
     font-size: 1.1em;
     border-radius: 8px;
     cursor: pointer;
@@ -866,7 +939,6 @@ h2 {
     line-height: 1.4;
     font-weight: 400;
 }
-
 .answer-btn:hover {
     background-color: #2a2a2a;
     border-color: var(--color-accent);
@@ -881,27 +953,50 @@ h2 {
     margin: 20px 0 10px 0;
     color: #b0b0b0;
 }
-
-#final-title {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    font-weight: bold;
-    color: var(--color-accent);
-    text-shadow: 0 0 20px rgba(144, 238, 144, 0.9);
-}
-
-#final-title strong {
-    display: block;
-    margin-top: 15px;
-    font-size: 0.8em; 
-    color: #f0f0f0;
-    text-shadow: none;
-}
-
 .error-msg {
     color: var(--color-danger);
     font-weight: 700;
     margin-top: 15px;
+}
+
+/* NOVI STILOVI ZA E-MAIL FORMU */
+#email-submission {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 400px;
+}
+#email-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 2px solid #3a3a3a;
+    background-color: #222;
+    color: var(--color-primary);
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+#email-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(144, 238, 144, 0.5);
+}
+.email-btn {
+    width: 100%;
+    padding: 15px;
+}
+.success-msg {
+    color: var(--color-success);
+    font-weight: 700;
+    margin: 15px;
+    font-size: 1.1em;
+    padding: 15px;
+    border: 1px solid var(--color-success);
+    border-radius: 5px;
+    background-color: rgba(50, 205, 50, 0.1);
 }
 
 /* Skriveni elementi */
@@ -909,7 +1004,7 @@ h2 {
     display: none;
 }
 
-/* --- HEADER STILIZACIJA (Originalna, blago modifikovana) --- */
+/* --- HEADER STILIZACIJA --- */
 #header {
     position: fixed; 
     top: 0;
@@ -920,7 +1015,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 20px 150px;
-    background-color: rgba(18, 18, 18, 0.9); /* Dodatna pozadina za fiksni header */
+    background-color: transparent !important;
 }
 .logo img {
     height: 60px; 
@@ -958,7 +1053,6 @@ h2 {
     }
     .container {
         padding: 25px;
-        /* Manja gornja margina jer je logo manji */
         margin-top: 70px; 
     }
     h1 {
@@ -970,17 +1064,18 @@ h2 {
     #question-text {
         font-size: 1.3em;
     }
-    /* Prelazak sa 2 na 1 kolonu za odgovore */
     .answers-grid {
         grid-template-columns: 1fr;
     }
-    /* Uklanjanje fiksne visine da bi se prilagodila tekstu na mobilnom */
     .answer-btn {
         min-height: auto; 
-        height: auto; /* Bitno za resetovanje */
-        padding: 15px 10px; /* Veći padding za lakši klik */
+        height: auto; 
+        padding: 15px 10px; 
         font-size: 1.05em;
-        white-space: normal; /* Omogućava prelamanje teksta */
+        white-space: normal; 
+    }
+    #email-submission {
+        max-width: 100%;
     }
 }
 
@@ -1001,9 +1096,6 @@ h2 {
     .btn {
         padding: 10px 20px;
         font-size: 1em;
-    }
-    #final-title {
-        font-size: 2em;
     }
     .answer-btn {
         font-size: 1em;
