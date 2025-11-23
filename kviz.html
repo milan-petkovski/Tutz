@@ -66,417 +66,408 @@
 const QUIZ_LENGTH = 30;
 const questions = [
     {
-        question: "Koju ulogu najčešće biraš na početku 99 Noći U Šumi?",
+        question: "Koju klasu obično biraš na početku 99 Noći u Šumi?",
         answers: [
-            { text: "Preživeli (Survivor)", score: 1 },
             { text: "Lovac (Hunter)", score: 3 },
-            { text: "Izviđač (Scout)", score: 2 },
+            { text: "Preživeli (Camper)", score: 2 },
+            { text: "Izviđač (Scavenger)", score: 1 },
             { text: "Kultista (Cultist)", score: 0 }
         ]
     },
     {
-        question: "Šta je tvoj prvi prioritet kada padne noć?",
+        question: "Kada padne prva noć, šta uradiš kao prvo?",
         answers: [
-            { text: "Pronalaženje drva za vatru", score: 2 },
-            { text: "Izrada boljeg alata/oružja", score: 3 },
-            { text: "Izgradnja ili ojačavanje skloništa", score: 1 },
-            { text: "Traženje drugih igrača da se pridružiš grupi", score: 0 }
+            { text: "Skupljam drva i palim vatru", score: 3 },
+            { text: "Pravim bolje oružje ili alat", score: 2 },
+            { text: "Ojačavam sklonište ili gradim zid", score: 1 },
+            { text: "Tražim saveznike i pravim tim", score: 0 }
         ]
     },
     {
-        question: "Koji je najvažniji resurs za preživljavanje?",
+        question: "Koji resurs smatraš najvažnijim za preživljavanje?",
         answers: [
-            { text: "Meso", score: 1 },
-            { text: "Drvo", score: 2 },
-            { text: "Kamen", score: 3 },
+            { text: "Drvo", score: 3 },
+            { text: "Hrana (meso)", score: 2 },
+            { text: "Željezo (Iron)", score: 1 },
             { text: "Konopac", score: 0 }
         ]
     },
     {
-        question: "Koji je najopasniji neprijatelj u ranoj fazi igre?",
+        question: "Šta je najopasniji neprijatelj u ranoj fazi igre?",
         answers: [
             { text: "Medved", score: 3 },
-            { text: "Jelen", score: 1 },
-            { text: "Sova", score: 2 },
+            { text: "Vuk", score: 2 },
+            { text: "Sova (The Owl)", score: 1 },
             { text: "Glad i žeđ", score: 0 }
         ]
     },
     {
-        question: "Ako naiđeš na zagonetnu poruku u šumi, šta radiš?",
+        question: "Ako na drvetu nađeš nepoznate simbole, šta uradiš?",
         answers: [
-            { text: "Ignorišeš je i nastavljaš sa skupljanjem resursa", score: 1 },
-            { text: "Pažljivo je proučavaš, tražeći skriveno značenje", score: 3 },
-            { text: "Fotografišeš je i pitaš na serveru za pomoć", score: 2 },
-            { text: "Baciš kamen na nju, za svaki slučaj", score: 0 }
+            { text: "Ignorišem i nastavljam dalje", score: 1 },
+            { text: "Proučavam ih, tražeći skriveno značenje", score: 3 },
+            { text: "Fotografisem i pitam ostale igrače", score: 2 },
+            { text: "Palim vatru da ih uklonim", score: 0 }
         ]
     },
     {
-        question: "Koje oružje preferiraš u borbi?",
+        question: "Koje oružje najradije koristiš?",
         answers: [
-            { text: "Sekiru", score: 2 },
+            { text: "Sekira", score: 2 },
             { text: "Mač", score: 3 },
             { text: "Luk i strela", score: 1 },
-            { text: "Fist", score: 0 }
+            { text: "Pištolj (Revolver)", score: 0 }
         ]
     },
     {
         question: "Šta najviše ceniš kod saigrača?",
         answers: [
-            { text: "Borbenost i hrabrost", score: 3 },
-            { text: "Opreznost i planiranje", score: 2 },
-            { text: "Sposobnost skupljanja resursa", score: 1 },
-            { text: "Dobar smisao za humor", score: 0 }
+            { text: "Hrabar i borben", score: 3 },
+            { text: "Pametan i oprezan", score: 2 },
+            { text: "Vešt u skupljanju resursa", score: 1 },
+            { text: "Dobar humor i zabavu", score: 0 }
         ]
     },
     {
-        question: "Na kojoj noći obično imaš najveće poteškoće?",
+        question: "U kojim noćima obično imaš najviše problema?",
         answers: [
             { text: "Noći 1-30", score: 1 },
-            { text: "Noći 31-70", score: 2 },
-            { text: "Noći 71-99", score: 3 },
-            { text: "Nikada nemam poteškoće", score: 0 }
+            { text: "Noći 31-60", score: 2 },
+            { text: "Noći 61-99", score: 3 },
+            { text: "Nikada, prilagodim se", score: 0 }
         ]
     },
     {
-        question: "Šta misliš da je ultimativni cilj igre?",
+        question: "Šta misliš da je glavni cilj igre?",
         answers: [
             { text: "Preživeti 99 noći", score: 1 },
-            { text: "Pobeći iz šume", score: 3 },
-            { text: "Otkriti tajnu šume", score: 2 },
-            { text: "Postati najjači kultista", score: 0 }
+            { text: "Pronaći izlaz iz šume", score: 3 },
+            { text: "Otkriti sve tajne šume", score: 2 },
+            { text: "Postati vođa kultista", score: 0 }
         ]
     },
     {
-        question: "Kada Kultisti napadaju, tvoja prva reakcija je",
+        question: "Kada naiđu kultisti, šta prvo radiš?",
         answers: [
-            { text: "Beži i sakrij se", score: 1 },
-            { text: "Pokušaš da ih napadneš iz zasede", score: 3 },
-            { text: "Postaviš zamke oko baze", score: 2 },
-            { text: "Pokušaš da pregovaraš", score: 0 }
+            { text: "Bežim i sakrijem se", score: 1 },
+            { text: "Napadam iz zasede", score: 3 },
+            { text: "Postavljam zamke oko baze", score: 2 },
+            { text: "Pokušavam pregovarati", score: 0 }
         ]
     },
     {
-        question: "Omiljeno mesto za kampovanje je",
+        question: "Omiljeno mesto za kampovanje?",
         answers: [
-            { text: "Duboko u šumi, daleko od svakoga", score: 2 },
-            { text: "Blizu reke za vodu i ribolov", score: 1 },
-            { text: "U blizini ulaza u pećinu", score: 3 },
-            { text: "Na sredini otvorenog polja", score: 0 }
+            { text: "Duboka šuma noću", score: 2 },
+            { text: "Blizu reke ili jezera", score: 1 },
+            { text: "Na ulazu u pećinu (shelter)", score: 3 },
+            { text: "Na otvorenom polju", score: 0 }
         ]
     },
     {
-        question: "Šta radiš kada ti se torba napuni?",
+        question: "Šta uradiš kad ti je inventar pun?",
         answers: [
-            { text: "Baciš manje vredne resurse (npr štapove)", score: 1 },
-            { text: "Brzo trčiš nazad do baze da sve ostaviš", score: 2 },
-            { text: "Izradiš torbu (Backpack) da povećaš prostor", score: 3 },
-            { text: "Nastavljaš, ne primećuješ", score: 0 }
+            { text: "Bacim manje važne stvari", score: 1 },
+            { text: "Odmah vraćam u bazu i praznim torbu", score: 2 },
+            { text: "Izradim torbu (Backpack) za više prostora", score: 3 },
+            { text: "Nastavljam da sakupljam, ignorisano", score: 0 }
         ]
     },
     {
-        question: "Kada čuješ čudne zvukove iz mraka",
+        question: "Kada čuješ čudne zvuke u mraku, šta radiš?",
         answers: [
-            { text: "Pališ baklju i istražuješ", score: 3 },
-            { text: "Oprezno se sakriješ u grmlje", score: 2 },
-            { text: "Pojačavaš vatru i ne mrdaš", score: 1 },
-            { text: "Pevušis da rasteraš strah", score: 0 }
+            { text: "Palim baklju i idem da istražim", score: 3 },
+            { text: "Sakrijem se i čekam da prođe", score: 2 },
+            { text: "Zapaljujem vatru jače i ostajem na mestu", score: 1 },
+            { text: "Pevam da rasteram strah", score: 0 }
         ]
     },
     {
-        question: "Koja je tvoja taktika protiv Sove?",
+        question: "Kakav je tvoj plan protiv Sove (The Owl)?",
         answers: [
-            { text: "Gađanje lukom sa udaljenosti", score: 2 },
-            { text: "Čekanje zore u skrovištu", score: 1 },
-            { text: "Direktan napad mačem/sekirom", score: 3 },
-            { text: "Pokušaj da se sprijateljiš", score: 0 }
+            { text: "Gađam je lukom sa bezbedne udaljenosti", score: 2 },
+            { text: "Skrivam se i čekam zoru", score: 1 },
+            { text: "Napadam direktno mačem ili sekirom", score: 3 },
+            { text: "Pokušavam da je smirim/prijateljišem se", score: 0 }
         ]
     },
     {
-        question: "Najveća greška u 99 Noći U Šumi je",
+        question: "Koja je najveća greška koju vidiš kod preživljavanja?",
         answers: [
             { text: "Izlazak napolje bez oružja", score: 3 },
-            { text: "Zaboraviti na zalihe hrane i vode", score: 2 },
-            { text: "Preterano oslanjanje na druge", score: 1 },
-            { text: "Pravljenje male i neefikasne baze", score: 0 }
+            { text: "Zaboraviti zalihu hrane i vode", score: 2 },
+            { text: "Preveliki oslanjanje na druge", score: 1 },
+            { text: "Loša izgradnja baze", score: 0 }
         ]
     },
     {
-        question: "Šta bi radije žrtvovao za tim?",
+        question: "Šta bi najradije žrtvovao za tim?",
         answers: [
-            { text: "Sve svoje resurse", score: 1 },
-            { text: "Svoj najvredniji alat (npr zlatni kramp)", score: 2 },
-            { text: "Svoj život da spasiš druge", score: 3 },
-            { text: "Ništa, svako za sebe", score: 0 }
+            { text: "Sve resurse koje imam", score: 1 },
+            { text: "Najbolje oružje/alat", score: 2 },
+            { text: "Vlastiti život za spas drugih", score: 3 },
+            { text: "Ništa, svako sam za sebe", score: 0 }
         ]
     },
     {
-        question: "Koji nivo 'Crafting Station'-a je minimum za tebe?",
+        question: "Koji je minimalni nivo Crafting Station koji ti treba?",
         answers: [
             { text: "Nivo 1 (Osnovni)", score: 1 },
             { text: "Nivo 2 (Srednji)", score: 2 },
             { text: "Nivo 3 (Napredni)", score: 3 },
-            { text: "Ne koristim 'Crafting Station'", score: 0 }
+            { text: "Ne koristim Crafting Station", score: 0 }
         ]
     },
     {
-        question: "Koliko često proveravaš 'Lore' i 'Tajne' igre?",
+        question: "Koliko često proučavaš priču i tajne igre?",
         answers: [
-            { text: "Nikad, samo preživljavam", score: 1 },
-            { text: "Povremeno, ako imam vremena", score: 2 },
-            { text: "Stalno, to je najvažniji deo", score: 3 },
+            { text: "Nikad, samo se fokusiram na preživljavanje", score: 1 },
+            { text: "Povremeno, kad imam vremena", score: 2 },
+            { text: "Stalno, to je jako bitan deo igre", score: 3 },
             { text: "Samo gledam šta drugi kažu na YouTube-u", score: 0 }
         ]
     },
     {
-        question: "Koji bi predmet poneo u šumu ako bi mogao samo jedan?",
+        question: "Koji jedan predmet bi ponio u šumu?",
         answers: [
-            { text: "Najbolji mač", score: 3 },
+            { text: "Najbolji mač koji imam", score: 3 },
             { text: "Kanister vode", score: 2 },
             { text: "Kompas", score: 1 },
-            { text: "Plišanu igračku za sreću", score: 0 }
+            { text: "Plišana igračka za sreću", score: 0 }
         ]
     },
     {
-        question: "Koja je tvoja strategija protiv Jelena?",
+        question: "Kako se suprotstavljaš napadu jelena (The Deer)?",
         answers: [
-            { text: "Odbrambena, čuvam se u bazi", score: 1 },
-            { text: "Agresivna, napad na glavu", score: 3 },
-            { text: "Ometanje sa bakljama i trčanje", score: 2 },
-            { text: "Pokušaj da ga zaobiđeš", score: 0 }
+            { text: "Defanzivno, ostajem u bazi", score: 1 },
+            { text: "Agresivno, pucam u glavu prvo", score: 3 },
+            { text: "Ometam bakljom i bežim", score: 2 },
+            { text: "Pokušavam da zaobiđem i izbegnem", score: 0 }
         ]
     },
     {
-        question: "Koliko brzo menjaš lokaciju baze?",
+        question: "Kako često menjaš lokaciju baze?",
         answers: [
-            { text: "Kada bazu unište", score: 1 },
-            { text: "Nakon svake veće bitke", score: 2 },
-            { text: "Nikada, moja baza je neprobojna", score: 3 },
-            { text: "Svaku noć, volim da lutam", score: 0 }
+            { text: "Samo kada me prisilno izbace", score: 1 },
+            { text: "Posle svake velike bitke", score: 2 },
+            { text: "Nikad, moja je baza savršena", score: 3 },
+            { text: "Svaku noć (vole lutati)", score: 0 }
         ]
     },
     {
-        question: "Tvoj stav prema trgovcima u igri je",
+        question: "Kako gledaš na trgovce u igri?",
         answers: [
-            { text: "Prijatelj, ali samo ako mi treba nešto", score: 1 },
-            { text: "Izvor najboljih alata i oružja", score: 3 },
-            { text: "Izvor informacija i zaliha", score: 2 },
-            { text: "Sumnjiv lik kojeg treba izbegavati", score: 0 }
+            { text: "Prijateljski, korisni kad mi nešto treba", score: 1 },
+            { text: "Glavni su izvor oružja i alata", score: 3 },
+            { text: "Dobri za informacije i zalihe", score: 2 },
+            { text: "Sumnjičavo, izbegavam ih", score: 0 }
         ]
     },
     {
-        question: "Najveća pretnja igri je brisanje servera šta radiš?",
+        question: "Ako je server u opasnosti od brisanja, šta radiš?",
         answers: [
-            { text: "Prestajem da igram", score: 0 },
-            { text: "Počnem iz početka, to je deo zabave", score: 2 },
-            { text: "Štedim resurse za novi početak", score: 1 },
-            { text: "Koristim svaku priliku da uništim tuđe baze", score: 3 }
+            { text: "Prestanem da igram", score: 0 },
+            { text: "Počinjem ispočetka (to je deo zabave)", score: 2 },
+            { text: "Štedim resurse za novi start", score: 1 },
+            { text: "Uništavam tuđe baze iz osvete", score: 3 }
         ]
     },
     {
-        question: "Šta misliš o 'Kultist' klasi?",
+        question: "Šta misliš o igračima-kultistima?",
         answers: [
-            { text: "Najgora, treba je izbeći", score: 1 },
-            { text: "Dobar izvor resursa kada ih pobediš", score: 2 },
-            { text: "Zanimljiv, ali previše rizičan izbor", score: 3 },
-            { text: "Pokušavaš da se 'teamaš' sa njima", score: 0 }
+            { text: "Loši su, treba ih izbegavati", score: 1 },
+            { text: "Dobar su izvor resursa kad pobediš", score: 2 },
+            { text: "Zanimljivi su, ali rizični", score: 3 },
+            { text: "Pridružujem im se i tečim", score: 0 }
         ]
     },
     {
-        question: "Šta radiš sa 'Diamond' resursom?",
+        question: "Šta radiš sa Diamond resursom?",
         answers: [
-            { text: "Prodaješ ga za hranu", score: 1 },
-            { text: "Koristiš ga za najnaprednije 'Crafting' recepte", score: 3 },
-            { text: "Čuvaš ga za kraj igre", score: 2 },
-            { text: "Baciš ga jer misliš da je nebitan", score: 0 }
+            { text: "Prodajem ga za hranu", score: 1 },
+            { text: "Koristim za najnaprednije recepte", score: 3 },
+            { text: "Čuvam ga za kraj igre", score: 2 },
+            { text: "Ignorišem jer mislim da je nebitan", score: 0 }
         ]
     },
     {
-        question: "Ako naiđeš na 'Abandoned Cabin', šta radiš?",
+        question: "Ako nađeš napuštenu kolibu, šta uradiš?",
         answers: [
-            { text: "Brzo ulaziš, uzimaš sve i odlaziš", score: 1 },
-            { text: "Oprezno proveravaš zamke pre ulaska", score: 2 },
-            { text: "Koristiš ga kao privremeno utočište", score: 3 },
-            { text: "Spališ ga, da ne bi pao u pogrešne ruke", score: 0 }
+            { text: "Brzo ulazim, uzmem sve i idem", score: 1 },
+            { text: "Pažljivo tražim zamke", score: 2 },
+            { text: "Koristim je kao privremeni šator", score: 3 },
+            { text: "Spaljujem je, ne želim iko drugi koristi", score: 0 }
         ]
     },
     {
-        question: "Koji je najbolji način za dobijanje krzna?",
+        question: "Najbolji način za dobijanje krzna?",
         answers: [
-            { text: "Lov na manje životinje", score: 1 },
-            { text: "Lov na medveda", score: 3 },
-            { text: "Traženje po Chest-ovima", score: 2 },
-            { text: "Moljenje drugih igrača da daju", score: 0 }
+            { text: "Lovim male zveri blizu baze", score: 1 },
+            { text: "Lovim medvede", score: 3 },
+            { text: "Tražim u sanducima i chestovima", score: 2 },
+            { text: "Moli druge igrače da ti daju", score: 0 }
         ]
     },
     {
         question: "Kada je najbolje vreme za istraživanje?",
         answers: [
-            { text: "U ranim jutarnjim satima", score: 2 },
+            { text: "Ujutru (posle svitanja)", score: 2 },
             { text: "Tokom dana", score: 3 },
             { text: "Predveče", score: 1 },
-            { text: "Usred noći", score: 0 }
+            { text: "U ponoć", score: 0 }
         ]
     },
     {
         question: "Šta radiš sa viškom mesa?",
         answers: [
-            { text: "Praviš 'Meat Skewers' za bolju efikasnost", score: 3 },
-            { text: "Čuvaš ga u 'Chest'-u", score: 2 },
-            { text: "Deliš ga sa saigračima", score: 1 },
-            { text: "Baciš ga, previše je zauzeto u inventaru", score: 0 }
+            { text: "Pravim ražnjiće (skewers) za bolju efikasnost", score: 3 },
+            { text: "Čuvam ga u sanduku (Chest)", score: 2 },
+            { text: "Dijelim ga sa saigračima", score: 1 },
+            { text: "Bacim jer je zauzima mesto", score: 0 }
         ]
     },
     {
-        question: "Kako reaguješ na iznenadnu grmljavinu i kišu?",
+        question: "Šta uradiš kada krene grmljavina?",
         answers: [
-            { text: "Trčiš nazad u bazu", score: 1 },
-            { text: "Nastavljaš sa onim što radiš, to je samo kiša", score: 3 },
-            { text: "Praviš brzi zaklon (Shelter)", score: 2 },
-            { text: "Pokušavaš da uhvatiš grom u bocu", score: 0 }
+            { text: "Trčim nazad u bazu", score: 1 },
+            { text: "Ignorišem i nastavim raditi", score: 3 },
+            { text: "Brzo pravim zaklon (Shelter)", score: 2 },
+            { text: "Lovim gromove (za sreću)", score: 0 }
         ]
     },
     {
-        question: "Koji je tvoj glavni izvor za popravku oružja?",
+        question: "Čime popravljaš oružje?",
         answers: [
-            { text: "Stone", score: 1 },
-            { text: "Iron", score: 3 },
-            { text: "Scrap Metal", score: 2 },
-            { text: "Ne popravljam, pravim novo", score: 0 }
+            { text: "Kamenom", score: 1 },
+            { text: "Željezom (Iron)", score: 3 },
+            { text: "Otpadnim metalom (Scrap)", score: 2 },
+            { text: "Nikad ne popravljam, radim novo", score: 0 }
         ]
     },
     {
-        question: "Koji od ovih neprijatelja se kreće najbrže?",
+        question: "Koji neprijatelj se kreće najbrže?",
         answers: [
-            { text: "Šišmiš", score: 1 },
-            { text: "Medved", score: 2 },
-            { text: "Sova", score: 3 },
-            { text: "Jelen", score: 0 }
+            { text: "Šišmiš (The Bat)", score: 3 },
+            { text: "Jelen (The Deer)", score: 2 },
+            { text: "Sova (The Owl)", score: 1 },
+            { text: "Vuk", score: 0 }
         ]
     },
     {
-        question: "Šta se dešava ako ti se vatra ugasi noću?",
+        question: "Ako ti se vatra ugasi noću, šta prvo radiš?",
         answers: [
-            { text: "Odmah je pališ, koristiš 'Lighter'", score: 2 },
-            { text: "Ne paničiš, pališ baklju", score: 1 },
-            { text: "Tražiš pomoć od saigrača", score: 0 },
-            { text: "Iskoristiš to kao priliku za nevidljivost", score: 3 }
+            { text: "Upalim upaljačem odmah", score: 2 },
+            { text: "Pališ baklju da osvetliš", score: 1 },
+            { text: "Čekam pomoć prijatelja", score: 0 },
+            { text: "Iskoristim momenat za prikriveno kretanje", score: 3 }
         ]
     },
     {
-        question: "Koju klasu/opremu smatraš da je najteže dobiti?",
+        question: "Koju klasu/opremu je najteže nabaviti?",
         answers: [
-            { text: "Basic Survivor Gear", score: 1 },
-            { text: "Scout Class", score: 2 },
-            { text: "Hunter Class", score: 3 },
-            { text: "Cultist Class", score: 0 }
+            { text: "Basic Survival Gear (osnovna oprema)", score: 1 },
+            { text: "Scout klasa", score: 2 },
+            { text: "Lovacka klasa", score: 3 },
+            { text: "Kultist klasa", score: 0 }
         ]
     },
     {
-        question: "Kako se braniš od napada zombija?",
-        answers: [
-            { text: "Jednostavnim udarcima kamenom", score: 1 },
-            { text: "Pucanjem iz luka u glavu", score: 3 },
-            { text: "Trčanjem i pravljenjem zida", score: 2 },
-            { text: "Sakrivanjem u grmlje", score: 0 }
-        ]
-    },
-    {
-        question: "Koji je najefikasniji način za dobijanje kaktusa?",
+        question: "Kako najefikasnije sakupljaš kaktuse?",
         answers: [
             { text: "Sekira", score: 1 },
             { text: "Kramp", score: 3 },
-            { text: "Ruka", score: 0 },
-            { text: "Mač", score: 2 }
+            { text: "Golim rukama", score: 0 },
+            { text: "Mačem", score: 2 }
         ]
     },
     {
-        question: "Tvoja reakcija kada vidiš drugog igrača koji je 'low HP'?",
+        question: "Šta radiš kada vidiš igrača sa niskim HP?",
         answers: [
-            { text: "Ponudiš mu 'Bandage' i hranu", score: 1 },
-            { text: "Pokušaš da ga zaštitiš", score: 2 },
-            { text: "Iskoristiš priliku da ga 'lootuješ'", score: 3 },
-            { text: "Ignorišeš ga", score: 0 }
+            { text: "Dajem mu zavoje i hranu", score: 1 },
+            { text: "Štitim ga i pokušavam izlečiti", score: 2 },
+            { text: "Iskoristim priliku da ga lootujem", score: 3 },
+            { text: "Ignorišem ga", score: 0 }
         ]
     },
     {
-        question: "Koji je najbolji način da se sakriješ od Sove?",
+        question: "Kako se najbolje sakriješ od Sove?",
         answers: [
-            { text: "Ući u pećinu", score: 3 },
-            { text: "Stajati mirno pored drveta", score: 1 },
-            { text: "Skočiti u vodu", score: 2 },
-            { text: "Trčati u cik-cak", score: 0 }
+            { text: "Uđem u pećinu", score: 3 },
+            { text: "Pričvrstim se uz drvo i mirno stojim", score: 1 },
+            { text: "Skočim u vodu (jezero)", score: 2 },
+            { text: "Trčim cik-cak bežeći", score: 0 }
         ]
     },
     {
-        question: "Koja ti je omiljena hrana za dugu ekspediciju?",
+        question: "Omiljena hrana za dužu ekspediciju?",
         answers: [
             { text: "Pečeno meso", score: 2 },
-            { text: "Bobice", score: 1 },
-            { text: "Mesni ražnjići", score: 3 },
+            { text: "Bobice i gljive", score: 1 },
+            { text: "Mesni ražnjići (skewers)", score: 3 },
             { text: "Sirovo meso", score: 0 }
         ]
     },
     {
-        question: "Koliko ti je važna estetika baze naspram funkcionalnosti?",
+        question: "Koliko ti je važna estetika baze u odnosu na funkcionalnost?",
         answers: [
-            { text: "Funkcionalnost je 100% prioritet", score: 3 },
-            { text: "Mora biti i lepa i funkcionalna", score: 2 },
-            { text: "Bitno da me ne napadnu", score: 1 },
-            { text: "Samo gradim da se pohvalim", score: 0 }
+            { text: "Funkcionalnost 100% (iznad izgleda)", score: 3 },
+            { text: "I lepo i funkcionalno", score: 2 },
+            { text: "Bitno je da baza preživi napad", score: 1 },
+            { text: "Samo gradim da bih se hvalio", score: 0 }
         ]
     },
     {
-        question: "Koji je najveći izazov prilikom solo igranja?",
+        question: "Koji je najveći izazov igranja u timu?",
         answers: [
-            { text: "Dugački periodi čekanja", score: 1 },
-            { text: "Održavanje vatre", score: 2 },
-            { text: "Borba protiv jakih neprijatelja", score: 3 },
-            { text: "Usamljenost", score: 0 }
+            { text: "Dugački period čekanja (dosada)", score: 1 },
+            { text: "Održavanje vatre neprekidno", score: 2 },
+            { text: "Borba protiv jakih neprijatelja skupa", score: 3 },
+            { text: "Protiv mene nema izazova", score: 0 }
         ]
     },
     {
         question: "Koji materijal koristiš za izradu zamki?",
         answers: [
-            { text: "Wood", score: 1 },
-            { text: "Rope", score: 2 },
-            { text: "Iron", score: 3 },
+            { text: "Drvo", score: 1 },
+            { text: "Konopac", score: 2 },
+            { text: "Gvožđe (Iron)", score: 3 },
             { text: "Listovi", score: 0 }
         ]
     },
     {
-        question: "Koji je tvoj stav prema pećinama?",
+        question: "Kako gledaš na pećine?",
         answers: [
-            { text: "Izbegavam ih, previše su mračne", score: 1 },
-            { text: "Opasne, ali neophodne za retke resurse", score: 3 },
-            { text: "Koristim ih kao sklonište", score: 2 },
-            { text: "Odlazim samo sa timom", score: 0 }
+            { text: "Izbegavam ih, previše su opasne", score: 1 },
+            { text: "Opasne, ali pune resursa", score: 3 },
+            { text: "Dobar su sklonište (ako su sigurni)", score: 2 },
+            { text: "Idem tamo samo sa timom", score: 0 }
         ]
     },
     {
-        question: "Šta je najveća mana igranja u timu?",
+        question: "Koja je mana igranja u timu?",
         answers: [
             { text: "Potrošnja resursa je veća", score: 2 },
-            { text: "Teško je organizovati sve", score: 1 },
-            { text: "Sporije napreduješ", score: 0 },
-            { text: "Rizik od izdaje/trolla", score: 3 }
+            { text: "Teže je organizovati sve", score: 1 },
+            { text: "Napreduješ sporije ako svi dele", score: 0 },
+            { text: "Uvek postoji rizik izdaje/trolla", score: 3 }
         ]
     },
     {
-        question: "Koji je simbol Kultista?",
+        question: "Koji simbol najviše asocira na kultiste?",
         answers: [
             { text: "Jelenova glava", score: 2 },
             { text: "Okačena baklja", score: 1 },
-            { text: "Čudni znakovi na drveću", score: 3 },
-            { text: "Nema simbola", score: 0 }
+            { text: "Tajanstveni znaci na drveću", score: 3 },
+            { text: "Nemaju jedinstveni simbol", score: 0 }
         ]
     },
     {
-        question: "Koju lokaciju najčešće izbegavaš?",
+        question: "Koju lokaciju najviše izbegavaš?",
         answers: [
             { text: "Otvoreno polje danju", score: 0 },
-            { text: "Gusta šuma noću", score: 2 },
-            { text: "Lavirint/dungeoni", score: 3 },
-            { text: "Početna zona", score: 1 }
+            { text: "Gustu šumu noću", score: 2 },
+            { text: "Pećinu/lavirint", score: 3 },
+            { text: "Početnu zonu (spawn)", score: 1 }
         ]
     },
     {
@@ -485,124 +476,124 @@ const questions = [
             { text: "Crvenu", score: 1 },
             { text: "Zelenu", score: 2 },
             { text: "Bela", score: 3 },
-            { text: "Ne koristim svetlo, samo mrak", score: 0 }
+            { text: "Ne koristim svetlo", score: 0 }
         ]
     },
     {
-        question: "Koji je tvoj način za rešavanje problema gladi?",
+        question: "Kako rešavaš problem gladi?",
         answers: [
-            { text: "Jedem bobice i pečurke", score: 1 },
-            { text: "Lovim medveda i pravim meso", score: 3 },
-            { text: "Pravim farmu u bazi", score: 2 },
-            { text: "Čekam da prođe dan", score: 0 }
+            { text: "Jedem bobice i jestivo bilje", score: 1 },
+            { text: "Lovim medvede za meso", score: 3 },
+            { text: "Radim farmu i uzgajam hranu", score: 2 },
+            { text: "Čekam da prođe vreme (dan)", score: 0 }
         ]
     },
     {
-        question: "Šta radiš ako ti se pokvari glavno oružje?",
+        question: "Šta radiš ako ti se glavno oružje polomi?",
         answers: [
-            { text: "Prebacuješ se na sekundarno oružje", score: 2 },
-            { text: "Pokušavaš da ga popraviš odmah na licu mesta", score: 3 },
-            { text: "Bežiš što pre možeš", score: 1 },
-            { text: "Pokušaš da se braniš pesnicama", score: 0 }
+            { text: "Prelazim na drugi arsenal (sekundarno)", score: 2 },
+            { text: "Popravljam odmah na licu mesta", score: 3 },
+            { text: "Bežim što brže mogu", score: 1 },
+            { text: "Borim se pesnicama dok mogu", score: 0 }
         ]
     },
     {
         question: "Kako se snalaziš sa ograničenim inventarom?",
         answers: [
-            { text: "Praviš više 'Chest'-ova", score: 2 },
-            { text: "Prioritizuješ najvrednije resurse", score: 3 },
-            { text: "Često trčiš do baze", score: 1 },
-            { text: "Baciš sve što nije oružje", score: 0 }
+            { text: "Pravim više sanduka za skladištenje", score: 2 },
+            { text: "Birate samo najvrednije stvari", score: 3 },
+            { text: "Vraćam se često do baze", score: 1 },
+            { text: "Bacam sve što nije bitno", score: 0 }
         ]
     },
     {
         question: "Koja je uloga baklje u borbi?",
         answers: [
-            { text: "Samo za osvetljenje", score: 1 },
-            { text: "Odvraćanje pažnje", score: 2 },
-            { text: "Odbijanje slabijih neprijatelja", score: 3 },
-            { text: "Nema ulogu u borbi", score: 0 }
+            { text: "Samo osvetljava (nema borbenu ulogu)", score: 1 },
+            { text: "Uplašiti male neprijatelje", score: 3 },
+            { text: "Skreće pažnju zverima", score: 2 },
+            { text: "Nema nikakvog efekta", score: 0 }
         ]
     },
     {
-        question: "Koja je tvoja taktika pri prelasku mosta?",
+        question: "Šta radiš pre prelaska mosta?",
         answers: [
-            { text: "Trčiš što brže možeš", score: 1 },
-            { text: "Proveravaš da li ima neprijatelja pre prelaska", score: 2 },
-            { text: "Spremaš se za borbu na sredini mosta", score: 3 },
-            { text: "Praviš alternativni put oko reke", score: 0 }
+            { text: "Trčim što brže mogu preko", score: 1 },
+            { text: "Proverim okruženje pre prelaska", score: 2 },
+            { text: "Spremim se za borbu na sredini", score: 3 },
+            { text: "Pravim put oko mosta (zaobilazim)", score: 0 }
         ]
     },
     {
-        question: "Šta je najvažnije za zaštitu od Jelenovog napada?",
+        question: "Šta ti najviše pomaže protiv napada jelena?",
         answers: [
             { text: "Kvalitetan oklop", score: 3 },
             { text: "Velika udaljenost", score: 1 },
-            { text: "Sklonište u zatvorenom prostoru", score: 2 },
+            { text: "Sklonište (zatvoreni prostor)", score: 2 },
             { text: "Dobra zaliha hrane", score: 0 }
         ]
     },
     {
         question: "Kada koristiš napitke (Potions)?",
         answers: [
-            { text: "Samo u borbi protiv boss-a", score: 3 },
-            { text: "Kada mi je zdravlje ispod 50%", score: 2 },
-            { text: "Kad god je moguće", score: 1 },
+            { text: "Samo protiv bossa", score: 3 },
+            { text: "Kad mi zdravlje padne ispod 50%", score: 2 },
+            { text: "Kad god mogu (svaki put)", score: 1 },
             { text: "Nikad, previše su retki", score: 0 }
         ]
     },
     {
-        question: "Koji deo šume ti se čini najopasniji?",
+        question: "Koji deo šume ti deluje najopasnije?",
         answers: [
-            { text: "Reke i jezera", score: 1 },
-            { text: "Okolina Pećine", score: 3 },
-            { text: "Zona blizu Baze", score: 2 },
-            { text: "Prazna polja", score: 0 }
+            { text: "Sneg", score: 1 },
+            { text: "Pećine i podzemlje", score: 3 },
+            { text: "Zona oko baze (česte borbe)", score: 2 },
+            { text: "Lava", score: 0 }
         ]
     },
     {
         question: "Koliko veruješ drugim preživelima?",
         answers: [
-            { text: "Verujem svima dok me ne iznevere", score: 1 },
-            { text: "Samo onima koje poznajem IRL", score: 2 },
+            { text: "Verujem svima dok ne izdaju", score: 1 },
+            { text: "Samo poznatima iz stvarnog života", score: 2 },
             { text: "Nikome, svi su potencijalni neprijatelji", score: 3 },
-            { text: "Samo Kultistima", score: 0 }
+            { text: "Samo kultistima", score: 0 }
         ]
     },
     {
-        question: "Šta je tvoj cilj nakon 99 noći?",
+        question: "Šta radiš nakon preživljavanja 99 noći?",
         answers: [
-            { text: "Pronaći izlaz i pobeći", score: 3 },
-            { text: "Izgraditi masivnu bazu", score: 2 },
-            { text: "Postati najbogatiji trgovac", score: 1 },
-            { text: "Uništiti server", score: 0 }
+            { text: "Pronađem izlaz i pobegnem", score: 3 },
+            { text: "Gradim masivnu bazu (nastavljam igru)", score: 2 },
+            { text: "Postajem najbolji trgovac", score: 1 },
+            { text: "Uništim ceo server (grim scenario)", score: 0 }
         ]
     },
     {
-        question: "Kako se pripremaš za grmljavinu?",
+        question: "Kako se pripremaš za oluju?",
         answers: [
-            { text: "Sklanjaš metalne predmete", score: 2 },
-            { text: "Ostaješ u bazi", score: 1 },
-            { text: "Izlaziš napolje da privučeš neprijatelje", score: 3 },
-            { text: "Trčiš po šumi", score: 0 }
+            { text: "Pokupim metalne stvari unutra", score: 2 },
+            { text: "Ostajem unutra u bazi", score: 1 },
+            { text: "Izlazim napolje da privučem neprijatelje", score: 3 },
+            { text: "Trčim nasumice po šumi", score: 0 }
         ]
     },
     {
-        question: "Koja ti je omiljena emocija/ples u igri?",
+        question: "Koji emote ti je omiljen?",
         answers: [
-            { text: "Emote 'Sleep'", score: 1 },
-            { text: "Emote 'Wave'", score: 2 },
+            { text: "Emote 'Spavanje'", score: 1 },
+            { text: "Emote 'Mašem'", score: 2 },
             { text: "Emote 'Flex'", score: 3 },
             { text: "Ne koristim emote", score: 0 }
         ]
     },
     {
-        question: "Najbolja strategija za brzo skupljanje krzna?",
+        question: "Najbrži način za sakupljanje krzna?",
         answers: [
             { text: "Čekati da trgovac dođe", score: 0 },
-            { text: "Loviti male životinje u blizini baze", score: 1 },
-            { text: "Postavljanje zamki u ključnim zonama", score: 2 },
-            { text: "Lov na medveda i Sove", score: 3 }
+            { text: "Loviti male životinje blizu baze", score: 1 },
+            { text: "Postavljati zamke u ključnim zonama", score: 2 },
+            { text: "Loviti medvede i sove", score: 3 }
         ]
     }
 ];
