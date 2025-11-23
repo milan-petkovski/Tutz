@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutz | Kviz</title>
+    <meta name="theme-color" content="#121212">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html" class="logo"><img src="images/logo.png" alt="Logo"></a>
+  <a href="linktree.html" class="linktree"><i class="fa-solid fa-tree"></i></a>
+</header>
+
+<div class="container">
+  <h1>🌲 99 Noći U Šumi - Kviz 🌲</h1>
+  <div id="welcome-section">
+            <h2>Da li ste spremni da preživite 99 noći?</h2>
+            <p class="intro-text">
+                Ovaj kviz ima 30 pitanja o preživljavanju, neprijateljima i tajnama šume u 99 noći u šumi.
+                Vaši odgovori će otkriti ko ste vi u divljini elitni lovac, oprezni izviđač ili možda žrtva kultista!
+            </p>
+            <button id="start-button" class="btn">Krenimo!</button>
+        </div>
+        
+        <div id="quiz-section" class="hidden">
+            <h2 id="question-number">Pitanje 1/30</h2>
+            <p id="question-text">Tekst pitanja...</p>
+            
+            <div id="answers-container" class="answers-grid">
+                </div>
+            
+            <p id="error-message" class="error-msg"></p>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <h2>Kviz Završen!</h2>
+            <div id="final-score"></div>
+            <div id="final-title"></div>
+            <p class="result-description">
+                Želiš li da probaš ponovo? <br> Saznaj da li si bolji lovac, izviđač ili možda opasan kultista!
+            </p>
+            <button id="restart-button" class="btn">Ponovi Kviz</button>
+        </div>
+</div>
+
+</body>
+</html>
+
+<script>
+const QUIZ_LENGTH = 2;
+const questions = [
+    {
+        question: "Koju ulogu najčešće biraš na početku 99 Noći U Šumi?",
+        answers: [
+            { text: "Preživeli (Survivor)", score: 1 },
+            { text: "Lovac (Hunter)", score: 3 },
+            { text: "Izviđač (Scout)", score: 2 },
+            { text: "Kultista (Cultist)", score: 0 }
+        ]
+    },
+    {
+        question: "Šta je tvoj prvi prioritet kada padne noć?",
+        answers: [
+            { text: "Pronalaženje drva za vatru.", score: 2 },
+            { text: "Izrada boljeg alata/oružja.", score: 3 },
+            { text: "Izgradnja ili ojačavanje skloništa.", score: 1 },
+            { text: "Traženje drugih igrača da se pridružiš grupi.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najvažniji resurs za preživljavanje?",
+        answers: [
+            { text: "Meso", score: 1 },
+            { text: "Drvo", score: 2 },
+            { text: "Kamen", score: 3 },
+            { text: "Konopac", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najopasniji neprijatelj u ranoj fazi igre?",
+        answers: [
+            { text: "Medved", score: 3 },
+            { text: "Jelen", score: 1 },
+            { text: "Sova", score: 2 },
+            { text: "Glad i žeđ", score: 0 }
+        ]
+    },
+    {
+        question: "Ako naiđeš na zagonetnu poruku u šumi, šta radiš?",
+        answers: [
+            { text: "Ignorišeš je i nastavljaš sa skupljanjem resursa.", score: 1 },
+            { text: "Pažljivo je proučavaš, tražeći skriveno značenje.", score: 3 },
+            { text: "Fotografišeš je i postavljaš na server za pomoć.", score: 2 },
+            { text: "Baciš kamen na nju, za svaki slučaj.", score: 0 }
+        ]
+    },
+    {
+        question: "Koje oružje preferiraš u borbi?",
+        answers: [
+            { text: "Oštru sekiru", score: 2 },
+            { text: "Mač", score: 3 },
+            { text: "Luk i strela", score: 1 },
+            { text: "Fist", score: 0 }
+        ]
+    },
+    {
+        question: "Šta najviše ceniš kod saigrača?",
+        answers: [
+            { text: "Borbenost i hrabrost.", score: 3 },
+            { text: "Opreznost i planiranje.", score: 2 },
+            { text: "Sposobnost skupljanja resursa.", score: 1 },
+            { text: "Dobar smisao za humor.", score: 0 }
+        ]
+    },
+    {
+        question: "Na kojoj noći obično imaš najveće poteškoće?",
+        answers: [
+            { text: "Noći 1-10 (Prva faza).", score: 1 },
+            { text: "Noći 11-30 (Faza medveda/sove).", score: 2 },
+            { text: "Noći 31-50 (Faza teških neprijatelja).", score: 3 },
+            { text: "Nikada nemam poteškoće.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta misliš da je ultimativni cilj igre?",
+        answers: [
+            { text: "Preživeti 99 noći.", score: 1 },
+            { text: "Pobegati iz šume.", score: 3 },
+            { text: "Otkriti tajnu šume.", score: 2 },
+            { text: "Postati najjači kultista.", score: 0 }
+        ]
+    },
+    {
+        question: "Kada Kultisti napadaju, tvoja prva reakcija je...",
+        answers: [
+            { text: "Beži i sakrij se.", score: 1 },
+            { text: "Pokušaj da ih napadneš iz zasede.", score: 3 },
+            { text: "Postavi zamke oko baze.", score: 2 },
+            { text: "Pokušaj da pregovaraš.", score: 0 }
+        ]
+    },
+    {
+        question: "Omiljeno mesto za kampovanje je...",
+        answers: [
+            { text: "Duboko u šumi, daleko od svakoga.", score: 2 },
+            { text: "Blizu reke za vodu i ribolov.", score: 1 },
+            { text: "U blizini ulaza u pećinu.", score: 3 },
+            { text: "Na sredini otvorenog polja.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta radiš kada ti se inventar napuni?",
+        answers: [
+            { text: "Baciš manje vredne resurse (npr. štapove).", score: 1 },
+            { text: "Brzo trčiš nazad do baze da sve ostaviš.", score: 2 },
+            { text: "Izradiš torbu (Backpack) da povećaš prostor.", score: 3 },
+            { text: "Nastavljaš, ne primećuješ.", score: 0 }
+        ]
+    },
+    {
+        question: "Kada čuješ čudne zvukove iz mraka...",
+        answers: [
+            { text: "Pališ baklju i istražuješ.", score: 3 },
+            { text: "Oprezno se sakriješ u grmlje.", score: 2 },
+            { text: "Pojačavaš vatru i ne mrdaš.", score: 1 },
+            { text: "Pevušis da rasteraš strah.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja je tvoja taktika protiv Sove?",
+        answers: [
+            { text: "Gađanje lukom sa udaljenosti.", score: 2 },
+            { text: "Čekanje zore u skrovištu.", score: 1 },
+            { text: "Direktan napad mačem/sekirom.", score: 3 },
+            { text: "Pokušaj da se sprijateljiš.", score: 0 }
+        ]
+    },
+    {
+        question: "Najveća greška u 99 Noći U Šumi je...",
+        answers: [
+            { text: "Izlazak napolje bez oružja.", score: 3 },
+            { text: "Zaboraviti na zalihe hrane i vode.", score: 2 },
+            { text: "Preterano oslanjanje na druge.", score: 1 },
+            { text: "Pravljenje male i neefikasne baze.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta bi radije žrtvovao za tim?",
+        answers: [
+            { text: "Sve svoje resurse.", score: 1 },
+            { text: "Svoj najvredniji alat (npr. zlatni kramp).", score: 2 },
+            { text: "Svoj život da spasiš druge.", score: 3 },
+            { text: "Ništa, svako za sebe.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji nivo 'Crafting Station'-a je minimum za tebe?",
+        answers: [
+            { text: "Nivo 1 (Osnovni).", score: 1 },
+            { text: "Nivo 2 (Srednji).", score: 2 },
+            { text: "Nivo 3 (Napredni).", score: 3 },
+            { text: "Ne koristim 'Crafting Station'.", score: 0 }
+        ]
+    },
+    {
+        question: "Koliko često proveravaš 'Lore' i 'Tajne' igre?",
+        answers: [
+            { text: "Nikad, samo preživljavam.", score: 1 },
+            { text: "Povremeno, ako imam vremena.", score: 2 },
+            { text: "Stalno, to je najvažniji deo.", score: 3 },
+            { text: "Samo gledam šta drugi kažu na YouTube-u.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji bi predmet poneo u šumu ako bi mogao samo jedan?",
+        answers: [
+            { text: "Najbolji mač.", score: 3 },
+            { text: "Kanister vode.", score: 2 },
+            { text: "Kompas.", score: 1 },
+            { text: "Plišanu igračku za sreću.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja je tvoja strategija protiv Jelena?",
+        answers: [
+            { text: "Odbrambena, čuvam se u bazi.", score: 1 },
+            { text: "Agresivna, napad na glavu.", score: 3 },
+            { text: "Ometanje sa bakljama i trčanje.", score: 2 },
+            { text: "Pokušaj da ga zaobiđeš.", score: 0 }
+        ]
+    },
+    {
+        question: "Koliko brzo menjaš lokaciju baze?",
+        answers: [
+            { text: "Kada bazu unište.", score: 1 },
+            { text: "Nakon svake veće bitke.", score: 2 },
+            { text: "Nikada, moja baza je neprobojna.", score: 3 },
+            { text: "Svaku noć, volim da lutam.", score: 0 }
+        ]
+    },
+    {
+        question: "Tvoj stav prema trgovcima u igri je...",
+        answers: [
+            { text: "Prijatelj, ali samo ako mi treba nešto.", score: 1 },
+            { text: "Izvor najboljih alata i oružja.", score: 3 },
+            { text: "Izvor informacija i zaliha.", score: 2 },
+            { text: "Sumnjiv lik kojeg treba izbegavati.", score: 0 }
+        ]
+    },
+    {
+        question: "Najveća pretnja igri je 'Server Wipe'. Šta radiš?",
+        answers: [
+            { text: "Prestajem da igram.", score: 0 },
+            { text: "Počnem iz početka, to je deo zabave.", score: 2 },
+            { text: "Štedim resurse za novi početak.", score: 1 },
+            { text: "Koristim svaku priliku da uništim tuđe baze.", score: 3 }
+        ]
+    },
+    {
+        question: "Šta misliš o 'Kultist' klasi?",
+        answers: [
+            { text: "Najgora, treba je izbeći.", score: 1 },
+            { text: "Dobar izvor resursa kada ih pobediš.", score: 2 },
+            { text: "Zanimljiv, ali previše rizičan izbor.", score: 3 },
+            { text: "Pokušavaš da se 'teamaš' sa njima.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta radiš sa 'Diamond' resursom?",
+        answers: [
+            { text: "Prodaješ ga za hranu.", score: 1 },
+            { text: "Koristiš ga za najnaprednije 'Crafting' recepte.", score: 3 },
+            { text: "Čuvaš ga za kraj igre.", score: 2 },
+            { text: "Baciš ga jer misliš da je nebitan.", score: 0 }
+        ]
+    },
+    {
+        question: "Ako naiđeš na 'Abandoned Cabin', šta radiš?",
+        answers: [
+            { text: "Brzo ulaziš, uzimaš sve i odlaziš.", score: 1 },
+            { text: "Oprezno proveravaš zamke pre ulaska.", score: 2 },
+            { text: "Koristiš ga kao privremeno utočište.", score: 3 },
+            { text: "Spališ ga, da ne bi pao u pogrešne ruke.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najbolji način za dobijanje krzna?",
+        answers: [
+            { text: "Lov na manje životinje.", score: 1 },
+            { text: "Lov na medveda.", score: 3 },
+            { text: "Traženje po 'Chest'-ovima.", score: 2 },
+            { text: "Moljenje drugih igrača da daju.", score: 0 }
+        ]
+    },
+    {
+        question: "Kada je najbolje vreme za istraživanje (Exploration)?",
+        answers: [
+            { text: "U ranim jutarnjim satima.", score: 2 },
+            { text: "Tokom dana.", score: 3 },
+            { text: "Predveče.", score: 1 },
+            { text: "Usred noći.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta radiš sa viškom mesa (Meat)?",
+        answers: [
+            { text: "Praviš 'Meat Skewers' za bolju efikasnost.", score: 3 },
+            { text: "Čuvaš ga u 'Chest'-u.", score: 2 },
+            { text: "Deliš ga sa saigračima.", score: 1 },
+            { text: "Baciš ga, previše je zauzeto u inventaru.", score: 0 }
+        ]
+    },
+    {
+        question: "Kako reaguješ na iznenadnu grmljavinu i kišu?",
+        answers: [
+            { text: "Trčiš nazad u bazu.", score: 1 },
+            { text: "Nastavljaš sa onim što radiš, to je samo kiša.", score: 3 },
+            { text: "Praviš brzi zaklon (Shelter).", score: 2 },
+            { text: "Pokušavaš da uhvatiš grom u bocu.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je tvoj glavni izvor za popravku oružja?",
+        answers: [
+            { text: "Stone", score: 1 },
+            { text: "Iron", score: 3 },
+            { text: "Scrap Metal", score: 2 },
+            { text: "Ne popravljam, pravim novo.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji od ovih neprijatelja se kreće najbrže?",
+        answers: [
+            { text: "Mali pauk", score: 1 },
+            { text: "Medved", score: 2 },
+            { text: "Sova", score: 3 },
+            { text: "Zombi", score: 0 }
+        ]
+    },
+    {
+        question: "Šta se dešava ako ti se vatra ugasi noću?",
+        answers: [
+            { text: "Odmah je pališ, koristiš 'Lighter'.", score: 2 },
+            { text: "Ne paničiš, pališ baklju.", score: 1 },
+            { text: "Tražiš pomoć od saigrača.", score: 0 },
+            { text: "Iskoristiš to kao priliku za nevidljivost.", score: 3 }
+        ]
+    },
+    {
+        question: "Koju klasu/opremu smatraš da je najteže dobiti?",
+        answers: [
+            { text: "Basic Survivor Gear", score: 1 },
+            { text: "Scout Class", score: 2 },
+            { text: "Hunter Class", score: 3 },
+            { text: "Cultist Class", score: 0 }
+        ]
+    },
+    {
+        question: "Kako se braniš od napada zombija?",
+        answers: [
+            { text: "Jednostavnim udarcima kamenom.", score: 1 },
+            { text: "Pucanjem iz luka u glavu.", score: 3 },
+            { text: "Trčanjem i pravljenjem zida.", score: 2 },
+            { text: "Sakrivanjem u grmlje.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najefikasniji način za dobijanje kaktusa?",
+        answers: [
+            { text: "Sekira", score: 1 },
+            { text: "Kramp", score: 3 },
+            { text: "Ruka", score: 0 },
+            { text: "Mač", score: 2 }
+        ]
+    },
+    {
+        question: "Tvoja reakcija kada vidiš drugog igrača koji je 'low HP'?",
+        answers: [
+            { text: "Ponudiš mu 'Bandage' i hranu.", score: 1 },
+            { text: "Pokušaš da ga zaštitiš.", score: 2 },
+            { text: "Iskoristiš priliku da ga 'lootuješ'.", score: 3 },
+            { text: "Ignorišeš ga.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najbolji način da se sakriješ od Sove?",
+        answers: [
+            { text: "Ući u pećinu.", score: 3 },
+            { text: "Stajati mirno pored drveta.", score: 1 },
+            { text: "Skočiti u vodu.", score: 2 },
+            { text: "Trčati u cik-cak.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja ti je omiljena hrana za dugu ekspediciju?",
+        answers: [
+            { text: "Pečeno meso.", score: 2 },
+            { text: "Bobice.", score: 1 },
+            { text: "Mesni ražnjići.", score: 3 },
+            { text: "Sirovo meso.", score: 0 }
+        ]
+    },
+    {
+        question: "Koliko ti je važna estetika baze naspram funkcionalnosti?",
+        answers: [
+            { text: "Funkcionalnost je 100% prioritet.", score: 3 },
+            { text: "Mora biti i lepa i funkcionalna.", score: 2 },
+            { text: "Bitno da me ne napadnu.", score: 1 },
+            { text: "Samo gradim da se pohvalim.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je najveći izazov prilikom solo igranja?",
+        answers: [
+            { text: "Dugački periodi čekanja.", score: 1 },
+            { text: "Održavanje vatre.", score: 2 },
+            { text: "Borba protiv jakih neprijatelja.", score: 3 },
+            { text: "Usamljenost.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji materijal koristiš za izradu zamki?",
+        answers: [
+            { text: "Wood.", score: 1 },
+            { text: "Rope.", score: 2 },
+            { text: "Iron.", score: 3 },
+            { text: "Listovi.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je tvoj stav prema pećinama?",
+        answers: [
+            { text: "Izbegavam ih, previše su mračne.", score: 1 },
+            { text: "Opasne, ali neophodne za retke resurse.", score: 3 },
+            { text: "Koristim ih kao sklonište.", score: 2 },
+            { text: "Odlazim samo sa timom.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta je najveća mana igranja u timu?",
+        answers: [
+            { text: "Potrošnja resursa je veća.", score: 2 },
+            { text: "Teško je organizovati sve.", score: 1 },
+            { text: "Sporije napreduješ.", score: 0 },
+            { text: "Rizik od izdaje/trolla.", score: 3 }
+        ]
+    },
+    {
+        question: "Koji je simbol Kultista?",
+        answers: [
+            { text: "Jelenova glava.", score: 2 },
+            { text: "Okačena baklja.", score: 1 },
+            { text: "Čudni znakovi na drveću.", score: 3 },
+            { text: "Nema simbola.", score: 0 }
+        ]
+    },
+    {
+        question: "Koju lokaciju najčešće izbegavaš?",
+        answers: [
+            { text: "Otvoreno polje danju.", score: 0 },
+            { text: "Gusta šuma noću.", score: 2 },
+            { text: "Lavirint/dungeoni.", score: 3 },
+            { text: "Početna zona.", score: 1 }
+        ]
+    },
+    {
+        question: "Koju boju svetla koristiš za signalizaciju?",
+        answers: [
+            { text: "Crvenu.", score: 1 },
+            { text: "Zelenu.", score: 2 },
+            { text: "Bela.", score: 3 },
+            { text: "Ne koristim svetlo, samo mrak.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji je tvoj način za rešavanje problema gladi?",
+        answers: [
+            { text: "Jedem bobice i pečurke.", score: 1 },
+            { text: "Lovim medveda i pravim meso.", score: 3 },
+            { text: "Pravim farmu u bazi.", score: 2 },
+            { text: "Čekam da prođe dan.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta radiš ako ti se pokvari glavno oružje?",
+        answers: [
+            { text: "Prebacuješ se na sekundarno oružje.", score: 2 },
+            { text: "Pokušavaš da ga popraviš odmah na licu mesta.", score: 3 },
+            { text: "Bežiš što pre možeš.", score: 1 },
+            { text: "Pokušaš da se braniš pesnicama.", score: 0 }
+        ]
+    },
+    {
+        question: "Kako se snalaziš sa ograničenim inventarom?",
+        answers: [
+            { text: "Praviš više 'Chest'-ova.", score: 2 },
+            { text: "Prioritizuješ najvrednije resurse.", score: 3 },
+            { text: "Često trčiš do baze.", score: 1 },
+            { text: "Baciš sve što nije oružje.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja je uloga baklje u borbi?",
+        answers: [
+            { text: "Samo za osvetljenje.", score: 1 },
+            { text: "Odvraćanje pažnje.", score: 2 },
+            { text: "Odbijanje slabijih neprijatelja.", score: 3 },
+            { text: "Nema ulogu u borbi.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja je tvoja taktika pri prelasku mosta?",
+        answers: [
+            { text: "Trčiš što brže možeš.", score: 1 },
+            { text: "Proveravaš da li ima neprijatelja pre prelaska.", score: 2 },
+            { text: "Spremaš se za borbu na sredini mosta.", score: 3 },
+            { text: "Praviš alternativni put oko reke.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta je najvažnije za zaštitu od Jelenovog napada?",
+        answers: [
+            { text: "Kvalitetan oklop.", score: 3 },
+            { text: "Velika udaljenost.", score: 1 },
+            { text: "Sklonište u zatvorenom prostoru.", score: 2 },
+            { text: "Dobra zaliha hrane.", score: 0 }
+        ]
+    },
+    {
+        question: "Kada koristiš napitke (Potions)?",
+        answers: [
+            { text: "Samo u borbi protiv boss-a.", score: 3 },
+            { text: "Kada mi je zdravlje ispod 50%.", score: 2 },
+            { text: "Kad god je moguće.", score: 1 },
+            { text: "Nikad, previše su retki.", score: 0 }
+        ]
+    },
+    {
+        question: "Koji deo šume ti se čini najopasniji?",
+        answers: [
+            { text: "Reke i jezera.", score: 1 },
+            { text: "Okolina Pećine.", score: 3 },
+            { text: "Zona blizu Baze.", score: 2 },
+            { text: "Prazna polja.", score: 0 }
+        ]
+    },
+    {
+        question: "Koliko veruješ drugim preživelima?",
+        answers: [
+            { text: "Verujem svima dok me ne iznevere.", score: 1 },
+            { text: "Samo onima koje poznajem IRL.", score: 2 },
+            { text: "Nikome, svi su potencijalni neprijatelji.", score: 3 },
+            { text: "Samo Kultistima.", score: 0 }
+        ]
+    },
+    {
+        question: "Šta je tvoj cilj nakon 99 noći?",
+        answers: [
+            { text: "Pronaći izlaz i pobeći.", score: 3 },
+            { text: "Izgraditi masivnu bazu.", score: 2 },
+            { text: "Postati najbogatiji trgovac.", score: 1 },
+            { text: "Uništiti server.", score: 0 }
+        ]
+    },
+    {
+        question: "Kako se pripremaš za grmljavinu?",
+        answers: [
+            { text: "Sklanjaš metalne predmete.", score: 2 },
+            { text: "Ostaješ u bazi.", score: 1 },
+            { text: "Izlaziš napolje da privučeš neprijatelje.", score: 3 },
+            { text: "Trčiš po šumi.", score: 0 }
+        ]
+    },
+    {
+        question: "Koja ti je omiljena emocija/ples u igri?",
+        answers: [
+            { text: "Emote 'Sleep'.", score: 1 },
+            { text: "Emote 'Wave'.", score: 2 },
+            { text: "Emote 'Flex'.", score: 3 },
+            { text: "Ne koristim emote.", score: 0 }
+        ]
+    },
+    {
+        question: "Najbolja strategija za brzo skupljanje krzna?",
+        answers: [
+            { text: "Čekati da trgovac dođe.", score: 0 },
+            { text: "Loviti male životinje u blizini baze.", score: 1 },
+            { text: "Postavljanje zamki u ključnim zonama.", score: 2 },
+            { text: "Lov na medveda i Sove.", score: 3 }
+        ]
+    }
+];
+
+// Inicijalne promenljive
+let currentQuestionIndex = 0;
+let totalScore = 0;
+let shuffledQuestions = [];
+
+// DOM elementi
+const welcomeSection = document.getElementById('welcome-section');
+const startButton = document.getElementById('start-button');
+const quizSection = document.getElementById('quiz-section');
+const resultSection = document.getElementById('result-section');
+const questionNumberEl = document.getElementById('question-number');
+const questionTextEl = document.getElementById('question-text');
+const answersContainer = document.getElementById('answers-container');
+const finalScoreEl = document.getElementById('final-score');
+const finalTitleEl = document.getElementById('final-title');
+const restartButton = document.getElementById('restart-button');
+const errorMessageEl = document.getElementById('error-message');
+
+
+// #region - GLAVNE FUNKCIJE KVIZA
+function showQuestion() {
+    if (currentQuestionIndex >= QUIZ_LENGTH) {
+        showResult();
+        return;
+    }
+
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    questionNumberEl.textContent = `Pitanje ${currentQuestionIndex + 1}/${QUIZ_LENGTH}`;
+    questionTextEl.textContent = currentQuestion.question;
+    errorMessageEl.textContent = ''; 
+    answersContainer.innerHTML = '';
+    const shuffledAnswers = shuffleArray([...currentQuestion.answers]);
+    shuffledAnswers.forEach(answer => {
+        const button = document.createElement('button');
+        button.textContent = answer.text;
+        button.classList.add('answer-btn');
+        button.dataset.score = answer.score;
+        button.addEventListener('click', handleAnswer);
+        answersContainer.appendChild(button);
+    });
+}
+function handleAnswer(event) {
+    const selectedButton = event.target;
+    const score = parseInt(selectedButton.dataset.score);
+
+    totalScore += score;
+    currentQuestionIndex++;
+    
+    setTimeout(showQuestion, 150);
+}
+function showResult() {
+    quizSection.classList.add('hidden');
+    resultSection.classList.remove('hidden');
+
+    finalScoreEl.textContent = `Ukupno ste osvojili: ${totalScore} poena.`;
+    finalTitleEl.innerHTML = `Vaša klasa je: <strong>${getFinalTitle(totalScore)}</strong>`;
+}
+function getFinalTitle(score) {
+    if (score >= 75) {
+        return "ELITNI LOVAC"; 
+    } else if (score >= 55) {
+        return "BESPREKORNI PREŽIVELI";
+    } else if (score >= 35) {
+        return "OPREZNI IZVIĐAČ";
+    } else if (score >= 15) {
+        return "POČETNIK U ŠUMI";
+    } else {
+        return "KULTISTA / ŽRTVA"; 
+    }
+}
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    totalScore = 0;
+    resultSection.classList.add('hidden');
+    welcomeSection.classList.remove('hidden');
+    shuffledQuestions = shuffleArray([...questions]).slice(0, QUIZ_LENGTH);
+}
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+function startQuiz() {
+    welcomeSection.classList.add('hidden');
+    quizSection.classList.remove('hidden');
+    if (shuffledQuestions.length !== QUIZ_LENGTH) {
+        shuffledQuestions = shuffleArray([...questions]).slice(0, QUIZ_LENGTH);
+    }
+    
+    showQuestion();
+}
+shuffledQuestions = shuffleArray([...questions]).slice(0, QUIZ_LENGTH);
+startButton.addEventListener('click', startQuiz); 
+restartButton.addEventListener('click', restartQuiz);
+//#endregion
+</script>
+
+<style>
+#header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 150px;
+    background-color: transparent;
+}
+.logo img {
+    height: 60px; 
+    width: auto;
+    filter: invert(100%) brightness(150%);
+    display: block;
+    transition: transform 0.3s;
+}
+.logo img:hover {
+    transform: scale(1.05);
+}
+.linktree {
+    color: #f0f0f0;
+    font-size: 26px;
+    transition: 0.3s;
+}
+.linktree:hover {
+    color: #8541b8;
+}
+</style>
+
+<style>
+/* --- PROMENLJIVE --- */
+:root {
+    --color-bg: #121212; /* Ekstremno tamna pozadina, noć */
+    --color-primary: #f0f0f0; /* Svetli tekst za čitljivost */
+    --color-accent: #90ee90; /* Svetla, neon zelena (Glow/Misterija efekt) */
+    --color-button-bg: #1e1e1e; /* Tamnija pozadina dugmeta */
+    --color-danger: #ff4d4d; /* Za poruke o greškama */
+    --font-primary: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+/* --- BODY I KONTEJNER --- */
+body {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(#222222 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.container {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(144, 238, 144, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #333;
+    /* Dodata margina za male ekrane da ne smeta fiksnom headeru */
+    margin-top: 80px; 
+}
+
+/* --- TYPOGRAPHY --- */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(144, 238, 144, 0.8), 0 0 5px rgba(144, 238, 144, 0.6);
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+}
+
+.intro-text, .result-description {
+    font-size: 1.1em;
+    margin: 20px auto 40px auto;
+    max-width: 600px;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+#question-number {
+    font-size: 1.4em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(144, 238, 144, 0.4);
+}
+
+#question-text {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+/* --- DUGMAD --- */
+.btn {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(144, 238, 144, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: #aaffaa;
+    color: #000;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(144, 238, 144, 0.8);
+}
+
+/* Grid za odgovore */
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolone na desktopu */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Dugmad za odgovore (Poboljšana responzivnost) */
+.answer-btn {
+    background-color: var(--color-button-bg);
+    color: var(--color-primary);
+    border: 1px solid #3a3a3a;
+    /* Fiksna visina za desktop radi uniformnosti */
+    min-height: 90px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 10px;
+    
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s, border-color 0.3s, color 0.3s;
+    text-align: center; 
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.answer-btn:hover {
+    background-color: #2a2a2a;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(144, 238, 144, 0.3);
+}
+
+/* --- REZULTATI --- */
+#final-score {
+    font-size: 1.4em;
+    margin: 20px 0 10px 0;
+    color: #b0b0b0;
+}
+
+#final-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-shadow: 0 0 20px rgba(144, 238, 144, 0.9);
+}
+
+#final-title strong {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.8em; 
+    color: #f0f0f0;
+    text-shadow: none;
+}
+
+.error-msg {
+    color: var(--color-danger);
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+/* Skriveni elementi */
+.hidden {
+    display: none;
+}
+
+/* --- HEADER STILIZACIJA (Originalna, blago modifikovana) --- */
+#header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 150px;
+    background-color: rgba(18, 18, 18, 0.9); /* Dodatna pozadina za fiksni header */
+}
+.logo img {
+    height: 60px; 
+    width: auto;
+    filter: invert(100%) brightness(150%);
+    display: block;
+    transition: transform 0.3s;
+}
+.logo img:hover {
+    transform: scale(1.05);
+}
+.linktree {
+    color: #f0f0f0;
+    font-size: 26px;
+    transition: 0.3s;
+}
+.linktree:hover {
+    color: #8541b8;
+}
+
+/* --- MEDIA QUERIES (Responzivnost) --- */
+@media(max-width: 1024px) {
+    #header {
+        padding: 20px 50px;
+    }
+}
+
+@media(max-width: 768px) {
+    #header {
+        padding: 15px 20px;
+        background-color: var(--color-bg);
+    }
+    .logo img {
+        height: 45px;
+    }
+    .container {
+        padding: 25px;
+        /* Manja gornja margina jer je logo manji */
+        margin-top: 70px; 
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    #question-text {
+        font-size: 1.3em;
+    }
+    /* Prelazak sa 2 na 1 kolonu za odgovore */
+    .answers-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Uklanjanje fiksne visine da bi se prilagodila tekstu na mobilnom */
+    .answer-btn {
+        min-height: auto; 
+        height: auto; /* Bitno za resetovanje */
+        padding: 15px 10px; /* Veći padding za lakši klik */
+        font-size: 1.05em;
+        white-space: normal; /* Omogućava prelamanje teksta */
+    }
+}
+
+@media(max-width: 480px) {
+    #header {
+        padding: 10px 15px;
+    }
+    .logo img {
+        height: 40px;
+    }
+    .container {
+        padding: 20px;
+        margin-top: 60px;
+    }
+    h1 {
+        font-size: 1.7em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    #final-title {
+        font-size: 2em;
+    }
+    .answer-btn {
+        font-size: 1em;
+        padding: 12px 10px;
+    }
+}
+</style>
