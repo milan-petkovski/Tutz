@@ -50,12 +50,12 @@
             
             <div id="email-submission">
                 <input type="email" id="email-input" placeholder="Unesite vašu E-mail adresu" required>
-                <button id="submit-email-button" class="btn email-btn">Pošalji Rezultate</button>
+                <button id="submit-email-button" class="btn email-btn"></button>
                 <p id="email-error" class="error-msg"></p>
                 <p id="email-success" class="success-msg hidden"></p>
             </div>
-            <button id="restart-button" class="btn hidden">Ponovi Kviz</button>
-            <button id="restart-button-after-email" class="btn hidden">Ponovi Kviz</button>
+            <button id="restart-button" class="btn hidden">Ponovi kviz</button>
+            <button id="restart-button-after-email" class="btn hidden">Ponovi kviz</button>
         </div>
 </div>
 
@@ -666,7 +666,7 @@ function showResult() {
     emailInput.classList.remove('hidden');
     emailInput.disabled = false;
     submitEmailButton.disabled = false;
-    submitEmailButton.textContent = 'Pošalji Rezultate';
+    submitEmailButton.textContent = 'Prikaži Rezultate';
 }
 function isValidEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -698,7 +698,7 @@ function submitEmail() {
     // Privremeno onemogući dugme i polje
     submitEmailButton.disabled = true;
     emailInput.disabled = true;
-    submitEmailButton.textContent = 'Slanje...';
+    submitEmailButton.textContent = 'Prikazivanje...';
     emailErrorEl.textContent = ''; 
 
     // Slanje podataka preko Fetch API-ja
