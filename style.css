@@ -249,7 +249,7 @@ button.normal {
   list-style: none;
 }
 .nav-links li a {
-  color: #1c1c1c;
+  color: #383838;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 15px;
@@ -379,11 +379,11 @@ button.normal {
   transform: translateY(-2px);
 }
 .kviz{
-  background: #4c974c;
+  background: #ffcf2b;
   box-shadow: 0 0 20px rgba(76, 151, 76, 0.5);
 }
 .kviz:hover{
-  background: #3e883e;
+  background: #ffcf2b;
   box-shadow: 0 0 30px rgba(76, 151, 76, 0.7);
 }
 .live-dot {
@@ -696,6 +696,7 @@ button.normal {
 }
 @media (max-width: 1024px) {
   .live-container {
+    padding: 0 20px;
     max-width: none !important;
     margin: 0 !important;
     box-shadow: none !important;
@@ -739,6 +740,9 @@ button.normal {
 }
 #merch button:hover {
   background: #5e2d85;
+}
+#merch a{
+  color: white;
 }
 /* Modal */
 #modal {
@@ -816,60 +820,120 @@ button.normal {
   background: #5e2d85;
   border: 1px solid #5e2d85;
 }
-/* Work in progress */
-#work-in-progress {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  text-align: center;
-  background: #2a2a3c;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1); 
+/* Stilizacija za sekciju Merch kartica */
+.merch-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-#work-in-progress h2 {
-  font-size: 36px;
-  color: #fff;
-  margin-bottom: 15px;
+.merch-card {
+    background-color: #2a2a3c;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-#work-in-progress h2 .fa-hard-hat {
-  color: #ffc107;
-  margin-left: 10px;
+.merch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
-#work-in-progress p {
-  font-size: 1.2em;
-  color: #d0d0d5;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
+.merch-image {
+    width: 100%;
+    height: 350px; /* Fiksna visina za sliku */
+    overflow: hidden;
+    border-bottom: 1px solid #2a2a3c;
 }
-@media(max-width: 950px){
-  #work-in-progress {
-    padding: 40px 15px;
-    border-radius: 0px;
+.merch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.merch-details {
+    padding: 20px;
+}
+.merch-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.short-description {
+    font-size: 14px;
+    color: #dddddd;
+    margin-bottom: 15px;
+    min-height: 35px;
+}
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8541b8;
+    margin-bottom: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.old-price {
+    font-size: 16px;
+    color: #a0a0a0;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+.current-price {
+    font-size: 24px;
+    color: #8541b8;
+    font-weight: bold;
+}
+.buy-button {
+    background-color: #8541b8;
+    color: white;
     border: none;
-  }
-  #product h2#naslov {
-    font-size: 32px;
-  }
-  #modal #poeni {
-    padding: 25px 20px;
-  }
-  .input-group {
-    flex-direction: column;
-    gap: 0;
-  }
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
-@media(max-width: 500px){
-  #product h2#naslov {
-    font-size: 28px;
-  }
-  #work-in-progress h2 {
-    font-size: 2em;
-  }
-  #work-in-progress p {
-    font-size: 1em;
-  }
+.buy-button:hover {
+    background-color: #5e2d85;
+}
+@media (max-width: 1024px) {
+    .merch-items{
+        padding: 0 20px;
+    }
+}
+@media (max-width: 992px) {
+    .merch-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .merch-items {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .merch-image {
+        height: 250px;
+    }
+    .merch-details h3 {
+        font-size: 20px;
+    }
+    .price {
+        font-size: 18px;
+        gap: 8px;
+    }
+    .old-price {
+        font-size: 14px;
+    }
+    .current-price {
+        font-size: 20px; 
+    }
 }
 
 /* ------------------- FAQ ------------------- */
@@ -1070,6 +1134,11 @@ button.normal {
 }
 .cta-button:hover {
   background: #6b3294;
+}
+@media(max-width: 1024px) {
+  #sponzori{
+      padding: 0 20px;
+  }
 }
 @media(max-width: 950px) {
   #partneri {
@@ -1524,6 +1593,10 @@ button.normal {
   transition: 0.5s;
   position: relative;
 }
+.links .majice{
+  display: flex;
+  flex-direction: column;
+}
 .links #giveaway{
   margin: 0;
   padding: 0;
@@ -1549,7 +1622,7 @@ button.normal {
   left: 50%;
   transform: translateX(-50%);
 }
-.special {
+.special, .majice {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1583,6 +1656,40 @@ button.normal {
   height: 100%;
   border: none;
   display: block;
+}
+.majice{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 330px;
+}
+.majice img{
+  transform: scale(1);
+  transition: 0.5s;
+}
+.majice img:hover{
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+.majice span{
+  margin-top: 10px;
+  border: 1px solid #8541b8;
+  color: #8541b8;
+  text-decoration: none;
+  border-width: 2px;
+  padding: 10px;
+  width: 330px;
+  max-width: 100%;
+  border-radius: 40px;
+  font-size: 17px;
+  transition: 0.5s;
+  position: relative;
+}
+.majice span:hover{
+  text-decoration: none;
+  color: #fff;
+  background-color: #8541b8;
+  transition: 0.5s;
 }
 .profile-picture {
   display: block;
