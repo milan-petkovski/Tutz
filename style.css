@@ -1092,7 +1092,7 @@ button.normal {
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: 10px;
   max-width: 1200px;
   margin: 10px auto;
 }
@@ -1631,6 +1631,7 @@ button.normal {
   text-align: center;
   text-decoration: none;
   border: none;
+  margin-top: 10px;
 }
 .special:hover,
 .special b {
@@ -1641,6 +1642,9 @@ button.normal {
 .special b{
   display: block;
   flex-direction: row;
+}
+.special p{
+  margin: 0 0 10px 0;
 }
 .special .iframe-wrapper {
   position: relative;
