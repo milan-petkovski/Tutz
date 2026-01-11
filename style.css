@@ -2019,6 +2019,9 @@ button.normal {
 
 /* Mobilni uređaji (ekran manji od 768px) */
 @media (max-width: 768px) {
+    .rules-accordion{
+      margin: 15px 0 15px 0;
+    }
     #mod-container {
         padding: 90px 15px 40px;
     }

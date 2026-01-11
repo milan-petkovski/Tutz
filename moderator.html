@@ -9,7 +9,6 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
-
 <body>
 
 <header id="header">
@@ -86,6 +85,7 @@
   <div class="filter-menu">
     <button class="filter-btn active" onclick="filterSelection('all')">Sve</button>
     <button class="filter-btn" onclick="filterSelection('lajv')">Lajv</button>
+    <button class="filter-btn" onclick="filterSelection('shop')">Shop</button>
     <button class="filter-btn" onclick="filterSelection('bmrp')">BMRP</button>
     <button class="filter-btn" onclick="filterSelection('viber')">Viber</button>
     <button class="filter-btn" onclick="filterSelection('discord')">Discord</button>
@@ -152,13 +152,13 @@
         <button class="copy-btn" onclick="copyText('msg23', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
     </div>
 
-    <div class="mod-card category-lajv category-bmrp">
+    <div class="mod-card category-bmrp">
         <h3>BMRP 💎</h3>
         <div class="text-box" id="msg11">Igraj na BMRP uz kod TUTZ i uzmi 60k RSD i 2 kutije! 💎 Link u BIO.</div>
         <button class="copy-btn" onclick="copyText('msg11', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
     </div>
 
-    <div class="mod-card category-lajv">
+    <div class="mod-card category-shop">
         <h3>Tutz Shop 👕</h3>
         <div class="text-box" id="msg8">Budi najjači na BLKN! 💪 Majice te čekaju na linku u BIO! 👕</div>
         <button class="copy-btn" onclick="copyText('msg8', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
@@ -189,7 +189,7 @@
     </div>
 
     <div class="mod-card category-lajv">
-        <h3>Tražim ekipu</h3>
+        <h3>Tražim tim</h3>
         <div class="text-box" id="msg7">Treba ti tim za gejm? Imamo sobe za to na Discordu, upadaj! Link u BIO 🎧</div>
         <button class="copy-btn" onclick="copyText('msg7', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
     </div>
@@ -229,8 +229,38 @@
         <div class="text-box" id="msg51">🔴Ide lajv ROBLOX ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live</div>
         <button class="copy-btn" onclick="copyText('msg51', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
     </div>
-  </div>
 
+    <div class="mod-card category-viber">
+        <h3>🍿 Filmsko Veče Viber</h3>
+        <div class="text-box" id="msg25">Upadajte na Discord, počinje FILMSKO VEČE! 🍿🎬</div>
+        <button class="copy-btn" onclick="copyText('msg25', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    </div>
+
+    <div class="mod-card category-discord">
+        <h3>🍿 Filmsko Veče Discord</h3>
+        <div class="text-box" id="msg26">Svi upadajte ovde na filmsko veče: <#1457873237777322106> 🍿🎬</div>
+        <button class="copy-btn" onclick="copyText('msg26', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    </div>
+
+    <div class="mod-card category-lajv">
+        <h3>Roblox Username</h3>
+        <div class="text-box" id="msg27">Tutz se u Robloxu zove: yt_tutz 🎮 Dodajte ga i upadajte u game!</div>
+        <button class="copy-btn" onclick="copyText('msg27', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    </div>
+
+    <div class="mod-card category-shop">
+        <h3>Najbolji merch 🧢</h3>
+        <div class="text-box" id="msg28">Hoćeš najbolji merch na Balkanu? 🌍 Link u BIO i naruči svoj primerak Tutz mercha! 🔥</div>
+        <button class="copy-btn" onclick="copyText('msg28', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    </div>
+
+    <div class="mod-card category-shop">
+        <h3>👕 Roblox Majice</h3>
+        <div class="text-box" id="msg36">Podrži Tutz-a i u Robloxu! 🎮 Majice možeš uzeti u Roblox community, link je u BIO! 👕</div>
+        <button class="copy-btn" onclick="copyText('msg36', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    </div>
+
+  </div>
 </div>
 
 <footer id="footer">
@@ -245,51 +275,42 @@
 </html>
 
 <script>
-        // 1. Funkcija za kopiranje teksta
-        function copyText(elementId, btn) {
-            var text = document.getElementById(elementId).innerText;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                // Promena izgleda dugmeta
-                let originalContent = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
-                btn.classList.add('copied');
+// 1. Funkcija za kopiranje teksta
+function copyText(elementId, btn) {
+  var text = document.getElementById(elementId).innerText;
+        
+  navigator.clipboard.writeText(text).then(() => {
+  let originalContent = btn.innerHTML;
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
+  btn.classList.add('copied');
 
-                // Vraćanje na staro posle 1.5 sekunde
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Kopiraj';
-                    btn.classList.remove('copied');
-                }, 1500);
-            });
-        }
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Kopiraj';
+    btn.classList.remove('copied');
+  }, 1500);
+  });
+}
+// 2. Funkcija za filtriranje kategorija
+function filterSelection(category) {
+  var cards = document.getElementsByClassName("mod-card");
+  var buttons = document.getElementsByClassName("filter-btn");
 
-        // 2. Funkcija za filtriranje kategorija
-        function filterSelection(category) {
-            var cards = document.getElementsByClassName("mod-card");
-            var buttons = document.getElementsByClassName("filter-btn");
+  for (let btn of buttons) {
+    btn.classList.remove("active");
+  }
+  event.target.classList.add("active");
 
-            // Ažuriraj aktivno dugme
-            // Prvo ukloni 'active' sa svih dugmadi
-            for (let btn of buttons) {
-                btn.classList.remove("active");
-            }
-            // Dodaj 'active' na kliknuto dugme (tražimo ga po tekstu ili onclick atributu, 
-            // ali najlakše je preko event.target ako bi prosledili event, 
-            // ovde ćemo jednostavnije: naći dugme koje poziva ovu funkciju)
-            event.target.classList.add("active");
-
-            // Prikaži/Sakrij kartice
-            for (let i = 0; i < cards.length; i++) {
-                if (category === "all") {
-                    cards[i].classList.remove("hidden");
-                } else {
-                    if (cards[i].classList.contains("category-" + category)) {
-                        cards[i].classList.remove("hidden");
-                    } else {
-                        cards[i].classList.add("hidden");
-                    }
-                }
-            }
-        }
+  for (let i = 0; i < cards.length; i++) {
+    if (category === "all") {
+      cards[i].classList.remove("hidden");
+    } else {
+      if (cards[i].classList.contains("category-" + category)) {
+        cards[i].classList.remove("hidden");
+      } else {
+          cards[i].classList.add("hidden");
+      }
+    }
+  }
+}
 </script>
 
