@@ -1794,3 +1794,270 @@ button.normal {
     padding-right: 0 !important;
   }
 }
+
+/* MODERATOR */
+#mod-container {
+  padding: 110px 20px 60px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+/* --- FILTER MENI --- */
+.filter-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.filter-btn {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #444;
+    padding: 10px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.filter-btn:hover {
+    border-color: #8541b8;
+    color: #8541b8;
+    background: #fbfaff;
+}
+.filter-btn.active {
+    background: #8541b8;
+    border-color: #8541b8;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(133, 65, 184, 0.2);
+}
+/* --- KARTICE--- */
+.mod-card {
+    background: #ffffff;
+    border: 1px solid #efefff;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+.mod-card:hover {
+    box-shadow: 0 12px 24px rgba(133, 65, 184, 0.12);
+    border-color: #d4d2f7;
+}
+.mod-card h3 {
+    font-size: 15px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #8541b8;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.text-box {
+    background: #f8f9ff;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 20px;
+    word-break: break-word;
+    flex-grow: 1;
+    border: 1px dashed #d4d2f7;
+}
+.copy-btn {
+    background: #8541b8;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+.copy-btn:hover {
+    background: #7236a0;
+}
+.copy-btn.copied {
+    background: #27ae60;
+}
+
+/* --- ACCORDION (PRAVILA) --- */
+.rules-accordion {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(133, 65, 184, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: 0.3s;
+}
+.rules-accordion summary {
+    list-style: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #fdfbff;
+    outline: none;
+}
+.rules-accordion summary::-webkit-details-marker {
+    display: none;
+}
+.summary-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8541b8;
+    font-weight: 600;
+    font-size: 16px;
+}
+.rules-accordion[open] .arrow {
+    transform: rotate(180deg);
+}
+.arrow {
+    transition: 0.3s ease;
+}
+/* UNUTRAŠNJOST PRAVILA KAD SE OTVORE */
+#rules-audio-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 15px 25px 25px 25px;
+    background: #fff;
+    border-top: 1px solid rgba(133, 65, 184, 0.1);
+}
+.rules-content {
+    flex: 2;
+    min-width: 300px;
+}
+.rules-intro {
+    font-size: 13px;
+    margin: 0 0 20px 0;
+    color: #888;
+    font-style: italic;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+}
+.mod-rules-list {
+    list-style: none;
+    padding: 0;
+}
+.mod-rules-list li {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.mod-rules-list li i {
+    color: #8541b8;
+    margin-top: 4px;
+    width: 18px;
+    text-align: center;
+}
+.badge-req {
+    background: #ff4757;
+    color: #fff;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+.rules-footer {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #8541b8;
+    font-size: 14px;
+    background: rgba(133, 65, 184, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+/* AUDIO KARTICA DESNO */
+.audio-content {
+    flex: 1;
+    min-width: 250px;
+}
+.audio-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+.audio-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #444;
+}
+.audio-card audio {
+    height: 35px;
+    width: 100%;
+}
+.hidden { display: none; }
+/* --- RESPONSIVE POPRAVKE --- */
+
+/* Mobilni uređaji (ekran manji od 768px) */
+@media (max-width: 768px) {
+    #mod-container {
+        padding: 90px 15px 40px;
+    }
+    .rules-intro {
+    text-align: center;
+    }
+    #rules-audio-box {
+        flex-direction: column !important;
+        align-items: stretch;
+        padding: 15px;
+        gap: 20px;
+    }
+    .rules-content, .audio-content {
+        width: 100%;
+        min-width: unset;
+        flex: none;
+    }
+    .audio-content {
+        position: static;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-content {
+        font-size: 14px;
+    }
+}
+@media (min-width: 769px) {
+    #rules-audio-box {
+        flex-direction: row; 
+        align-items: flex-start;
+    }
+    .rules-content {
+        flex: 2;
+    }
+    .audio-content {
+        flex: 1;
+        position: sticky;
+        top: 10px;
+    }
+}

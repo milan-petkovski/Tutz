@@ -14,7 +14,7 @@
 
 <header id="header">
   <div class="nav-container">
-    <a href="#hero" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <img src="images/logo.png" alt="Tutz logo">
     </a>
 
@@ -25,6 +25,60 @@
 </header>
 
 <div id="mod-container">
+  <details class="rules-accordion">
+    <summary>
+        <div class="summary-content">
+            <span><i class="fa-solid fa-shield-halved"></i> MODERATOR: KLJUČNA PRAVILA I OBAVEZE</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+        </div>
+    </summary>
+
+    <div id="rules-audio-box">
+        <div class="rules-content">
+            <p class="rules-intro">
+                Moderatorska pozicija je čast i odgovornost. Održavajte kulturu, budite aktivni i pratite sledeće OBAVEZNE tačke:
+            </p>
+            
+            <ul class="mod-rules-list">
+                <li>
+                    <i class="fa-solid fa-gift"></i>
+                    <span><strong>Pozdravi Donacije:</strong> Kad neko pošalje gift ili donira, SVI moderatori ga taguju (@ime), pozdrave i zahvale mu se. <span class="badge-req">OBAVEZNO</span></span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-comments"></i>
+                    <span><strong>Pokreni Komunikaciju:</strong> Aktivno komunicirajte sa ljudima, podstičite ih da se međusobno upoznaju i dopisuju. Vi ste moja veza sa chatom jer ja ne mogu sve da postignem. <span class="badge-req">OBAVEZNO</span></span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle"></i>
+                    <span><strong>Korišćenje Tačke:</strong> Tačka se <b>ZASLUŽUJE</b>, ne dobijaju je svi modovi. Koristi se ISKLJUČIVO za saopštavanje bitnih stvari meni (streameru).
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span><strong>STROGO ZABRANJENO</strong> traženje "tačke i ostalih gluposti". Kada budem smatrao da neko zaslužuje dodatno, dobiće.</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-thumbtack"></i>
+                    <span><strong>Mute/Pin:</strong> Mute i pinovanje poruka se radi <b>ISKLJUČIVO KADA JA KAŽEM</b>. Nikada ne mutirati ceo chat bez moje izričite dozvole.</span>
+                </li>
+            </ul>
+            
+            <p class="rules-footer">
+                <i class="fa-solid fa-star"></i> Kulturno ponašanje je uvek obavezno!
+            </p>
+        </div>
+        
+        <div class="audio-content">
+            <div class="audio-card">
+                <p><i class="fa-solid fa-volume-high"></i> <strong>Poslušaj poruku od Tutza</strong></p>
+                <audio controls>
+                    <source src="images/modinfo.mp4" type="audio/mpeg">
+                    Tvoj pretraživač ne podržava audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+  </details>
+
   <div class="filter-menu">
     <button class="filter-btn active" onclick="filterSelection('all')">Sve</button>
     <button class="filter-btn" onclick="filterSelection('lajv')">Lajv</button>
@@ -183,121 +237,8 @@
   <button type="button" id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
 </footer>
 
-
 </body>
 </html>
-
-<style>
-#mod-container {
-  padding: 120px 20px 60px;
-  margin: 0 auto;
-  min-height: 80vh;
-}
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-}
-.filter-menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 40px;
-}
-.filter-btn {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    color: #444;
-    padding: 10px 22px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-.filter-btn:hover {
-    border-color: #8541b8;
-    color: #8541b8;
-    background: #fbfaff;
-}
-.filter-btn.active {
-    background: #8541b8;
-    border-color: #8541b8;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(133, 65, 184, 0.2);
-}
-@media (min-width: 768px) {
-  .cards-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-.mod-card {
-    background: #ffffff;
-    border: 1px solid #efefff;
-    border-radius: 16px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
-}
-.mod-card:hover {
-    box-shadow: 0 12px 24px rgba(133, 65, 184, 0.12);
-    border-color: #d4d2f7;
-}
-.mod-card h3 {
-    font-size: 16px !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    color: #8541b8;
-    font-weight: 700;
-}
-.text-box {
-    background: #f8f9ff;
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #333;
-    margin-bottom: 20px;
-    word-break: break-word;
-    flex-grow: 1;
-    border: 1px dashed #d4d2f7;
-}
-.copy-btn {
-    background: #8541b8;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.2s ease;
-    width: 100%;
-}
-.copy-btn:hover {
-    background: #7236a0;
-}
-.copy-btn:active {
-    transform: scale(0.96);
-}
-.copy-btn.copied {
-    background: #27ae60;
-}
-.hidden {
-  display: none;
-}
-</style>
 
 <script>
         // 1. Funkcija za kopiranje teksta
