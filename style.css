@@ -380,7 +380,7 @@ button.normal {
 }
 .kviz{
   background: #ffcf2b;
-  box-shadow: 0 0 20px rgb(255, 207, 43, 0.7);
+  box-shadow: 0 0 20px rgb(255, 207, 43, 0.5);
 }
 .kviz:hover{
   background: #ffcf2b;
