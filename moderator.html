@@ -34,7 +34,7 @@
 </div>
 
 <div id="mod-container">
-  <details class="rules-accordion">
+    <details class="rules-accordion">
     <summary>
         <div class="summary-content">
             <span><i class="fa-solid fa-shield-halved"></i> MODERATOR: KLJUČNA PRAVILA I OBAVEZE</span>
@@ -90,18 +90,17 @@
             </div>
         </div>
     </div>
-  </details>
+    </details>
 
-<div class="hero-links-container">
-      
+    <div class="hero-links-container">
       <div class="hero-link youtube-style">
           <div class="hero-content">
-              <div class="hero-icon">
+              <a href="https://youtube.com/@TutzOfficial/live"><div class="hero-icon">
                   <i class="fa-brands fa-youtube"></i>
-              </div>
+              </div></a>
               <div class="hero-text">
                   <h3>YOUTUBE LIVE</h3>
-                  <p id="ytLiveLink">https://tiktok.com/@not_tutz/live</p>
+                  <p id="ytLiveLink">https://youtube.com/@TutzOfficial/live</p>
               </div>
           </div>
           <button class="hero-copy-btn" onclick="copyText('ytLiveLink', this)">
@@ -111,205 +110,30 @@
 
       <div class="hero-link tiktok-style">
           <div class="hero-content">
-              <div class="hero-icon">
+              <a href="https://tiktok.com/@not_tutz/live"><div class="hero-icon">
                   <i class="fa-brands fa-tiktok"></i>
-              </div>
+              </div></a>
               <div class="hero-text">
                   <h3>TIKTOK LIVE</h3>
-                  <p id="ttLiveLink">https://youtube.com/@TutzOfficial/live</p>
+                  <p id="ttLiveLink">https://tiktok.com/@not_tutz/live</p>
               </div>
           </div>
           <button class="hero-copy-btn" onclick="copyText('ttLiveLink', this)">
               <i class="fa-regular fa-copy"></i> KOPIRAJ
           </button>
       </div>
+    </div>
 
-  </div>
-
-  <div class="filter-menu">
+    <div class="filter-menu">
     <button class="filter-btn active" onclick="filterSelection('all')">Sve</button>
     <button class="filter-btn" onclick="filterSelection('lajv')">Lajv</button>
     <button class="filter-btn" onclick="filterSelection('shop')">Shop</button>
     <button class="filter-btn" onclick="filterSelection('viber')">Viber</button>
     <button class="filter-btn" onclick="filterSelection('discord')">Discord</button>
-  </div>
-
-  <div class="cards-grid">
-    <div class="mod-card category-lajv">
-        <h3>Dobrodošlica</h3>
-        <div class="text-box" id="msg1">Dobro došli!💜 Lupite taj follow, uživajte u lajvu i budite fini u chatu! </div>
-        <button class="copy-btn" onclick="copyText('msg1', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
     </div>
 
-    <div class="mod-card category-lajv">
-        <h3>Pravila</h3>
-        <div class="text-box" id="msg2">Bez psovki, spama i reklama. Poštujte modove da ne bi radio BAN! 🚫</div>
-        <button class="copy-btn" onclick="copyText('msg2', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
+    <div class="cards-grid" id="cards-container">
     </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Robux GW (500+ ljudi)</h3>
-        <div class="text-box" id="msg21">Ako pređemo 500 ljudi na lajvu ide giveaway 500 robuxa!!! Šaljite lajv svima!🚀</div>
-        <button class="copy-btn" onclick="copyText('msg21', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Tutz Gang (Ime)</h3>
-        <div class="text-box" id="msg20">Postani deo najjače ekipe! Promeni ime u: (Ime) | Tutz Gang i pokaži ko je najjači! 💪</div>
-        <button class="copy-btn" onclick="copyText('msg20', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Tap-Tap (Lajkovi)</h3>
-        <div class="text-box" id="msg24">Izlomite taj ekran! Tap-tap na max da poguramo lajv na foryou! 🔥</div>
-        <button class="copy-btn" onclick="copyText('msg24', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>TikTok Profil</h3>
-        <div class="text-box" id="msg18">Lupite taj follow i upalite obaveštenja za svaki lajv! ✅</div>
-        <button class="copy-btn" onclick="copyText('msg18', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv category-bmrp">
-        <h3>Trenutna Igra BMRP</h3>
-        <div class="text-box" id="msg3">Danas igramo BMRP! Uđi i ti, link u BIO i kod TUTZ! 🎮</div>
-        <button class="copy-btn" onclick="copyText('msg3', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Trenutna Igra ROBLOX</h3>
-        <div class="text-box" id="msg19">Danas igramo roblox! Uđi i ti, link u BIO! 🎮</div>
-        <button class="copy-btn" onclick="copyText('msg19', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-bmrp">
-        <h3>Kako igrati BMRP?</h3>
-        <div class="text-box" id="msg22">Instaliraj RageMP -> nađi server BMRP -> ukucaj kod TUTZ! Vidimo se na serveru! 💎🎮</div>
-        <button class="copy-btn" onclick="copyText('msg22', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-bmrp">
-        <h3>BMRP Bonus</h3>
-        <div class="text-box" id="msg23">Skini RageMP, uđi na BMRP i obavezno kod TUTZ za bonus! 💰</div>
-        <button class="copy-btn" onclick="copyText('msg23', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-bmrp">
-        <h3>BMRP 💎</h3>
-        <div class="text-box" id="msg11">Igraj na BMRP uz kod TUTZ i uzmi 60k RSD i 2 kutije! 💎 Link u BIO.</div>
-        <button class="copy-btn" onclick="copyText('msg11', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-shop">
-        <h3>Tutz Shop 👕</h3>
-        <div class="text-box" id="msg8">Budi najjači na BLKN! 💪 Majice te čekaju na linku u BIO! 👕</div>
-        <button class="copy-btn" onclick="copyText('msg8', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>YouTube 🔴</h3>
-        <div class="text-box" id="msg9">Baci sub na YouTube "TUTZ", tamo su najjači klipovi! 🔥</div>
-        <button class="copy-btn" onclick="copyText('msg9', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Novi klip</h3>
-        <div class="text-box" id="msg17">Svi na YouTube! Izašao je brutalan video, link je u BIO! 🎬</div>
-        <button class="copy-btn" onclick="copyText('msg17', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Instagram 📸</h3>
-        <div class="text-box" id="msg10">Zapratite @tutzgaming na ig 📸</div>
-        <button class="copy-btn" onclick="copyText('msg10', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Discord Server</h3>
-        <div class="text-box" id="msg6">Najjače druženje je na Discordu! Link u BIO profila 👾</div>
-        <button class="copy-btn" onclick="copyText('msg6', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Tražim tim</h3>
-        <div class="text-box" id="msg7">Treba ti tim? Uđi na naš Discord! Link u BIO 🎧</div>
-        <button class="copy-btn" onclick="copyText('msg7', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Viber Grupa</h3>
-        <div class="text-box" id="msg4">Uđi u Viber grupu za druženje i najave lajva! Link u BIO 📱</div>
-        <button class="copy-btn" onclick="copyText('msg4', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Viber obavestenja</h3>
-        <div class="text-box" id="msg5">Upali zvonce u Viber grupi da ti ne promakne kad ide lajv! 🔔</div>
-        <button class="copy-btn" onclick="copyText('msg5', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Temu Popust 🎁</h3>
-        <div class="text-box" id="msg12">Uzmi temu 10.000 RSD paket kupona! Kod: alh281172 (Link u BIO) 🎁</div>
-        <button class="copy-btn" onclick="copyText('msg12', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Paypal / Podrška</h3>
-        <div class="text-box" id="msg13">Podrži stream preko Paypala Link u BIO! Svaka čast svima! 💜</div>
-        <button class="copy-btn" onclick="copyText('msg13', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-viber">
-        <h3>🔴 Ide lajv BMRP</h3>
-        <div class="text-box" id="msg50">🔴 Ide lajv GTA V RP ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live</div>
-        <button class="copy-btn" onclick="copyText('msg50', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-viber">
-        <h3>🔴 Ide lajv ROBLOX</h3>
-        <div class="text-box" id="msg51">🔴 Ide lajv ROBLOX ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live</div>
-        <button class="copy-btn" onclick="copyText('msg51', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-viber">
-        <h3>🍿 Filmsko Veče Viber</h3>
-        <div class="text-box" id="msg25">Upadajte na Discord, počinje FILMSKO VEČE! 🍿🎬</div>
-        <button class="copy-btn" onclick="copyText('msg25', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-discord">
-        <h3>🍿 Filmsko Veče Discord</h3>
-        <div class="text-box" id="msg26">Svi upadajte ovde na filmsko veče: <#1457873237777322106> 🍿🎬</div>
-        <button class="copy-btn" onclick="copyText('msg26', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Roblox Username</h3>
-        <div class="text-box" id="msg27">Username u robloxu yt_tutz 🎮!</div>
-        <button class="copy-btn" onclick="copyText('msg27', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-shop">
-        <h3>Najbolji merch 🧢</h3>
-        <div class="text-box" id="msg28">Hoćeš najbolji merch na Balkanu? 🌍 Link u BIO i naruči svoj primerak Tutz mercha! 🔥</div>
-        <button class="copy-btn" onclick="copyText('msg28', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-shop">
-        <h3>👕 Roblox Majice</h3>
-        <div class="text-box" id="msg36">Podrži Tutz-a i u Robloxu! 🎮 Majice možeš uzeti u communitiju, link u BIO! 👕</div>
-        <button class="copy-btn" onclick="copyText('msg36', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-    <div class="mod-card category-lajv">
-        <h3>Zaradi klipovanjem</h3>
-        <div class="text-box" id="msg29">Zaradi klipovanjem lajva. Piši na mail tutzmanager@gmail.com 🤑</div>
-        <button class="copy-btn" onclick="copyText('msg29', this)"><i class="fa-regular fa-copy"></i> Kopiraj</button>
-    </div>
-
-  </div>
 </div>
 
 <footer id="footer">
@@ -324,43 +148,104 @@
 </html>
 
 <script>
-// 1. Funkcija za kopiranje teksta
-function copyText(elementId, btn) {
-  var text = document.getElementById(elementId).innerText;
-        
-  navigator.clipboard.writeText(text).then(() => {
-  let originalContent = btn.innerHTML;
-  btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
-  btn.classList.add('copied');
+const modMessages = [
+    { title: "Dobrodošlica 💜", category: "lajv", text: "Dobro došli!💜 Lupite taj follow, uživajte u lajvu i budite fini u chatu!" },
+    { title: "Pravila 🚫", category: "lajv", text: "Bez psovki, spama i reklama. Poštujte modove da ne bi radio BAN! 🚫" },
+    { title: "1000 Robux Giveaway! 💸", category: "lajv", text: "Izašao je novi YT video, u toku je giveaway za 1000 ROBUXA! 😱 Link u BIO!🚀" },
+    { title: "Robux GW (500+ ljudi)", category: "lajv", text: "Ako pređemo 500 ljudi na lajvu ide giveaway 500 robuxa!!! Šaljite lajv svima!🚀" },
+    { title: "Novi klip 🎬", category: "lajv", text: "Svi na YouTube! Izašao je brutalan video, link je u BIO! 🎬" },
+    { title: "YouTube 🔴", category: "lajv", text: "Baci sub na YouTube \"TUTZ\", tamo su najjači klipovi! 🔥" },
+    { title: "Zaradi klipovanjem 🤑", category: "lajv", text: "Zaradi klipovanjem lajva. Piši na mail tutzmanager@gmail.com 🤑" },
+    { title: "Tap-Tap (Lajkovi) 🔥", category: "lajv", text: "Izlomite taj ekran! Tap-tap na max da poguramo lajv na foryou! 🔥" },
+    { title: "Tutz Gang (Ime) 💪", category: "lajv", text: "Postani deo najjače ekipe! Promeni ime u: (Ime) | Tutz Gang i pokaži ko je najjači! 💪" },
+    { title: "TikTok Profil ✅", category: "lajv", text: "Lupite taj follow i upalite obaveštenja za svaki lajv! ✅" },
+    { title: "Viber Grupa 📱", category: "lajv", text: "Uđi u Viber grupu za druženje i najave lajva! Link u BIO 📱" },    
+    { title: "Viber obavestenja 🔔", category: "lajv", text: "Upali zvonce u Viber grupi da ti ne promakne kad ide lajv! 🔔" },
+    { title: "Discord Server 👾", category: "lajv", text: "Najjače druženje je na Discordu! Link u BIO profila 👾" },
 
-  setTimeout(() => {
-    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Kopiraj';
-    btn.classList.remove('copied');
-  }, 1500);
-  });
+    { title: "Instagram 📸", category: "lajv", text: "Zapratite @tutzgaming na ig 📸" },
+    { title: "Tražim tim 🎧", category: "lajv", text: "Treba ti tim? Uđi na naš Discord! Link u BIO 🎧" },
+    { title: "Trenutna Igra 🎮", category: "lajv", text: "Danas igramo roblox! Uđi i ti, link u BIO! 🎮" },
+    { title: "Roblox Username 🎮", category: "lajv", text: "Username u robloxu yt_tutz 🎮!" },
+    { title: "Paypal / Podrška 💜", category: "lajv", text: "Podrži stream preko Paypala Link u BIO! Svaka čast svima! 💜" },
+    { title: "Temu Popust 🎁", category: "lajv", text: "Uzmi temu 10.000 RSD paket kupona! Kod: alh281172 (Link u BIO) 🎁" },
+
+    // --- KATEGORIJA: SHOP ---
+    { title: "Tutz Shop 👕", category: "shop", text: "Budi najjači na BLKN! 💪 Majice te čekaju na linku u BIO! 👕" },
+    { title: "Najbolji merch 🧢", category: "shop", text: "Hoćeš najbolji merch na Balkanu? 🌍 Link u BIO i naruči svoj primerak Tutz mercha! 🔥" },
+    { title: "👕 Roblox Majice", category: "shop", text: "Podrži Tutz-a i u Robloxu! 🎮 Majice možeš uzeti u communitiju, link u BIO! 👕" },
+
+    // --- KATEGORIJA: VIBER ---
+
+    { title: "🔴 Ide lajv ROBLOX", category: "viber", text: "🔴 Ide lajv ROBLOX ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
+    { title: "🍿 Filmsko Veče Viber", category: "viber", text: "Upadajte na Discord, počinje FILMSKO VEČE! 🍿🎬" },
+
+    // --- KATEGORIJA: DISCORD ---
+    { title: "🍿 Filmsko Veče Discord", category: "discord", text: "Svi upadajte ovde na filmsko veče: <#1457873237777322106> 🍿🎬" },
+
+    /* --- KATEGORIJA: BMRP  ---    
+    { title: "🔴 Ide lajv BMRP", category: "viber", text: "🔴 Ide lajv GTA V RP ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
+    { title: "Trenutna Igra BMRP", category: "bmrp", text: "Danas igramo BMRP! Uđi i ti, link u BIO i kod TUTZ! 🎮" },
+    { title: "Kako igrati BMRP?", category: "bmrp", text: "Instaliraj RageMP -> nađi server BMRP -> ukucaj kod TUTZ! Vidimo se na serveru! 💎🎮" },
+    { title: "BMRP Bonus", category: "bmrp", text: "Skini RageMP, uđi na BMRP i obavezno kod TUTZ za bonus! 💰" },
+    { title: "BMRP 💎", category: "bmrp", text: "Igraj na BMRP uz kod TUTZ i uzmi 60k RSD i 2 kutije! 💎 Link u BIO." }
+     */
+];
+
+// 2. Funkcija koja crta kartice na ekranu
+function renderCards(filter = "all") {
+    const container = document.getElementById("cards-container");
+    container.innerHTML = ""; // Isprazni sve trenutno
+
+    modMessages.forEach((item) => {
+        // Filtriranje
+        if (filter !== "all" && item.category !== filter) return;
+
+        // Pravljenje HTML-a za jednu karticu
+        const card = document.createElement("div");
+        card.className = `mod-card category-${item.category}`;
+        card.innerHTML = `
+            <h3>${item.title}</h3>
+            <div class="text-box">${item.text}</div>
+            <button class="copy-btn" onclick="copyText(this)">
+                <i class="fa-regular fa-copy"></i> Kopiraj
+            </button>
+        `;
+        container.appendChild(card);
+    });
 }
-// 2. Funkcija za filtriranje kategorija
+
+// 3. Poboljšana funkcija za kopiranje (ne treba joj ID)
+function copyText(btn) {
+    const textBox = btn.parentElement.querySelector(".text-box");
+    const text = textBox.innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.classList.remove('copied');
+        }, 1500);
+    });
+}
+
+// 4. Funkcija za filtriranje (poziva render)
 function filterSelection(category) {
-  var cards = document.getElementsByClassName("mod-card");
-  var buttons = document.getElementsByClassName("filter-btn");
+    // Sredi aktivne dugmiće
+    const buttons = document.getElementsByClassName("filter-btn");
+    for (let btn of buttons) btn.classList.remove("active");
+    event.target.classList.add("active");
 
-  for (let btn of buttons) {
-    btn.classList.remove("active");
-  }
-  event.target.classList.add("active");
-
-  for (let i = 0; i < cards.length; i++) {
-    if (category === "all") {
-      cards[i].classList.remove("hidden");
-    } else {
-      if (cards[i].classList.contains("category-" + category)) {
-        cards[i].classList.remove("hidden");
-      } else {
-          cards[i].classList.add("hidden");
-      }
-    }
-  }
+    renderCards(category);
 }
+
+// Inicijalno učitavanje svih kartica
+document.addEventListener("DOMContentLoaded", () => {
+    renderCards("all");
+});
 
 // 1. Proveri odmah pri učitavanju da li je korisnik već ulogovan
 document.addEventListener("DOMContentLoaded", function() {

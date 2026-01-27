@@ -40,12 +40,10 @@
     <img src="images/Produkti/svetri.png" style="width: 330px; height: auto;">
   </a>
 
-  <a href="https://youtu.be/1e7GoMIVgEU" class="links special" target="_blank">
+  <a href="" id="latest-video-link" class="links special" target="_blank">
     <h3><b>NOVI VIDEO</b></h3>
     <div class="iframe-wrapper">
-      <iframe src="https://www.youtube.com/embed/1e7GoMIVgEU" title="YouTube video player" frameborder="0"
-        allowfullscreen>
-      </iframe>
+        <iframe id="latest-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     </div>
   </a>
 
@@ -116,7 +114,6 @@
   </footer>
 
 </body>
-
 </html>
 
 <script>
@@ -149,4 +146,27 @@
       alert("Email kopiran: " + email);
     });
   });
+</script>
+<script>
+const channelId = "UCxCyHscuN8yV-3CgT3D46yQ";
+const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'ok' && data.items.length > 0) {
+      const latestVideo = data.items[0];
+      const videoId = latestVideo.link.split('v=')[1];
+      
+      // Ažurira link ka videu
+      const videoLink = document.getElementById('latest-video-link');
+      videoLink.href = latestVideo.link;
+      
+      // Ažurira sam video u iframe-u
+      const iframe = document.getElementById('latest-video');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    }
+  })
+  .catch(err => console.error("Greška:", err));
 </script>

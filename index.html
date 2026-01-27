@@ -154,12 +154,9 @@
 
   <section id="live">
     <h2>Novi Video</h2>
-
     <div class="live-container">
       <div class="iframe-wrapper">
-        <iframe src="https://www.youtube.com/embed/1e7GoMIVgEU" title="YouTube video player" frameborder="0"
-          allowfullscreen>
-        </iframe>
+        <iframe id="latest-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -453,4 +450,27 @@
     <button type="button" id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
   </footer>
 
-  <script src="index.js"></script>
+<script src="index.js"></script>
+<script>
+const channelId = "UCxCyHscuN8yV-3CgT3D46yQ";
+const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'ok' && data.items.length > 0) {
+      const latestVideo = data.items[0];
+      // Izvlačimo ID videa iz linka
+      const videoId = latestVideo.link.split('v=')[1];
+      
+      // Pronalazimo tvoj iframe i menjamo mu src
+      const iframe = document.getElementById('latest-video');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      
+      // Opciono: Menja naslov u <h2> ako želiš da piše ime videa
+      // document.querySelector('#live h2').innerText = latestVideo.title;
+    }
+  })
+  .catch(err => console.error("Greška pri učitavanju YouTube feed-a:", err));
+</script>

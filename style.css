@@ -83,7 +83,7 @@ button.normal {
 	position: fixed;
 	inset: 0;
 	z-index: 9999;
-	background-color: #E3E6F3;
+	background-color: #cfcdf6;
 	display: grid;
 	place-items: center;
 	transition: opacity .25s, visibility 1s;
@@ -2129,7 +2129,7 @@ button.normal {
     width: 100%;
 }
 
-.hero-link {
+.hero-links-container .hero-link {
     width: 100%;
     border-radius: 15px;
     padding: 20px 30px;
@@ -2144,19 +2144,19 @@ button.normal {
     transition: transform 0.2s;
 }
 
-.hero-link:hover {
+.hero-links-container .hero-link:hover {
     transform: translateY(-2px);
 }
-.youtube-style {
+.hero-links-container .youtube-style {
     background: linear-gradient(135deg, #ff0000 0%, #c20000 100%);
     box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
 }
-.tiktok-style {
+.hero-links-container .tiktok-style {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
-.hero-link::before {
+.hero-links-container .hero-link::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2167,31 +2167,30 @@ button.normal {
     transform: skewX(-20deg) translateX(-150%);
     animation: shine 5s infinite;
 }
-.hero-content {
+.hero-links-container .hero-content {
     display: flex;
     align-items: center;
     gap: 20px;
     z-index: 2;
 }
-
-.hero-icon {
+.hero-links-container .hero-icon {
     font-size: 28px;
     background: rgba(255, 255, 255, 0.2);
     width: 55px;
     height: 55px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     backdrop-filter: blur(5px);
 }
-
 /* TikTok ikonica ima poseban efekat */
-.tiktok-style .hero-icon {
+.hero-links-container .tiktok-style .hero-icon {
     background: linear-gradient(45deg, rgba(0, 242, 234, 0.2), rgba(255, 0, 80, 0.2));
 }
 
-.hero-text h3 {
+.hero-links-container .hero-text h3 {
     margin: 0;
     font-size: 18px !important;
     font-weight: 800;
@@ -2200,14 +2199,14 @@ button.normal {
     letter-spacing: 1px;
 }
 
-.hero-text p {
+.hero-links-container .hero-text p {
     margin: 4px 0 0 0;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.9);
     user-select: all;
 }
 
-.hero-copy-btn {
+.hero-links-container .hero-copy-btn {
     background: white;
     color: #333;
     border: none;
@@ -2224,34 +2223,34 @@ button.normal {
     white-space: nowrap;
 }
 
-.hero-copy-btn:hover {
+.hero-links-container .hero-copy-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.youtube-style .hero-copy-btn { color: #cc0000; }
-.tiktok-style .hero-copy-btn { color: #000000; }
+.hero-links-container .youtube-style .hero-copy-btn { color: #cc0000; }
+.hero-links-container .tiktok-style .hero-copy-btn { color: #000000; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .hero-link {
+    .hero-links-container .hero-link {
         flex-direction: column;
         text-align: center;
         gap: 15px;
         padding: 20px;
     }
     
-    .hero-content {
+    .hero-links-container .hero-content {
         flex-direction: column;
         gap: 10px;
     }
 
-    .hero-copy-btn {
+    .hero-links-container .hero-copy-btn {
         width: 100%;
         justify-content: center;
     }
     
-    .hero-text p {
+    .hero-links-container .hero-text p {
         font-size: 10px;
         word-break: break-all;
     }
