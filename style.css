@@ -380,11 +380,11 @@ button.normal {
 }
 .kviz{
   background: #ffcf2b;
-  box-shadow: 0 0 20px rgba(76, 151, 76, 0.5);
+  box-shadow: 0 0 20px rgb(255, 207, 43, 0.7);
 }
 .kviz:hover{
   background: #ffcf2b;
-  box-shadow: 0 0 30px rgba(76, 151, 76, 0.7);
+  box-shadow: 0 0 30px rgb(255, 207, 43, 0.7);
 }
 .live-dot {
   width: 12px;
