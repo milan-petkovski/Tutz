@@ -696,7 +696,6 @@ button.normal {
 }
 @media (max-width: 1024px) {
   .live-container {
-    padding: 0 20px;
     max-width: none !important;
     margin: 0 !important;
     box-shadow: none !important;
