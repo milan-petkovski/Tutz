@@ -460,17 +460,18 @@ fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     if (data.status === 'ok' && data.items.length > 0) {
-      const latestVideo = data.items[0];
-      // Izvlačimo ID videa iz linka
-      const videoId = latestVideo.link.split('v=')[1];
-      
-      // Pronalazimo tvoj iframe i menjamo mu src
-      const iframe = document.getElementById('latest-video');
-      iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      
-      // Opciono: Menja naslov u <h2> ako želiš da piše ime videa
-      // document.querySelector('#live h2').innerText = latestVideo.title;
+      const longVideo = data.items.find(item => !item.link.includes('/shorts/'));
+
+      if (longVideo) {
+        const videoGuid = longVideo.guid;
+        const videoId = videoGuid.split(':')[2] || longVideo.link.split('v=')[1].split('&')[0];
+        
+        const iframe = document.getElementById('latest-video');
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      } else {
+        console.warn("Nema dugih videa u poslednjih 10 objava.");
+      }
     }
   })
-  .catch(err => console.error("Greška pri učitavanju YouTube feed-a:", err));
+  .catch(err => console.error("Greška:", err));
 </script>

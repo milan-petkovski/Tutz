@@ -156,16 +156,17 @@ fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     if (data.status === 'ok' && data.items.length > 0) {
-      const latestVideo = data.items[0];
-      const videoId = latestVideo.link.split('v=')[1];
-      
-      // Ažurira link ka videu
-      const videoLink = document.getElementById('latest-video-link');
-      videoLink.href = latestVideo.link;
-      
-      // Ažurira sam video u iframe-u
-      const iframe = document.getElementById('latest-video');
-      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      const longVideo = data.items.find(item => !item.link.includes('/shorts/'));
+
+      if (longVideo) {
+        const videoGuid = longVideo.guid;
+        const videoId = videoGuid.split(':')[2] || longVideo.link.split('v=')[1].split('&')[0];
+        
+        const iframe = document.getElementById('latest-video');
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      } else {
+        console.warn("Nema dugih videa u poslednjih 10 objava.");
+      }
     }
   })
   .catch(err => console.error("Greška:", err));
