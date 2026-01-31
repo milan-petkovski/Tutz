@@ -121,6 +121,37 @@
 </body>
 </html>
 <script>
+  const links = document.querySelectorAll('a.links');
+  const trackingUrl = "https://script.google.com/macros/s/AKfycbxx6kGz6TQJxtjWyE0_8tGcGnbn29CWyjvweW2xZcOsT4prn0Gs5W7BklQv6VwTdWRA/exec";
+
+  links.forEach(link => {
+    const sendClick = () => {
+      fetch(trackingUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({ link: link.href })
+      });
+    };
+
+    // tvoj originalni levi klik
+    link.addEventListener('click', sendClick);
+
+    // dodatak samo za srednji klik (scroll točkić)
+    link.addEventListener('mousedown', (e) => {
+      if (e.button === 1) {
+        sendClick();
+      }
+    });
+  });
+
+  document.getElementById("copy-email").addEventListener("click", function () {
+    const email = document.getElementById("email-link").textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      alert("Email kopiran: " + email);
+    });
+  });
+</script>
+<script>
   const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
   const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
