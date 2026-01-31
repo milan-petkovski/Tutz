@@ -115,7 +115,7 @@
                         <p id="ytLiveLink">youtube.com/@TutzOfficial/live</p>
                     </div>
                 </div>
-                <button class="hero-copy-btn" onclick="copyText('ytLiveLink', this)">
+                <button class="hero-copy-btn" onclick="copyText(this)">
                     <i class="fa-regular fa-copy"></i> KOPIRAJ
                 </button>
             </div>
@@ -132,7 +132,7 @@
                         <p id="ttLiveLink">tiktok.com/@not_tutz/live</p>
                     </div>
                 </div>
-                <button class="hero-copy-btn" onclick="copyText('ttLiveLink', this)">
+                <button class="hero-copy-btn" onclick="copyText(this)">
                     <i class="fa-regular fa-copy"></i> KOPIRAJ
                 </button>
             </div>
@@ -149,7 +149,7 @@
                         <p id="kkLiveLink">kick.com/tutz_live</p>
                     </div>
                 </div>
-                <button class="hero-copy-btn" onclick="copyText('kkLiveLink', this)">
+                <button class="hero-copy-btn" onclick="copyText(this)">
                     <i class="fa-regular fa-copy"></i> KOPIRAJ
                 </button>
             </div>
@@ -178,7 +178,6 @@
     </footer>
 
 </body>
-
 </html>
 
 <script>
@@ -260,12 +259,22 @@
         });
     }
 
-    // 3. Poboljšana funkcija za kopiranje (ne treba joj ID)
+    // 3. Poboljšana funkcija za kopiranje
     function copyText(btn) {
-        const textBox = btn.parentElement.querySelector(".text-box");
-        const text = textBox.innerText;
+    let textToCopy = "";
 
-        navigator.clipboard.writeText(text).then(() => {
+    const heroText = btn.parentElement.querySelector(".hero-text p");
+    const cardText = btn.parentElement.querySelector(".text-box");
+
+    if (heroText) {
+        let cleanLink = heroText.innerText.replace("https://", "");
+        textToCopy = "https://" + cleanLink;
+    } else if (cardText) {
+        textToCopy = cardText.innerText;
+    }
+
+    if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
             const originalContent = btn.innerHTML;
             btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
             btn.classList.add('copied');
@@ -274,7 +283,10 @@
                 btn.innerHTML = originalContent;
                 btn.classList.remove('copied');
             }, 1500);
+        }).catch(err => {
+            console.error('Greška pri kopiranju: ', err);
         });
+    }
     }
 
     // 4. Funkcija za filtriranje (poziva render)
