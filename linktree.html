@@ -43,12 +43,12 @@
   <a href="" id="latest-video-link" class="links special" target="_blank">
     <h3><b>NOVI VIDEO</b></h3>
     <div class="iframe-wrapper">
-        <iframe id="latest-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      <iframe id="latest-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     </div>
   </a>
 
-  <a href="https://kick.com/not_tutz" class="links" target="_blank">
-      <img src="images/Ikonice/kick.png"> <span>SVAKI DAN LAJV<p id="giveaway">🎁 Giveaway u toku 🎁</p></span>
+  <a href="https://kick.com/tutz_live" class="links" target="_blank">
+    <img src="images/Ikonice/kick.png"> <span>SVAKI DAN LAJV<p id="giveaway">🎁 Giveaway u toku 🎁</p></span>
   </a>
 
   <section1 id="partneri">
@@ -59,7 +59,8 @@
     </a>
     -->
     <a href="https://temu.to/k/eixmbah2y02" class="links" target="_blank">
-      <img src="images/Ikonice/temunew.png"> <span>Kuponi 10 000 RSD<p id="giveaway">30% popusta<br>Kod: alh281172</p></span>
+      <img src="images/Ikonice/temunew.png"> <span>Kuponi 10 000 RSD<p id="giveaway">30% popusta<br>Kod: alh281172</p>
+        </span>
     </a>
 
     <a href="https://temu.to/k/eixmbah2y02" class="links" target="_blank">
@@ -120,39 +121,39 @@
 </body>
 </html>
 <script>
-const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
-const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
-const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
+  const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
+  const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
+  const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
 
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    if (data.items && data.items.length > 0) {
-      
-      const longVideo = data.items.find(item => {
-        const title = item.snippet.title.toLowerCase();
-        const description = item.snippet.description.toLowerCase();
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.items && data.items.length > 0) {
 
-        const isShorts = title.includes('#shorts') || description.includes('#shorts') || title.includes('#99nights');
-        const isLive = title.includes('live') || title.includes('uživo') || title.includes('🔴');
+        const longVideo = data.items.find(item => {
+          const title = item.snippet.title.toLowerCase();
+          const description = item.snippet.description.toLowerCase();
 
-        return !isShorts && !isLive;
-      });
+          const isShorts = title.includes('#shorts') || description.includes('#shorts') || title.includes('#99nights');
+          const isLive = title.includes('live') || title.includes('uživo') || title.includes('🔴');
 
-      if (longVideo) {
-        const videoId = longVideo.id.videoId;
-        const videoTitle = longVideo.snippet.title;
-        const iframe = document.getElementById('latest-video');
-        const link = document.getElementById('latest-video-link');
-        
-        if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
-        if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
-        
-        console.log("Pronađen poslednji dugi video: " + videoTitle);
-      } else {
-        console.warn("Nije pronađen nijedan dugi video među poslednjih 50 objava.");
+          return !isShorts && !isLive;
+        });
+
+        if (longVideo) {
+          const videoId = longVideo.id.videoId;
+          const videoTitle = longVideo.snippet.title;
+          const iframe = document.getElementById('latest-video');
+          const link = document.getElementById('latest-video-link');
+
+          if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
+          if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+          console.log("Pronađen poslednji dugi video: " + videoTitle);
+        } else {
+          console.warn("Nije pronađen nijedan dugi video među poslednjih 50 objava.");
+        }
       }
-    }
-  })
-  .catch(err => console.error("Greška pri radu sa YouTube API-jem:", err));
+    })
+    .catch(err => console.error("Greška pri radu sa YouTube API-jem:", err));
 </script>

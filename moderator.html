@@ -1,293 +1,319 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutz | Moderator</title>
-  <meta name="theme-color" content="#d4d2f7">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutz | Moderator</title>
+    <meta name="theme-color" content="#d4d2f7">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 
-<header id="header">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo">
-      <img src="images/logo.png" alt="Tutz logo">
-    </a>
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Tutz logo">
+            </a>
 
-    <div class="nav-right">
-      <a href="linktree.html" class="linktree"><i class="fa-solid fa-tree"></i></a>
-    </div>
-  </div>
-</header>
-
-<div id="login-overlay">
-  <div class="login-box">
-    <h2>🔒<br>Moderator portal</h2>
-    <p>Unesite lozinku za pristup</p>
-    <input type="password" id="passwordInput" placeholder="Upiši šifru...">
-    <button onclick="checkPassword()">Otključaj</button>
-    <p id="error-msg" style="color: #ff004d; display: none; margin-top: 10px;">Pogrešna šifra!</p>
-  </div>
-</div>
-
-<div id="mod-container">
-    <details class="rules-accordion">
-    <summary>
-        <div class="summary-content">
-            <span><i class="fa-solid fa-shield-halved"></i> MODERATOR: KLJUČNA PRAVILA I OBAVEZE</span>
-            <i class="fa-solid fa-chevron-down arrow"></i>
-        </div>
-    </summary>
-
-    <div id="rules-audio-box">
-        <div class="rules-content">
-            <p class="rules-intro">
-                Moderatorska pozicija je čast i odgovornost. Održavajte kulturu, budite aktivni i pratite sledeće OBAVEZNE tačke:
-            </p>
-            
-            <ul class="mod-rules-list">
-                <li>
-                    <i class="fa-solid fa-star"></i>
-                    <span><strong>Glavni Moderator:</strong> <strong>INA</strong> vodi tim moderatora. Njena reč je glavna za organizaciju i njoj se obraćate za sve. <span class="badge-req" style="background: #8541b8;">VAŽNO</span></span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-gift"></i>
-                    <span><strong>Pozdravi Donacije:</strong> Kad neko pošalje gift ili donira, SVI moderatori ga taguju (@ime), pozdrave i zahvale mu se. <span class="badge-req">OBAVEZNO</span></span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-comments"></i>
-                    <span><strong>Pokreni Komunikaciju:</strong> Aktivno komunicirajte sa ljudima, podstičite ih da se međusobno upoznaju i dopisuju. Vi ste moja veza sa chatom jer ja ne mogu sve da postignem. <span class="badge-req">OBAVEZNO</span></span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-circle"></i>
-                    <span><strong>Korišćenje Tačke:</strong> Tačka se <b>ZASLUŽUJE</b>, ne dobijaju je svi modovi. Koristi se ISKLJUČIVO za saopštavanje bitnih stvari meni (streameru).
-                </li>
-                <li>
-                    <i class="fa-solid fa-circle-question"></i>
-                    <span><strong>STROGO ZABRANJENO</strong> traženje "tačke i ostalih gluposti". Kada budem smatrao da neko zaslužuje dodatno, dobiće.</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-thumbtack"></i>
-                    <span><strong>Mute/Pin:</strong> Mute i pinovanje poruka se radi <b>ISKLJUČIVO KADA JA KAŽEM</b>. Nikada ne mutirati ceo chat bez moje izričite dozvole.</span>
-                </li>
-            </ul>
-            
-            <p class="rules-footer">
-                <i class="fa-solid fa-star"></i> Kulturno ponašanje je uvek obavezno!
-            </p>
-        </div>
-        
-        <div class="audio-content">
-            <div class="audio-card">
-                <p><i class="fa-solid fa-volume-high"></i> <strong>Poslušaj poruku od Tutza</strong></p>
-                <audio controls>
-                    <source src="images/modinfo.mp3" type="audio/mpeg">
-                    Tvoj pretraživač ne podržava audio.
-                </audio>
+            <div class="nav-right">
+                <a href="linktree.html" class="linktree"><i class="fa-solid fa-tree"></i></a>
             </div>
         </div>
-    </div>
-    </details>
+    </header>
 
-    <div class="hero-links-container">
-      <div class="hero-link youtube-style">
-          <div class="hero-content">
-              <a href="https://youtube.com/@TutzOfficial/live"><div class="hero-icon">
-                  <i class="fa-brands fa-youtube"></i>
-              </div></a>
-              <div class="hero-text">
-                  <h3>YOUTUBE LIVE</h3>
-                  <p id="ytLiveLink">https://youtube.com/@TutzOfficial/live</p>
-              </div>
-          </div>
-          <button class="hero-copy-btn" onclick="copyText('ytLiveLink', this)">
-              <i class="fa-regular fa-copy"></i> KOPIRAJ
-          </button>
-      </div>
-
-      <div class="hero-link tiktok-style">
-          <div class="hero-content">
-              <a href="https://tiktok.com/@not_tutz/live"><div class="hero-icon">
-                  <i class="fa-brands fa-tiktok"></i>
-              </div></a>
-              <div class="hero-text">
-                  <h3>TIKTOK LIVE</h3>
-                  <p id="ttLiveLink">https://tiktok.com/@not_tutz/live</p>
-              </div>
-          </div>
-          <button class="hero-copy-btn" onclick="copyText('ttLiveLink', this)">
-              <i class="fa-regular fa-copy"></i> KOPIRAJ
-          </button>
-      </div>
-
-        <div class="hero-link kick-style">
-          <div class="hero-content">
-              <a href="https://kick.com/not_tutz"><div class="hero-icon">
-                  <i class="fa-brands fa-tiktok"></i>
-              </div></a>
-              <div class="hero-text">
-                  <h3>KICK LIVE</h3>
-                  <p id="kkLiveLink">https://kick.com/not_tutz</p>
-              </div>
-          </div>
-          <button class="hero-copy-btn" onclick="copyText('kkLiveLink', this)">
-              <i class="fa-regular fa-copy"></i> KOPIRAJ
-          </button>
-      </div>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>🔒<br>Moderator portal</h2>
+            <p>Unesite lozinku za pristup</p>
+            <input type="password" id="passwordInput" placeholder="Upiši šifru...">
+            <button onclick="checkPassword()">Otključaj</button>
+            <p id="error-msg" style="color: #ff004d; display: none; margin-top: 10px;">Pogrešna šifra!</p>
+        </div>
     </div>
 
-    <div class="filter-menu">
-    <button class="filter-btn active" onclick="filterSelection('all')">Sve</button>
-    <button class="filter-btn" onclick="filterSelection('lajv')">Lajv</button>
-    <button class="filter-btn" onclick="filterSelection('shop')">Shop</button>
-    <button class="filter-btn" onclick="filterSelection('viber')">Viber</button>
-    <button class="filter-btn" onclick="filterSelection('discord')">Discord</button>
+    <div id="mod-container">
+        <details class="rules-accordion">
+            <summary>
+                <div class="summary-content">
+                    <span><i class="fa-solid fa-shield-halved"></i> MODERATOR: KLJUČNA PRAVILA I OBAVEZE</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+
+            <div id="rules-audio-box">
+                <div class="rules-content">
+                    <p class="rules-intro">
+                        Moderatorska pozicija je čast i odgovornost. Održavajte kulturu, budite aktivni i pratite
+                        sledeće OBAVEZNE tačke:
+                    </p>
+
+                    <ul class="mod-rules-list">
+                        <li>
+                            <i class="fa-solid fa-star"></i>
+                            <span><strong>Glavni Moderator:</strong> <strong>INA</strong> vodi tim moderatora. Njena reč
+                                je glavna za organizaciju i njoj se obraćate za sve. <span class="badge-req"
+                                    style="background: #8541b8;">VAŽNO</span></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-gift"></i>
+                            <span><strong>Pozdravi Donacije:</strong> Kad neko pošalje gift ili donira, SVI moderatori
+                                ga taguju (@ime), pozdrave i zahvale mu se. <span
+                                    class="badge-req">OBAVEZNO</span></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-comments"></i>
+                            <span><strong>Pokreni Komunikaciju:</strong> Aktivno komunicirajte sa ljudima, podstičite ih
+                                da se međusobno upoznaju i dopisuju. Vi ste moja veza sa chatom jer ja ne mogu sve da
+                                postignem. <span class="badge-req">OBAVEZNO</span></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle"></i>
+                            <span><strong>Korišćenje Tačke:</strong> Tačka se <b>ZASLUŽUJE</b>, ne dobijaju je svi
+                                modovi. Koristi se ISKLJUČIVO za saopštavanje bitnih stvari meni (streameru).
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span><strong>STROGO ZABRANJENO</strong> traženje "tačke i ostalih gluposti". Kada budem
+                                smatrao da neko zaslužuje dodatno, dobiće.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-thumbtack"></i>
+                            <span><strong>Mute/Pin:</strong> Mute i pinovanje poruka se radi <b>ISKLJUČIVO KADA JA
+                                    KAŽEM</b>. Nikada ne mutirati ceo chat bez moje izričite dozvole.</span>
+                        </li>
+                    </ul>
+
+                    <p class="rules-footer">
+                        <i class="fa-solid fa-star"></i> Kulturno ponašanje je uvek obavezno!
+                    </p>
+                </div>
+
+                <div class="audio-content">
+                    <div class="audio-card">
+                        <p><i class="fa-solid fa-volume-high"></i> <strong>Poslušaj poruku od Tutza</strong></p>
+                        <audio controls>
+                            <source src="images/modinfo.mp3" type="audio/mpeg">
+                            Tvoj pretraživač ne podržava audio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <div class="hero-links-container">
+            <div class="hero-link youtube-style">
+                <div class="hero-content">
+                    <a href="https://youtube.com/@TutzOfficial/live" target="_blank">
+                        <div class="hero-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </a>
+                    <div class="hero-text">
+                        <h3>YOUTUBE LIVE</h3>
+                        <p id="ytLiveLink">https://youtube.com/@TutzOfficial/live</p>
+                    </div>
+                </div>
+                <button class="hero-copy-btn" onclick="copyText('ytLiveLink', this)">
+                    <i class="fa-regular fa-copy"></i> KOPIRAJ
+                </button>
+            </div>
+
+            <div class="hero-link tiktok-style">
+                <div class="hero-content">
+                    <a href="https://tiktok.com/@not_tutz/live" target="_blank">
+                        <div class="hero-icon">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                    </a>
+                    <div class="hero-text">
+                        <h3>TIKTOK LIVE</h3>
+                        <p id="ttLiveLink">https://tiktok.com/@not_tutz/live</p>
+                    </div>
+                </div>
+                <button class="hero-copy-btn" onclick="copyText('ttLiveLink', this)">
+                    <i class="fa-regular fa-copy"></i> KOPIRAJ
+                </button>
+            </div>
+
+            <div class="hero-link kick-style">
+                <div class="hero-content">
+                    <a href="https://kick.com/tutz_live" target="_blank">
+                        <div class="hero-icon">
+                            <i class="fa-brands fa-kickstarter-k"></i>
+                        </div>
+                    </a>
+                    <div class="hero-text">
+                        <h3>KICK LIVE</h3>
+                        <p id="kkLiveLink">https://kick.com/tutz_live</p>
+                    </div>
+                </div>
+                <button class="hero-copy-btn" onclick="copyText('kkLiveLink', this)">
+                    <i class="fa-regular fa-copy"></i> KOPIRAJ
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-menu">
+            <button class="filter-btn active" onclick="filterSelection('all')">Sve</button>
+            <button class="filter-btn" onclick="filterSelection('lajv')">Lajv</button>
+            <button class="filter-btn" onclick="filterSelection('kick')">Kick</button>
+            <button class="filter-btn" onclick="filterSelection('shop')">Shop</button>
+            <button class="filter-btn" onclick="filterSelection('viber')">Viber</button>
+            <button class="filter-btn" onclick="filterSelection('discord')">Discord</button>
+        </div>
+
+        <div class="cards-grid" id="cards-container">
+        </div>
     </div>
 
-    <div class="cards-grid" id="cards-container">
-    </div>
-</div>
-
-<footer id="footer">
-  <div class="bottom">
-    <p><a href="https://milanwebportal.com">Website <i class="fa-solid fa-bolt" style="color: orange"></i> by Milan Web Portal</a></p>
-    <p><i class="fa-solid fa-copyright"></i> 2022-2026 Tutz. Sva prava zadrzana</p>
-  </div>
-  <button type="button" id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
-</footer>
+    <footer id="footer">
+        <div class="bottom">
+            <p><a href="https://milanwebportal.com">Website <i class="fa-solid fa-bolt" style="color: orange"></i> by
+                    Milan Web Portal</a></p>
+            <p><i class="fa-solid fa-copyright"></i> 2022-2026 Tutz. Sva prava zadrzana</p>
+        </div>
+        <button type="button" id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+    </footer>
 
 </body>
+
 </html>
 
 <script>
-const modMessages = [
+    const modMessages = [
+        // --- KATEGORIJA: KICK ---
+        { title: "🟢 Kick Live", category: "kick", text: "🟢 Prebacili smo se na KICK! Najjači kvalitet i giveaway: kick.com/tutz_live 🚀" },
+        { title: "✅ Kick Follow ", category: "kick", text: "Baci follow na KICK-u! Tamo smo lajv svakog dana! 🟢 kick.com/tutz_live ✅" },
+        { title: "🎁 Giveaway Svaki Dan ", category: "kick", text: "Na KICKU delimo robuxe i nagrade SVAKI DAN! 🎁 kick.com/tutz_live 💸" },
+        { title: "Delimo nagrade", category: "kick", text: "Na Kicku delimo najviše nagrada! Budi deo Tutz Ganga i tamo! 💪 kick.com/tutz_live" },
+        { title: "Sub na Kicku 💎", category: "kick", text: "Postani sub na Kicku i otključaj brutalne emotikone i prednost u giveaway-u! 💎" },
+        { title: "Kick Obaveštenja 🔔", category: "kick", text: "Upali zvonce na KICK profilu da ti stigne notifikacija čim krene lajv! 🔔" },
+        { title: "IDEMO NA KICK 🚀", category: "kick", text: "Svi na kick.com/tutz_live! Tamo pravimo najveći haos na Balkanu! 🚀" },
+        { title: "🟢 Ide lajv KICK", category: "kick", text: "🟢 Ulazite na  KICK! Svaki dan GIVEAWAY: kick.com/tutz_live 🎁" },
 
+        { title: "Dobrodošlica 💜", category: "lajv", text: "Dobro došli!💜 Lupite taj follow, uživajte u lajvu i budite fini u chatu!" },
+        { title: "Pravila 🚫", category: "lajv", text: "Bez psovki, spama i reklama. Poštujte modove da ne bi radio BAN! 🚫" },
+        { title: "1000 Robux Giveaway! 💸", category: "lajv", text: "Izašao je novi YT video, u toku je giveaway za 1000 ROBUXA! 😱 Link u BIO!🚀" },
+        { title: "Robux GW (500+ ljudi)", category: "lajv", text: "Ako pređemo 500 ljudi na lajvu ide giveaway 500 robuxa!!! Šaljite lajv svima!🚀" },
+        { title: "Novi klip najava", category: "lajv", text: "Sutra izlazi novi video na youtube 'TUTZ'. U njemu je veliki giveaway! 🎬" },
+        { title: "Novi klip 🎬", category: "lajv", text: "Svi na YouTube! Izašao je brutalan video, link je u BIO! 🎬" },
+        { title: "YouTube 🔴", category: "lajv", text: "Baci sub na YouTube \"TUTZ\", tamo su najjači klipovi! 🔥" },
+        { title: "Zaradi klipovanjem 🤑", category: "lajv", text: "Zaradi klipovanjem lajva. Piši na mail tutzmanager@gmail.com 🤑" },
+        { title: "Tap-Tap (Lajkovi) 🔥", category: "lajv", text: "Izlomite taj ekran! Tap-tap na max da poguramo lajv na foryou! 🔥" },
+        { title: "Tutz Gang (Ime) 💪", category: "lajv", text: "Postani deo najjače ekipe! Promeni ime u: (Ime) | Tutz Gang i pokaži ko je najjači! 💪" },
+        { title: "TikTok Profil ✅", category: "lajv", text: "Lupite taj follow i upalite obaveštenja za svaki lajv! ✅" },
+        { title: "Viber Grupa 📱", category: "lajv", text: "Uđi u Viber grupu za druženje i najave lajva! Link u BIO 📱" },
+        { title: "Viber obavestenja 🔔", category: "lajv", text: "Upali zvonce u Viber grupi da ti ne promakne kad ide lajv! 🔔" },
+        { title: "Discord Server 👾", category: "lajv", text: "Najjače druženje je na Discordu! Link u BIO profila 👾" },
 
-    { title: "Dobrodošlica 💜", category: "lajv", text: "Dobro došli!💜 Lupite taj follow, uživajte u lajvu i budite fini u chatu!" },
-    { title: "Pravila 🚫", category: "lajv", text: "Bez psovki, spama i reklama. Poštujte modove da ne bi radio BAN! 🚫" },
-    { title: "1000 Robux Giveaway! 💸", category: "lajv", text: "Izašao je novi YT video, u toku je giveaway za 1000 ROBUXA! 😱 Link u BIO!🚀" },
-    { title: "Robux GW (500+ ljudi)", category: "lajv", text: "Ako pređemo 500 ljudi na lajvu ide giveaway 500 robuxa!!! Šaljite lajv svima!🚀" },
-    { title: "Novi klip najava", category: "lajv", text: "Sutra izlazi novi video na youtube 'TUTZ'. U njemu je veliki giveaway! 🎬" },
-    { title: "Novi klip 🎬", category: "lajv", text: "Svi na YouTube! Izašao je brutalan video, link je u BIO! 🎬" },
-    { title: "YouTube 🔴", category: "lajv", text: "Baci sub na YouTube \"TUTZ\", tamo su najjači klipovi! 🔥" },
-    { title: "Zaradi klipovanjem 🤑", category: "lajv", text: "Zaradi klipovanjem lajva. Piši na mail tutzmanager@gmail.com 🤑" },
-    { title: "Tap-Tap (Lajkovi) 🔥", category: "lajv", text: "Izlomite taj ekran! Tap-tap na max da poguramo lajv na foryou! 🔥" },
-    { title: "Tutz Gang (Ime) 💪", category: "lajv", text: "Postani deo najjače ekipe! Promeni ime u: (Ime) | Tutz Gang i pokaži ko je najjači! 💪" },
-    { title: "TikTok Profil ✅", category: "lajv", text: "Lupite taj follow i upalite obaveštenja za svaki lajv! ✅" },
-    { title: "Viber Grupa 📱", category: "lajv", text: "Uđi u Viber grupu za druženje i najave lajva! Link u BIO 📱" },    
-    { title: "Viber obavestenja 🔔", category: "lajv", text: "Upali zvonce u Viber grupi da ti ne promakne kad ide lajv! 🔔" },
-    { title: "Discord Server 👾", category: "lajv", text: "Najjače druženje je na Discordu! Link u BIO profila 👾" },
+        { title: "Instagram 📸", category: "lajv", text: "Zapratite @tutzgaming na ig 📸" },
+        { title: "Tražim tim 🎧", category: "lajv", text: "Treba ti tim? Uđi na naš Discord! Link u BIO 🎧" },
+        { title: "Trenutna Igra 🎮", category: "lajv", text: "Danas igramo roblox! Uđi i ti, link u BIO! 🎮" },
+        { title: "Roblox Username 🎮", category: "lajv", text: "Username u robloxu yt_tutz 🎮!" },
+        { title: "Paypal / Podrška 💜", category: "lajv", text: "Podrži stream preko Paypala Link u BIO! Svaka čast svima! 💜" },
+        { title: "Temu Popust 🎁", category: "lajv", text: "Uzmi temu 10.000 RSD paket kupona! Kod: alh281172 (Link u BIO) 🎁" },
 
-    { title: "Instagram 📸", category: "lajv", text: "Zapratite @tutzgaming na ig 📸" },
-    { title: "Tražim tim 🎧", category: "lajv", text: "Treba ti tim? Uđi na naš Discord! Link u BIO 🎧" },
-    { title: "Trenutna Igra 🎮", category: "lajv", text: "Danas igramo roblox! Uđi i ti, link u BIO! 🎮" },
-    { title: "Roblox Username 🎮", category: "lajv", text: "Username u robloxu yt_tutz 🎮!" },
-    { title: "Paypal / Podrška 💜", category: "lajv", text: "Podrži stream preko Paypala Link u BIO! Svaka čast svima! 💜" },
-    { title: "Temu Popust 🎁", category: "lajv", text: "Uzmi temu 10.000 RSD paket kupona! Kod: alh281172 (Link u BIO) 🎁" },
+        // --- KATEGORIJA: SHOP ---
+        { title: "Tutz Shop 👕", category: "shop", text: "Budi najjači na BLKN! 💪 Majice te čekaju na linku u BIO! 👕" },
+        { title: "Najbolji merch 🧢", category: "shop", text: "Hoćeš najbolji merch na Balkanu? 🌍 Link u BIO i naruči svoj primerak Tutz mercha! 🔥" },
+        { title: "👕 Roblox Majice", category: "shop", text: "Podrži Tutz-a i u Robloxu! 🎮 Majice možeš uzeti u communitiju, link u BIO! 👕" },
 
-    // --- KATEGORIJA: SHOP ---
-    { title: "Tutz Shop 👕", category: "shop", text: "Budi najjači na BLKN! 💪 Majice te čekaju na linku u BIO! 👕" },
-    { title: "Najbolji merch 🧢", category: "shop", text: "Hoćeš najbolji merch na Balkanu? 🌍 Link u BIO i naruči svoj primerak Tutz mercha! 🔥" },
-    { title: "👕 Roblox Majice", category: "shop", text: "Podrži Tutz-a i u Robloxu! 🎮 Majice možeš uzeti u communitiju, link u BIO! 👕" },
+        // --- KATEGORIJA: VIBER ---
 
-    // --- KATEGORIJA: VIBER ---
+        { title: "🔴 Ide lajv ROBLOX", category: "viber", text: "🔴 Ide lajv ROBLOX ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
+        { title: "🍿 Filmsko Veče Viber", category: "viber", text: "Upadajte na Discord, počinje FILMSKO VEČE! 🍿🎬" },
 
-    { title: "🔴 Ide lajv ROBLOX", category: "viber", text: "🔴 Ide lajv ROBLOX ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
-    { title: "🍿 Filmsko Veče Viber", category: "viber", text: "Upadajte na Discord, počinje FILMSKO VEČE! 🍿🎬" },
+        // --- KATEGORIJA: DISCORD ---
+        { title: "🍿 Filmsko Veče Discord", category: "discord", text: "Svi upadajte ovde na filmsko veče: <#1457873237777322106> 🍿🎬" },
 
-    // --- KATEGORIJA: DISCORD ---
-    { title: "🍿 Filmsko Veče Discord", category: "discord", text: "Svi upadajte ovde na filmsko veče: <#1457873237777322106> 🍿🎬" },
+        /* --- KATEGORIJA: BMRP  ---    
+        { title: "🔴 Ide lajv BMRP", category: "viber", text: "🔴 Ide lajv GTA V RP ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
+        { title: "Trenutna Igra BMRP", category: "bmrp", text: "Danas igramo BMRP! Uđi i ti, link u BIO i kod TUTZ! 🎮" },
+        { title: "Kako igrati BMRP?", category: "bmrp", text: "Instaliraj RageMP -> nađi server BMRP -> ukucaj kod TUTZ! Vidimo se na serveru! 💎🎮" },
+        { title: "BMRP Bonus", category: "bmrp", text: "Skini RageMP, uđi na BMRP i obavezno kod TUTZ za bonus! 💰" },
+        { title: "BMRP 💎", category: "bmrp", text: "Igraj na BMRP uz kod TUTZ i uzmi 60k RSD i 2 kutije! 💎 Link u BIO." }
+         */
+    ];
 
-    /* --- KATEGORIJA: BMRP  ---    
-    { title: "🔴 Ide lajv BMRP", category: "viber", text: "🔴 Ide lajv GTA V RP ko je najjaci na balkanu uci ce u live: https://tiktok.com/@not_tutz/live" },
-    { title: "Trenutna Igra BMRP", category: "bmrp", text: "Danas igramo BMRP! Uđi i ti, link u BIO i kod TUTZ! 🎮" },
-    { title: "Kako igrati BMRP?", category: "bmrp", text: "Instaliraj RageMP -> nađi server BMRP -> ukucaj kod TUTZ! Vidimo se na serveru! 💎🎮" },
-    { title: "BMRP Bonus", category: "bmrp", text: "Skini RageMP, uđi na BMRP i obavezno kod TUTZ za bonus! 💰" },
-    { title: "BMRP 💎", category: "bmrp", text: "Igraj na BMRP uz kod TUTZ i uzmi 60k RSD i 2 kutije! 💎 Link u BIO." }
-     */
-];
+    // 2. Funkcija koja crta kartice na ekranu
+    function renderCards(filter = "all") {
+        const container = document.getElementById("cards-container");
+        container.innerHTML = ""; // Isprazni sve trenutno
 
-// 2. Funkcija koja crta kartice na ekranu
-function renderCards(filter = "all") {
-    const container = document.getElementById("cards-container");
-    container.innerHTML = ""; // Isprazni sve trenutno
+        modMessages.forEach((item) => {
+            // Filtriranje
+            if (filter !== "all" && item.category !== filter) return;
 
-    modMessages.forEach((item) => {
-        // Filtriranje
-        if (filter !== "all" && item.category !== filter) return;
-
-        // Pravljenje HTML-a za jednu karticu
-        const card = document.createElement("div");
-        card.className = `mod-card category-${item.category}`;
-        card.innerHTML = `
+            // Pravljenje HTML-a za jednu karticu
+            const card = document.createElement("div");
+            card.className = `mod-card category-${item.category}`;
+            card.innerHTML = `
             <h3>${item.title}</h3>
             <div class="text-box">${item.text}</div>
             <button class="copy-btn" onclick="copyText(this)">
                 <i class="fa-regular fa-copy"></i> Kopiraj
             </button>
         `;
-        container.appendChild(card);
-    });
-}
-
-// 3. Poboljšana funkcija za kopiranje (ne treba joj ID)
-function copyText(btn) {
-    const textBox = btn.parentElement.querySelector(".text-box");
-    const text = textBox.innerText;
-
-    navigator.clipboard.writeText(text).then(() => {
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
-        btn.classList.add('copied');
-
-        setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.classList.remove('copied');
-        }, 1500);
-    });
-}
-
-// 4. Funkcija za filtriranje (poziva render)
-function filterSelection(category) {
-    // Sredi aktivne dugmiće
-    const buttons = document.getElementsByClassName("filter-btn");
-    for (let btn of buttons) btn.classList.remove("active");
-    event.target.classList.add("active");
-
-    renderCards(category);
-}
-
-// Inicijalno učitavanje svih kartica
-document.addEventListener("DOMContentLoaded", () => {
-    renderCards("all");
-});
-
-// 1. Proveri odmah pri učitavanju da li je korisnik već ulogovan
-document.addEventListener("DOMContentLoaded", function() {
-    if(localStorage.getItem("mod_access") === "true") {
-        document.getElementById("login-overlay").style.display = "none";
+            container.appendChild(card);
+        });
     }
-});
-// 2. Funkcija za proveru šifre
-function checkPassword() {
-    var input = document.getElementById("passwordInput").value;
-    var correctPass = "TutzModTeam";
 
-    if(input === correctPass) {
-        localStorage.setItem("mod_access", "true");
-        document.getElementById("login-overlay").style.display = "none";
-    } else {
-        document.getElementById("error-msg").style.display = "block";
+    // 3. Poboljšana funkcija za kopiranje (ne treba joj ID)
+    function copyText(btn) {
+        const textBox = btn.parentElement.querySelector(".text-box");
+        const text = textBox.innerText;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Kopirano';
+            btn.classList.add('copied');
+
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.remove('copied');
+            }, 1500);
+        });
     }
-}
-// Opciono: Omogući pritisak na ENTER
-document.getElementById("passwordInput").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    checkPassword();
-  }
-});
+
+    // 4. Funkcija za filtriranje (poziva render)
+    function filterSelection(category) {
+        // Sredi aktivne dugmiće
+        const buttons = document.getElementsByClassName("filter-btn");
+        for (let btn of buttons) btn.classList.remove("active");
+        event.target.classList.add("active");
+
+        renderCards(category);
+    }
+
+    // Inicijalno učitavanje svih kartica
+    document.addEventListener("DOMContentLoaded", () => {
+        renderCards("all");
+    });
+
+    // 1. Proveri odmah pri učitavanju da li je korisnik već ulogovan
+    document.addEventListener("DOMContentLoaded", function () {
+        if (localStorage.getItem("mod_access") === "true") {
+            document.getElementById("login-overlay").style.display = "none";
+        }
+    });
+    // 2. Funkcija za proveru šifre
+    function checkPassword() {
+        var input = document.getElementById("passwordInput").value;
+        var correctPass = "TutzModTeam";
+
+        if (input === correctPass) {
+            localStorage.setItem("mod_access", "true");
+            document.getElementById("login-overlay").style.display = "none";
+        } else {
+            document.getElementById("error-msg").style.display = "block";
+        }
+    }
+    // Opciono: Omogući pritisak na ENTER
+    document.getElementById("passwordInput").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            checkPassword();
+        }
+    });
 </script>
-
