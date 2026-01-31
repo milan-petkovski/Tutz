@@ -71,8 +71,8 @@
         <h4>Streamer • Content Creator</h4>
         <h2>Dobro došli na</h2>
         <h1><span class="typing">Tutz Website</span></h1>
-        <p>Prati Tutz-a uživo na TikTok-u i ne propusti nijedan stream!</p>
-        <a href="https://www.tiktok.com/@not_tutz/live" target="_blank" class="live-btn"><span class="live-dot"></span>
+        <p>Prati Tutz-a uživo na Kick-u i ne propusti nijedan stream!</p>
+        <a href="https://kick.com/@not_tutz" target="_blank" class="live-btn"><span class="live-dot"></span>
           Gledaj LIVE</a>
         <a href="https://tutzshop.com" target="_blank" class="live-btn kviz"><i
             class="fa-solid fa-shirt fa-beat-fade"></i></span> Kupi majicu</a>
@@ -115,10 +115,10 @@
           </div>
 
           <div class="fe-box">
-            <a href="https://instagram.com/lukaxcvetkovic/" target="_blank">
-              <div class="fe-icon instagram"><img src="images/Ikonice/instagram.png" alt="Instagram"></div>
-              <h6>Instagram</h6>
-              <span class="subs-count" id="ig-followers">8k + <br><b>followera</b></span>
+            <a href="https://kick.com/not_tutz" target="_blank">
+              <div class="fe-icon youtube"><img src="images/Ikonice/kick.png" alt="Kick"></div>
+              <h6>Kick</h6>
+              <span class="subs-count" id="kk-subs">1<br><b>follower</b></span>
             </a>
           </div>
 
@@ -266,10 +266,10 @@
           <span>1. Gde strimujes trenutno?</span>
           <i class="fas fa-chevron-down d-arrow"></i>
         </button>
-        <p>Trenutno aktivno strimujem na
-          <a href="https://tiktok.com/@not_tutz" target="_blank">Tiktoku</a> i ponekad na
+        <p>Trenutno aktivno strimujem na <a href="https://tiktok.com/@not_tutz" target="_blank">Kick-u</a>, 
+          <a href="https://tiktok.com/@not_tutz" target="_blank">Tiktoku</a> i
           <a href="https://youtube.com/@TutzOfficial?sub_confirmation=1" target="_blank">Youtube-u</a>. a Videe
-          izbacujem isto na <a href="https://tiktok.com/@not_tutz" target="_blank">Tiktoku</a> i
+          izbacujem isto na <a href="https://tiktok.com/@not_tutz" target="_blank">Tiktok-u</a> i
           <a href="https://youtube.com/@TutzOfficial?sub_confirmation=1" target="_blank">Youtube-u</a>.
       </div>
 
@@ -347,7 +347,7 @@
         <a href="https://brixcomputers.rs"><img src="images/Slike/brix.jpg" alt="Brix"></a>
       </div>
       <div class="partner-item">
-        <a href="https://bmrp.rs"><img src="images/Slike/bmrp.jpg" alt="bmrp"></a>
+        <a href="https://bmrp.rs"><img src="images/Slike/kick.jpg" alt="Kick"></a>
       </div>
       <div class="partner-item">
         <a href="https://tutzshop.com"><img src="images/Slike/shop.jpg" alt="Tutz shop"></a>
@@ -452,26 +452,39 @@
 
 <script src="index.js"></script>
 <script>
-const channelId = "UCxCyHscuN8yV-3CgT3D46yQ";
-const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
+const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
+const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
 
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
-    if (data.status === 'ok' && data.items.length > 0) {
-      const longVideo = data.items.find(item => !item.link.includes('/shorts/'));
+    if (data.items && data.items.length > 0) {
+      
+      const longVideo = data.items.find(item => {
+        const title = item.snippet.title.toLowerCase();
+        const description = item.snippet.description.toLowerCase();
+
+        const isShorts = title.includes('#shorts') || description.includes('#shorts') || title.includes('#99nights');
+        const isLive = title.includes('live') || title.includes('uživo') || title.includes('🔴');
+
+        return !isShorts && !isLive;
+      });
 
       if (longVideo) {
-        const videoGuid = longVideo.guid;
-        const videoId = videoGuid.split(':')[2] || longVideo.link.split('v=')[1].split('&')[0];
-        
+        const videoId = longVideo.id.videoId;
+        const videoTitle = longVideo.snippet.title;
         const iframe = document.getElementById('latest-video');
-        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        const link = document.getElementById('latest-video-link');
+        
+        if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
+        
+        console.log("Pronađen poslednji dugi video: " + videoTitle);
       } else {
-        console.warn("Nema dugih videa u poslednjih 10 objava.");
+        console.warn("Nije pronađen nijedan dugi video među poslednjih 50 objava.");
       }
     }
   })
-  .catch(err => console.error("Greška:", err));
+  .catch(err => console.error("Greška pri radu sa YouTube API-jem:", err));
 </script>

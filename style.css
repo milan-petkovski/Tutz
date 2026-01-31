@@ -362,7 +362,7 @@ button.normal {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #ff004d;
+  background: #3ccf06;
   color: #fff;
   font-weight: 600;
   font-size: 16px;
@@ -371,11 +371,11 @@ button.normal {
   text-decoration: none;
   position: relative;
   transition: 0.3s;
-  box-shadow: 0 0 20px rgba(255, 0, 77, 0.5);
+  box-shadow: 0 0 20px rgb(60, 207, 6, 0.7);
 }
 .live-btn:hover {
-  background: #ff3366;
-  box-shadow: 0 0 30px rgba(255, 0, 77, 0.7);
+  background: #36c403;
+  box-shadow: 0 0 30px rgb(54, 196, 3, 0.7);
   transform: translateY(-2px);
 }
 .kviz{
@@ -2121,7 +2121,7 @@ button.normal {
 /* --- DUAL HERO LINKS --- */
 .hero-links-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     margin: 15px 0 15px 0;
     width: 100%;
@@ -2151,6 +2151,11 @@ button.normal {
 }
 .hero-links-container .tiktok-style {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.hero-links-container .kick-style {
+    background: linear-gradient(135deg, #3ccf06 0%, #36c403 100%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }

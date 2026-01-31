@@ -47,6 +47,10 @@
     </div>
   </a>
 
+  <a href="https://kick.com/not_tutz" class="links" target="_blank">
+      <img src="images/Ikonice/kick.png"> <span>SVAKI DAN LAJV<p id="giveaway">🎁 Giveaway u toku 🎁</p></span>
+  </a>
+
   <section1 id="partneri">
     <a href="#partneri" class="sekcija">Sponzori <i class="fa-solid fa-angles-down fa-bounce"></i></a>
     <!--
@@ -115,59 +119,40 @@
 
 </body>
 </html>
-
 <script>
-  const links = document.querySelectorAll('a.links');
-  const trackingUrl = "https://script.google.com/macros/s/AKfycbxx6kGz6TQJxtjWyE0_8tGcGnbn29CWyjvweW2xZcOsT4prn0Gs5W7BklQv6VwTdWRA/exec";
-
-  links.forEach(link => {
-    const sendClick = () => {
-      fetch(trackingUrl, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({ link: link.href })
-      });
-    };
-
-    // tvoj originalni levi klik
-    link.addEventListener('click', sendClick);
-
-    // dodatak samo za srednji klik (scroll točkić)
-    link.addEventListener('mousedown', (e) => {
-      if (e.button === 1) {
-        sendClick();
-      }
-    });
-  });
-
-  document.getElementById("copy-email").addEventListener("click", function () {
-    const email = document.getElementById("email-link").textContent;
-    navigator.clipboard.writeText(email).then(() => {
-      alert("Email kopiran: " + email);
-    });
-  });
-</script>
-<script>
-const channelId = "UCxCyHscuN8yV-3CgT3D46yQ";
-const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
+const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
+const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
 
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
-    if (data.status === 'ok' && data.items.length > 0) {
-      const longVideo = data.items.find(item => !item.link.includes('/shorts/'));
+    if (data.items && data.items.length > 0) {
+      
+      const longVideo = data.items.find(item => {
+        const title = item.snippet.title.toLowerCase();
+        const description = item.snippet.description.toLowerCase();
+
+        const isShorts = title.includes('#shorts') || description.includes('#shorts') || title.includes('#99nights');
+        const isLive = title.includes('live') || title.includes('uživo') || title.includes('🔴');
+
+        return !isShorts && !isLive;
+      });
 
       if (longVideo) {
-        const videoGuid = longVideo.guid;
-        const videoId = videoGuid.split(':')[2] || longVideo.link.split('v=')[1].split('&')[0];
-        
+        const videoId = longVideo.id.videoId;
+        const videoTitle = longVideo.snippet.title;
         const iframe = document.getElementById('latest-video');
-        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        const link = document.getElementById('latest-video-link');
+        
+        if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
+        
+        console.log("Pronađen poslednji dugi video: " + videoTitle);
       } else {
-        console.warn("Nema dugih videa u poslednjih 10 objava.");
+        console.warn("Nije pronađen nijedan dugi video među poslednjih 50 objava.");
       }
     }
   })
-  .catch(err => console.error("Greška:", err));
+  .catch(err => console.error("Greška pri radu sa YouTube API-jem:", err));
 </script>
