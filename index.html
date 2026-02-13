@@ -457,39 +457,84 @@
 
   <script src="index.js"></script>
   <script>
-    const API_KEY = 'AIzaSyAdrvZB_UoZ9AtfighYjrZXgJSBkSJGq04';
-    const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`;
+  const API_KEY = 'AIzaSyBw_Mil4hIU-Si7wUnRyjrnlZtpD017Xz0';
+  const CHANNEL_ID = 'UCxCyHscuN8yV-3CgT3D46yQ';
+  const CACHE_TIME = 86400000; // 24 sata u milisekundama
 
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (data.items && data.items.length > 0) {
+  // Helper funkcija za vreme
+  const parseDuration = (duration) => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    const hours = (parseInt(match[1]) || 0);
+    const minutes = (parseInt(match[2]) || 0);
+    const seconds = (parseInt(match[3]) || 0);
+    return (hours * 3600) + (minutes * 60) + seconds;
+  };
 
-          const longVideo = data.items.find(item => {
-            const title = item.snippet.title.toLowerCase();
-            const description = item.snippet.description.toLowerCase();
+  // Funkcija koja menja HTML elemente
+  const updateUI = (videoId) => {
+    const iframe = document.getElementById('latest-video');
+    const link = document.getElementById('latest-video-link');
 
-            const isShorts = title.includes('#shorts') || description.includes('#shorts') || title.includes('#99nights');
-            const isLive = title.includes('live') || title.includes('uživo') || title.includes('🔴');
+    // Menjamo src direktno kao u tvom prvom primeru
+    if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
+  };
 
-            return !isShorts && !isLive;
-          });
+  // Glavna funkcija
+  const fetchLatestVideo = async () => {
+    const now = Date.now();
+    const cachedId = localStorage.getItem('yt_video_id');
+    const cacheTime = localStorage.getItem('yt_cache_time');
 
-          if (longVideo) {
-            const videoId = longVideo.id.videoId;
-            const videoTitle = longVideo.snippet.title;
-            const iframe = document.getElementById('latest-video');
-            const link = document.getElementById('latest-video-link');
+    // 1. PROVERA KEŠA (Štedi kvotu)
+    if (cachedId && cacheTime && (now - cacheTime < CACHE_TIME)) {
+      console.log("Učitavam video iz keša...");
+      updateUI(cachedId);
+      return;
+    }
 
-            if (iframe) iframe.src = `https://www.youtube.com/embed/${videoId}`;
-            if (link) link.href = `https://www.youtube.com/watch?v=${videoId}`;
+    try {
+      console.log("Kontaktiram YouTube API...");
+      
+      // 2. PRVI POZIV: Lista videa (smanjio sam maxResults na 10 da bude brže)
+      const listRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`);
+      const listData = await listRes.json();
 
-            console.log("Pronađen poslednji dugi video: " + videoTitle);
-          } else {
-            console.warn("Nije pronađen nijedan dugi video među poslednjih 50 objava.");
-          }
-        }
-      })
-      .catch(err => console.error("Greška pri radu sa YouTube API-jem:", err));
+      if (!listData.items || listData.items.length === 0) return;
+
+      const videoIds = listData.items.map(item => item.id.videoId).join(',');
+
+      // 3. DRUGI POZIV: Detalji o trajanju
+      const detailsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=snippet,contentDetails`);
+      const detailsData = await detailsRes.json();
+
+      // 4. FILTRIRANJE (Duže od 3 min, bez #shorts)
+      const longVideo = detailsData.items.find(item => {
+        const durationSec = parseDuration(item.contentDetails.duration);
+        const title = item.snippet.title.toLowerCase();
+        return durationSec > 180 && !title.includes('#shorts');
+      });
+
+      if (longVideo) {
+        console.log("Pronađen video:", longVideo.snippet.title);
+        
+        // Sačuvaj u keš
+        localStorage.setItem('yt_video_id', longVideo.id);
+        localStorage.setItem('yt_cache_time', now);
+        
+        // Ažuriraj sajt
+        updateUI(longVideo.id);
+      } else {
+        console.warn("Nema dugih videa u poslednjih 10.");
+      }
+
+    } catch (err) {
+      console.error("YouTube Greška:", err);
+      // Ako pukne API, učitaj stari video iz keša da ne bude prazno
+      if (cachedId) updateUI(cachedId);
+    }
+  };
+
+  // Pokreni skriptu
+  fetchLatestVideo();
   </script>
