@@ -1712,7 +1712,7 @@ button.normal {
   font-size: 13px;
   font-weight: 600;
   transition: 0.3s;
-  cursor: default;
+  cursor: pointer;
 }
 
 .stat-item:hover {
