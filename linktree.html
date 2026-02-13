@@ -187,38 +187,40 @@
 </body>
 </html>
 <style>
-    body {
-      background: radial-gradient(circle at top left, #2b1045, #000000);
-      background-attachment: fixed;
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow-x: hidden;
-    }
-
-    /* Pozadinski sjaj (ukras) */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: #8541b8;
-      filter: blur(150px);
-      opacity: 0.2;
-      z-index: -1;
-      border-radius: 50%;
-      animation: pulsate 8s infinite alternate;
-    }
-
-    @keyframes pulsate {
-      0% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.8); }
-      100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.1); }
-    }
+html {
+    background-color: #2b1045;
+}
+body {
+    background: radial-gradient(circle at top left, #2b1045, #000000);
+    background-attachment: fixed;
+    color: white;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    margin: 0;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: #8541b8;
+    filter: blur(150px);
+    opacity: 0.2;
+    z-index: -1;
+    border-radius: 50%;
+    animation: pulsate 8s infinite alternate;
+    pointer-events: none;
+}
+@keyframes pulsate {
+    0% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.1); }
+}
 </style>
 <script>
   // --- KONFIGURACIJA ---
