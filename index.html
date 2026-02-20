@@ -497,7 +497,7 @@
       console.log("Kontaktiram YouTube API...");
       
       // 2. PRVI POZIV: Lista videa (smanjio sam maxResults na 10 da bude brže)
-      const listRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`);
+      const listRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=50&type=video`);
       const listData = await listRes.json();
 
       if (!listData.items || listData.items.length === 0) return;
